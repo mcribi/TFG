@@ -1,0 +1,156 @@
+% !TEX program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+% Plantilla, basada en la clase `scrbook` del paquete KOMA-script,  para la elaboración de un TFG siguiendo las directrices del la comisión del Grado en Matemáticas de la Universidad de Granada.
+
+
+\documentclass[print, color]{ugrTFG}
+\usepackage{float}
+%lo he cambiado a apa
+\usepackage[style=apa, backend=biber]{biblatex}
+\addbibresource{library.bib}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{pgfplots}
+\usepackage{multirow}
+
+
+% \RedeclareSectionCommand[
+%   beforeskip=0pt,
+%   afterskip=20pt,
+%   font=\Huge\bfseries
+% ]{chapter}
+
+
+\KOMAoptions{chapterprefix=true}
+
+\renewcommand*{\chapterlinesformat}[3]{%
+  \@hangfrom{#2#1}{#3}%
+  \par\vspace{1ex}\noindent\rule{\linewidth}{0.5pt}\vspace{2ex}%
+}
+
+\RedeclareSectionCommand[
+  beforeskip=0pt,
+  afterskip=20pt,
+  font=\Huge\bfseries
+]{chapter}
+
+
+
+
+% VERSIÓN ELECTRÓNICA PARA TABLETA
+% Cambiando la opción "print" por "tablet" generaremos un pdf adaptado para leerlo en tabletas de 9 pulgadas.
+
+% -------------------------------------------------------------------
+% INFORMACIÓN DEL TFG Y EL AUTOR
+% -------------------------------------------------------------------
+
+\newcommand{\miTitulo}{Predicción de complicaciones en biopsias pulmonares con IA\xspace}
+\newcommand{\miNombre}{María Cribillés Pérez\xspace}
+\newcommand{\miGrado}{Doble grado en Ingeniería Informática y Matemáticas}
+\newcommand{\miFacultad}{Facultad de Ciencias y Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación}
+\newcommand{\miUniversidad}{Universidad de Granada}
+
+% Añadir tantos tutores como sea necesario separando cada uno de ellos mediante el comando `\medskip` y una línea en blanco
+\newcommand{\miTutor}{
+  Francisco Herrera Triguero \\ \emph{Ciencias de la Computación e Inteligencia Artificial} 
+
+  % Añadir tantos tutores como sea necesario. 
+
+  \medskip
+  
+}
+\newcommand{\miCurso}{2024-2025\xspace}
+
+\hypersetup{
+	pdftitle={\miTitulo},
+	pdfauthor={\textcopyright\ \miNombre, \miFacultad, \miUniversidad}
+}
+
+\begin{document}
+
+\maketitle
+
+% -------------------------------------------------------------------
+% FRONTMATTER
+% -------------------------------------------------------------------
+\frontmatter % Desactiva la numeración de capítulos y usa numeración romana para las páginas
+
+\input{preliminares/declaracion-originalidad}   
+\input{preliminares/dedicatoria}                % Opcional
+\input{preliminares/agradecimientos}            % Opcional
+\input{preliminares/resumen}            % Opcional
+
+\input{preliminares/summary}                    
+
+\input{preliminares/tablacontenidos} 
+% \listoffigures
+% \listoftables
+
+\input{preliminares/introduccion} 
+
+
+
+% -------------------------------------------------------------------
+% MAINMATTER
+% -------------------------------------------------------------------
+\mainmatter % activa la numeración de capítulos, resetea la numeración de las páginas y usa números arábigos
+
+\part{Primera parte: Matemáticas} % Dividir un TFG en partes OPCIONAL
+
+% Información relevante para la elaboración del trabajo.
+% \input{capitulos/documentacion}
+% \input{capitulos/recomendaciones}
+
+\input{capitulos/procesamiento_señales}
+\input{capitulos/optimizacion_mates.tex}
+\input{capitulos/aa_mates.tex}
+\input{capitulos/dl_mates.tex}
+\input{capitulos/metric_learning_mates.tex}
+
+
+% Añadir tantos capítulos como sea necesario
+
+\cleardoublepage\part{Segunda parte: Informática}
+% \input{capitulos/introduccion_info}
+\input{capitulos/planteamiento_del_problema}
+\input{capitulos/analisisdatos_preprocesamiento}
+\input{capitulos/deep_learning}
+\input{capitulos/aa_clasico}
+\input{capitulos/analisis_experimental}
+\input{capitulos/explicabilidad}
+
+\cleardoublepage\part{Conclusiones}
+\input{capitulos/conclusiones}
+
+% -------------------------------------------------------------------
+% APPENDIX: Opcional
+% -------------------------------------------------------------------
+
+% \appendix % Reinicia la numeración de los capítulos y usa letras para numerarlos
+% \pdfbookmark[-1]{Apéndices}{appendix} % Alternativamente podemos agrupar los apéndices con un nuevo \part{Apéndices}
+
+% \input{apendices/apendice-ejemplo}
+% Añadir tantos apéndices como sea necesario 
+
+% -------------------------------------------------------------------
+% GLOSARIO: Opcional
+% -------------------------------------------------------------------
+
+\input{glosario} 
+
+% -------------------------------------------------------------------
+% BACKMATTER
+% -------------------------------------------------------------------
+
+\backmatter % Desactiva la numeración de los capítulos
+\pdfbookmark[-1]{Referencias}{BM-Referencias}
+
+% BIBLIOGRAFÍA
+%-------------------------------------------------------------------
+\printbibliography
+
+\end{document}

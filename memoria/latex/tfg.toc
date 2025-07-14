@@ -1,0 +1,160 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\nonumberline Agradecimientos}{\es@scroman {v}}{chapter*.3}%
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\nonumberline Resumen}{\es@scroman {vii}}{chapter*.4}%
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\nonumberline Summary}{\es@scroman {ix}}{chapter*.5}%
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\nonumberline \'{I}ndice de figuras}{\es@scroman {xvii}}{chapter*.12}%
+\contentsline {chapter}{\nonumberline \'{I}ndice de tablas}{\es@scroman {xxi}}{chapter*.14}%
+\contentsline {chapter}{\nonumberline Introducción}{\es@scroman {xxiii}}{chapter*.15}%
+\contentsline {section}{\numberline {1}Contexto}{\es@scroman {xxiii}}{section.0.1}%
+\contentsline {section}{\numberline {2}Motivación}{\es@scroman {xxiii}}{section.0.2}%
+\contentsline {section}{\numberline {3}Propuesta}{\es@scroman {xxiv}}{section.0.3}%
+\contentsline {section}{\numberline {4}Estructura del trabajo}{\es@scroman {xxvi}}{section.0.4}%
+\contentsline {section}{\numberline {5}Objetivos}{\es@scroman {xxvi}}{section.0.5}%
+\contentsline {section}{\numberline {6}Bibliografía fundamental}{\es@scroman {xxvii}}{section.0.6}%
+\contentsline {part}{\numberline {I}Primera parte: Matemáticas}{1}{part.1}%
+\contentsline {chapter}{\numberline {1}Teoría de procesamiento de señales}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Definición de señal}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Operadores fundamentales}{4}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Transformada de Fourier}{4}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}La operación de convolución}{5}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Teorema fundamental de la convolución}{7}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Definición formal del producto de convolución}{7}{subsection.1.2.4}%
+\contentsline {section}{\numberline {1.3}Interpretación de la teoría de Fourier y convolución en imágenes}{10}{section.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.0.1}Filtro de Fourier}{12}{subsubsection.1.3.0.1}%
+\contentsline {section}{\numberline {1.4}Radiómica}{15}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Biomarcadores de imagen}{17}{subsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.1.1}ROI y VOI}{17}{subsubsection.1.4.1.1}%
+\contentsline {subsubsection}{\numberline {1.4.1.2}Características de forma}{17}{subsubsection.1.4.1.2}%
+\contentsline {paragraph}{\nonumberline Volumen}{17}{paragraph*.34}%
+\contentsline {paragraph}{\nonumberline Esfericidad de la lesión}{17}{paragraph*.36}%
+\contentsline {subsubsection}{\numberline {1.4.1.3}Características de primer orden}{17}{subsubsection.1.4.1.3}%
+\contentsline {subsubsection}{\numberline {1.4.1.4}Características de orden superior}{18}{subsubsection.1.4.1.4}%
+\contentsline {section}{\numberline {1.5}La transformada de Radón: fundamento matemático de la reconstrucción tomográfica}{20}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Reconstrucción a partir de la transformada de Radón}{26}{subsection.1.5.1}%
+\contentsline {chapter}{\numberline {2}Optimización y convexidad}{27}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Preliminares}{27}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Algoritmos de optimización basados en gradientes}{28}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Descenso de gradiente}{28}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Jacobiano y Hessiano}{30}{subsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.2.1}Número de condición del Hessiano}{30}{subsubsection.2.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.3}Optimización Convexa}{32}{subsection.2.2.3}%
+\contentsline {chapter}{\numberline {3}Fundamentos matemáticos del aprendizaje automático}{33}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Concepto de Aprendizaje Automático}{33}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Tipos de aprendizaje automático}{34}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Aprendizaje supervisado}{34}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Aprendizaje no supervisado}{35}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Problema de clasificación}{35}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Fundamentos matemáticos del aprendizaje profundo}{37}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Aprendizaje de las redes neuronales}{39}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Procesos de propagación}{40}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Propagación hacia Adelante}{40}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Algoritmo de Back-Propagation}{40}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Función de coste}{42}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Unidades de salida}{42}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Unidades lineales}{42}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Unidades sigmoidales}{43}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Unidades softmax}{44}{subsection.4.4.3}%
+\contentsline {section}{\numberline {4.5}Unidades ocultas}{45}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}ReLU y generalizaciones}{45}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Sigmoide Logística y Tangente Hiperbólica}{46}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Transfer Learning}{46}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Redes Neuronales Convolucionales}{46}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Motivación}{47}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Pooling}{48}{subsection.4.7.2}%
+\contentsline {chapter}{\numberline {5}Fundamentos métricos para el procesamiento avanzado de datos.}{49}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Fundamentos matemáticos del aprendizaje de métricas de distancia}{50}{section.5.1}%
+\contentsline {section}{\numberline {5.2}El aprendizaje de métricas de distancia clásico.}{52}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Algoritmos relevantes de aprendizaje de métricas de distancia}{54}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Análisis de componentes principales (PCA)}{54}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Neigborhood Components Analysis (NCA)}{56}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Large Margin Nearest Neighbors (LMNN)}{57}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.4}Aprendizaje de distancias no lineal y deep metric learning}{58}{section.5.4}%
+\contentsline {part}{\numberline {II}Segunda parte: Informática}{61}{part.2}%
+\contentsline {chapter}{\numberline {6}Planteamiento del problema}{63}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Fundamentos de la tomografía computarizada}{63}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Descripción general del problema}{65}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Interés del problema: aplicaciones en medicina}{65}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Descripción de los datos}{66}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Formato de los datos}{68}{subsection.6.4.1}%
+\contentsline {paragraph}{\nonumberline DICOM}{68}{paragraph*.51}%
+\contentsline {paragraph}{\nonumberline NIfTI}{69}{paragraph*.53}%
+\contentsline {paragraph}{\nonumberline npy}{69}{paragraph*.55}%
+\contentsline {subsection}{\numberline {6.4.2}Legalidad de los datos}{69}{subsection.6.4.2}%
+\contentsline {section}{\numberline {6.5}Dificultades del problema}{70}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Metodología}{71}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Software}{71}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Hardware}{72}{subsection.6.6.2}%
+\contentsline {section}{\numberline {6.7}Técnicas para abordar el problema}{73}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Presupuesto}{74}{section.6.8}%
+\contentsline {subsection}{\numberline {6.8.1}Recursos Humanos}{74}{subsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.8.2}Capacidad de Cómputo}{75}{subsection.6.8.2}%
+\contentsline {subsection}{\numberline {6.8.3}Materiales y Otros Gastos}{75}{subsection.6.8.3}%
+\contentsline {subsection}{\numberline {6.8.4}Presupuesto Total Estimado}{75}{subsection.6.8.4}%
+\contentsline {section}{\numberline {6.9}Diario de trabajo}{75}{section.6.9}%
+\contentsline {chapter}{\numberline {7}Análisis de datos y preprocesamiento}{79}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Análisis de datos}{79}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Análisis de datos de volúmenes DICOM}{79}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Análisis exploratorio de datos clínicos}{80}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}Preprocesamiento de los datos}{82}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Preprocesamiento de datos de volúmenes DICOM}{84}{subsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.1.1}Introducción a MONAI para el modelado de imágenes médicas}{84}{subsubsection.7.2.1.1}%
+\contentsline {subsubsection}{\numberline {7.2.1.2}Igualación de tamaños de imágenes}{84}{subsubsection.7.2.1.2}%
+\contentsline {subsubsection}{\numberline {7.2.1.3}Data augmentation}{85}{subsubsection.7.2.1.3}%
+\contentsline {subsubsection}{\numberline {7.2.1.4}Ventanas de Hounsfield}{85}{subsubsection.7.2.1.4}%
+\contentsline {subsubsection}{\numberline {7.2.1.5}Segmentación}{87}{subsubsection.7.2.1.5}%
+\contentsline {subsection}{\numberline {7.2.2}Preprocesamiento de datos clínicos tabulares}{87}{subsection.7.2.2}%
+\contentsline {chapter}{\numberline {8}Técnicas de Deep Learning}{91}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Enfoque basado en cortes 2D}{91}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}Descripción de las arquitecturas empleadas 2D}{91}{subsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.1.1}EfficientNetV2}{91}{subsubsection.8.1.1.1}%
+\contentsline {section}{\numberline {8.2}Enfoque basado en volúmenes 3D}{92}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}Procedimiento general de entrenamiento}{93}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Descripción de las arquitecturas empleadas 3D}{93}{subsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.2.1}Resnet}{93}{subsubsection.8.2.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2.2}Arquitectura DenseNet-121}{94}{subsubsection.8.2.2.2}%
+\contentsline {section}{\numberline {8.3}Técnicas avanzadas}{96}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Pre-entrenamiento en otras tareas similares y fine-tuning}{96}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}Pre-entrenamiento contrastivo y Deep Metric Learning}{97}{subsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.3.3}Integración de imágenes médicas y datos clínicos}{97}{subsection.8.3.3}%
+\contentsline {chapter}{\numberline {9}Extracción de datos radiómicos y machine learning clásico}{99}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Extracción de características radiómicas}{99}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Análisis y preprocesamiento de características}{101}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Entrenamiento de modelos de aprendizaje automático}{105}{section.9.3}%
+\contentsline {section}{\numberline {9.4}Aprendizaje de métricas de distancia}{107}{section.9.4}%
+\contentsline {chapter}{\numberline {10}Análisis experimental}{109}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Métricas y métodos de validación usados}{109}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Métricas}{109}{subsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.1.2}Métodos de validación}{111}{subsection.10.1.2}%
+\contentsline {section}{\numberline {10.2}Descripción de los experimentos}{112}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Experimentos preliminares}{112}{subsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.1.1}Modelos basados en imágenes 2D.}{113}{subsubsection.10.2.1.1}%
+\contentsline {subsubsection}{\numberline {10.2.1.2}Experimentos con datos 3D}{113}{subsubsection.10.2.1.2}%
+\contentsline {subsection}{\numberline {10.2.2}Experimentos finales}{115}{subsection.10.2.2}%
+\contentsline {section}{\numberline {10.3}Resultados y análisis}{126}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}Modelo base 3D}{126}{subsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.3.2}Modelo 3D con datos clínicos}{127}{subsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.3.3}Modelos preentrenados y con fine-tune}{128}{subsection.10.3.3}%
+\contentsline {subsection}{\numberline {10.3.4}Aprendizaje automático clásico solo con datos clínicos tabulares}{128}{subsection.10.3.4}%
+\contentsline {subsection}{\numberline {10.3.5}Radiómica}{129}{subsection.10.3.5}%
+\contentsline {subsubsection}{\numberline {10.3.5.1}Sin datos clínicos ni DML}{129}{subsubsection.10.3.5.1}%
+\contentsline {subsubsection}{\numberline {10.3.5.2}Con datos clínicos y sin DML}{129}{subsubsection.10.3.5.2}%
+\contentsline {subsubsection}{\numberline {10.3.5.3}Sin datos clínicos y con DML}{129}{subsubsection.10.3.5.3}%
+\contentsline {subsubsection}{\numberline {10.3.5.4}Con datos clínicos y con DML}{129}{subsubsection.10.3.5.4}%
+\contentsline {subsection}{\numberline {10.3.6}Comparación final}{130}{subsection.10.3.6}%
+\contentsline {chapter}{\numberline {11}Post-análisis de resultados con técnicas de explicabilidad}{131}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Análisis explicativo de los modelos 3D}{132}{section.11.1}%
+\contentsline {subsection}{\numberline {11.1.1}Grad-Cam}{132}{subsection.11.1.1}%
+\contentsline {subsection}{\numberline {11.1.2}Shap}{134}{subsection.11.1.2}%
+\contentsline {section}{\numberline {11.2}Análisis explicativo de los modelos radiómicos}{138}{section.11.2}%
+\contentsline {subsection}{\numberline {11.2.1}Análisis post-hoc con SHAP}{138}{subsection.11.2.1}%
+\contentsline {subsection}{\numberline {11.2.2}Discusión de aproximaciones alternativas}{144}{subsection.11.2.2}%
+\contentsline {part}{\numberline {III}Conclusiones}{147}{part.3}%
+\contentsline {chapter}{\numberline {12}Conclusiones}{149}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Líneas de trabajo futuro}{150}{section.12.1}%
+\contentsline {chapter}{Glosario}{153}{chapter*.101}%
+\contentsline {chapter}{\nonumberline Bibliograf\'{\i }a}{155}{chapter*.102}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

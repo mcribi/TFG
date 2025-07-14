@@ -1,0 +1,301 @@
+% !TeX root = ../tfg.tex
+% !TeX encoding = utf8
+
+\chapter{Fundamentos métricos para el procesamiento avanzado de datos.} \label{chap:metric-learning-mates}
+
+En este capítulo se presenta la disciplina del \emph{aprendizaje de métricas de distancia}. Es un paradigma del aprendizaje automático en el que se aborda el problema de aprender distancias a partir de los datos, con el objetivo de que en el nuevo espacio métrico los datos presenten unas características más apropiadas para facilitar el aprendizaje por parte de algoritmos basados en distancias o semejanza.
+
+El estudio del aprendizaje de métricas de distancia en este trabajo viene motivado por diversos factores. Por un lado, en la experimentación que se realizará con características radiómicas en el Capítulo \ref{chap:aa-radiomica}, se observaron muy buenos resultados en el algoritmo de los $k$ vecinos más cercanos, ($k$-nearest neighbors, $k$-NN)~\parencite{cover1967nearest}. Este algoritmo almacena el conjunto de entrenamiento como base de datos, y a la hora de realizar inferencia, dado un nuevo dato a clasificar, le asigna la clase mayoritaria entre sus $k$ vecinos más cercanos en el conjunto de entrenamiento. Para determinar estos vecinos más cercanos, es necesario establecer una métrica de similitud o de distancia. Habitualmente, se utilizan distancias comunes como la distancia euclídea, pero aprender una distancia a partir de los propios datos puede mejorar considerablemente el rendimiento de este clasificador.
+
+Por otro lado, a pesar del auge de los algoritmos de aprendizaje profundo en los últimos años, una de sus limitaciones sigue siendo la elevada cantidad de datos necesarios para conseguir un aprendizaje efectivo. Generalmente, los modelos de clasificación con aprendizaje profundo se entrenan con funciones de pérdida como la entropía cruzada, orientadas únicamente a reconocer clases, tratando de aproximar las probabilidades de pertenencia a cada clase a partir del conjunto de entrenamiento. Recientemente, algunos estudios proponen, adicionalmente, usar funciones de pérdida discriminativas, que modifiquen las distancias en el espacio de llegada, con el objetivo no solo de reconocer clases, sino de alejar clases diferentes en el espacio de llegada y acercar ejemplos de las mismas clases. Estos enfoques han demostrado empíricamente ser más efectivos para aprender con menor cantidad de datos, y también el pre-entrenamiento con funciones de pérdida discriminativas ha demostrado ser efectivo en tareas posteriores con poca cantidad de datos.
+
+El capítulo se estructura como sigue. En primer lugar, se presentará el aprendizaje de métricas de distancia y sus fundamentos matemáticos. Posteriormente, se describirán algunos algoritmos relevantes en la experimentación realizada en este trabajo, y por último se discutirán las aproximaciones no lineales al aprendizaje de métricas de distancia, incluyendo el aprendizaje de métricas profundo.
+
+\section{Fundamentos matemáticos del aprendizaje de métricas de distancia} \label{sec:dist}
+
+En esta sección presentamos el aprendizaje de métricas de distancia y sus fundamentos matemáticos. Para comenzar, es fundamental recordar el concepto de distancia.
+
+\begin{definicion}
+    Sea $X$ un conjunto no vacío. Una \emph{distancia} en $X$ es una aplicación $d\colon X\times X \to \mathbb{R}$ verificando:
+    \begin{enumerate}
+        \item $d(x,y) = 0 \iff x = y$, para cualesquiera $x, y \in X$ (propiedad de coincidencia).
+        \item $d(x,y) = d(y,x)$, para cualesquiera $x,y \in X$ (propiedad de simetría).
+        \item $d(x,z) \le d(x,y) + d(y,z)$ (desigualdad triangular).
+    \end{enumerate}
+    Al par $(X, d)$ se le llama espacio métrico.
+\end{definicion}
+
+De la definición de distancia se pueden deducir propiedades adicionales relevantes:
+
+\begin{enumerate}
+    \item[4.] $d(x, y) \ge 0$ para cualesquiera $x, y \in X$, es decir, es no negativa.
+    \item[5.] Desigualdad triangular por defecto: $|d(x,y) - d(y,z)| \le d(x,z)$, para todos $x,y,z \in X$.
+    \item[6.] Desigualdad triangular generalizada: $d(x_1, x_n) \le \sum_{i=1}^n d(x_i, x_{i+1})$, para todos $x_1, \dots, x_n \in X$.
+\end{enumerate}
+
+\begin{proof}
+    \begin{enumerate}
+        \item[4.] Aplicando primero la propiedad de coincidencia, después la desigualdad triangular y por último la propiedad se simetría, se tiene:
+        \[0 = \frac{1}{2}d(x,x) \le \frac{1}{2}[d(x,y)+d(y,x)] = d(x,y),\ \forall x,y \in X. \]
+        \item[5.] Usando de nuevo la desigualdad triangular y la propiedad de simetría, se tiene:
+        \[d(x,y) \le d(x,z) + d(z,y) = d(x,z) + d(y,z) \implies d(x,y) - d(y,z) \le d(x,z).\]
+        \[d(y,z) \le d(y,x) + d(x,z) = d(x,y) + d(x,z) \implies d(y,z) - d(x,y) \le d(x,z).\]
+        Luego si tomamos valores absolutos se preserva la desigualdad.
+    \end{enumerate}
+\end{proof}
+
+Un ejemplo relevante de distancias lo podemos localizar en los espacios normados. Si $(X, \|\cdot\|)$ es un espacio normado real, podemos definir la distancia asociada a la norma como $d(x,y) = \|x-y\|$, para cualesquiera $x, y \in X$. Una distancia asociada a una norma verifica nuevas propiedades adicionales relevantes:
+
+\begin{enumerate}
+    \item[6.] Homogeneidad: $d(ax,ay) = |a|d(x,y)\ \forall x,y \in X$.
+    \item[7.] Invariancia por traslaciones: $d(x,y) = d(x+z,y+z) \ \forall x,y,z \in X$.
+\end{enumerate}
+
+La propiedad de coincidencia de las distancias se puede relajar en el contexto en el que vamos a trabajar, dando lugar al concepto de lo que se conoce formalmente como \emph{pseudodistancia}, aunque a lo largo de este trabajo cuando hablemos de distancias nos referiremos indistintamente a distancias o pseudodistancias.
+
+\begin{definicion}
+    Una \emph{pseudodistancia} en un conjunto no vacío $X$ es una aplicación $d\colon X\times X \to \mathbb{R}$ verificando las propiedades de simetría, desigualdad triangular, y que $d(x,x) = 0$, para todo $x \in X$.
+\end{definicion}
+
+Como vemos, la única diferencia con las distancias es que las pseudodistancias pueden admitir puntos diferentes que estén a distancia cero. Esto no afecta al resto de propiedades comentadas, que siguen siendo válidas. En espacios normados, las seminormas (verifican las propiedades de las normas salvo $\|x\| = 0 \implies x = 0$) definen pseudodistancias. Además de las relaciones que ya hemos comentado entre distancias y pseudodistancias, podemos destacar una conexión fundamental entre ambos conceptos, ya que, dado un espacio $X$ con pseudodistancia $d$, la relación en $X$ dada por $x \sim y \iff d(x,y) = 0$ es una relación de equivalencia, y define un espacio métrico en el conjunto cociente, $(X/\sim, \tilde{d})$, cuya distancia viene dada por $\tilde{d}([x],[y]) = d(x,y)$, para todos $x,y \in X$.
+
+Si ahora nos centramos en espacios euclídeos reales, $\mathbb{R}^d$, podemos considerar una amplia gama de distancias relevantes. Para definirlas, recordamos algunos conceptos:
+
+\begin{definicion}
+    Recordamos los siguientes conceptos sobre formas bilineales y métricas:
+
+    \begin{itemize}
+        \item Una forma bilineal en $\mathbb{R}^d$ es una aplicación $f\colon \mathbb{R}^d \times \mathbb{R}^d \to \mathbb{R}$ verificando:
+        \begin{itemize}
+            \item $f(x+y,x') = f(x,x') + f(y,x')$.
+            \item $f(x,x'+y') = f(x,x') + f(x,y')$.
+            \item $f(ax,y) = af(x,y).$
+            \item $f(x,ay) = af(x,y).$
+        \end{itemize}
+        Para todos $x,x',y,y' \in \mathbb{R}^d$ y $a \in \mathbb{R}$.
+
+        \item Toda forma bilineal en $\mathbb{R}^d$ se puede representar como $f(x,y) = x^TMy$, con $M$ una matriz cuadrada real de orden $d$.
+
+        \item Una forma bilineal es simétrica si $f(x,y) = f(y,x)$ o, equivalentemente, si la matriz asociada es simétrica.
+
+        \item Una forma bilineal $f \colon \mathbb{R}^d \times \mathbb{R}^d$ es definida positiva si $f(x,x) > 0$ para cualquier $x \in \mathbb{R}^d$ no nulo.
+
+        \item Equivalentemente, una forma bilineal es definida positiva si su matriz asociada $M$ es definida positiva, esto es, todos sus valores propios son estrictamente positivos.
+
+        \item Una forma bilineal $f \colon \mathbb{R}^d \times \mathbb{R}^d$ es semidefinida positiva si $f(x,x) >= 0$ para cualquier $x \in \mathbb{R}^d$ (puede anularse en puntos distintos del cero).
+
+        \item Equivalentemente, una forma bilineal es semidefinida positiva si su matriz asociada $M$ es semidefinida positiva, esto es, todos sus valores propios son no negativos. 
+
+        \item Toda forma bilineal o matriz definida positiva es semidefinida positiva, pero no recíprocamente.
+
+        \item Toda forma bilineal definida positiva parametrizada por una matriz $M$ define un producto escalar en $\mathbb{R}^d$, dado por $\langle x, y \rangle_M = x^TMy$, para todos $x, y \in X$. En consecuencia, la aplicación $\|\cdot\|_M$ en $\mathbb{R}^d$ dada por $\|x\|_M = x^TMx$ define una norma. Podemos razonar análogamente cuando consideramos una forma bilineal semidefinida positiva, conluyendo que en este caso $\|\cdot\|_M$ es una seminorma.
+        
+    \end{itemize}
+\end{definicion}
+
+Con estos conceptos definidos, ya podemos introducir el concepto de distancias de Mahalanobis.
+
+\begin{definicion}
+    Sea $M$ una matriz semidefinida positiva en $\mathbb{R}^d$. La \emph{distancia de Mahalanobis} asociada a $M$ es la aplicación $d_M\colon \mathbb{R}^d \times \mathbb{R}^d \to \mathbb{R}$, definida como
+    \[d_M(x,y) = \sqrt{(x-y)^TM(x-y)}.\]
+\end{definicion}
+
+Se tiene que $d_M$ es una pseudodistancia, al proceder de la seminorma explicada anteriormente, definida por una aplicación semidefinida positiva. Además, cuando $M$ es definida positiva, $d_M$ es una distancia. De hecho, el espacio resultante tiene estructura de espacio de Hilbert, al obtenerse la distancia de un producto escalar. Por último, cuando $M$ es la matriz identidad, $d_M$ es la distancia euclídea y el espacio resultante es el espacio métrico euclídeo usual.
+
+Cuando $M$ no es estrictamente definida positiva, su rango es menor estricto que $d$. Esto se traduce en que hay ciertas dimensiones en el espacio original $R^d$ que no se tienen en cuenta en el cálculo de la distancia, y por tanto es posible proyectar el espacio a un espacio de dimensión menor (concretamente, el rango de $M$), donde hay una distancia que funciona exactamente igual que $d_M$. Esto muestra una aplicación interesante de las pseudodistancias, y es que realmente inducen una reducción de dimensionalidad, que puede ser de gran utilidad al trabajar con ciertos datos.
+
+\section{El aprendizaje de métricas de distancia clásico.}
+
+El \emph{aprendizaje de métricas de distancia} o \emph{distance metric learning} (DML) es una disciplina del aprendizaje automático cuya finalidad es aprender métricas de distancia (incluyendo pseudodistancias) a partir de los datos. El objetivo principal de esta disciplina es diseñar algoritmos que resuelvan un problema de optimización, donde la variable a optimizar es una distancia, y se asume que hay un conjunto de datos de entrenamiento del que se conocen determinadas restricciones de similitud. Por ejemplo, parejas de datos que deberían ser similares entre sí (conjunto de restricciones $S$), parejas de datos que claramente deberían ser diferentes (conjunto de restricciones $D$), o tripletas de ejemplos $(x_i, x_j,x_k)$ en las que se conoce que $x_i$ y $x_j$ deberían ser más similares que $x_i$ y $x_k$ (conjunto de restricciones $R$). Se busca entonces definir funciones de pérdida parametrizadas por una métrica de distancia que busquen minimizar las distancias entre datos que deberían ser similares y maximizarlas entre los que deberían ser diferentes. El problema de optimización general a partir de las restricciones anteriores, dado un espacio de búsqueda de distancias $\mathcal{D}$, puede definirse como
+
+\[\min_{d\in\mathcal{D}} \ell(d,S,D,R).\]
+
+En el contexto supervisado y con datos numéricos podemos concretar una definición del problema mucho más manejable computacionalmente. Por un lado, los conjuntos de restricciones, podemos definirlos a partir de las propias etiquetas: los datos de la misma clase deberían ser similares, mientras que los de distintas clases deberían estar alejados. Esto es,
+\[ S = \{(x_i, x_j) \in X \times X \colon y_i = y_j\},\]
+\[ D = \{(x_i, x_j) \in X \times X \colon y_i \ne y_j\}.\]
+
+Por otro lado, al trabajar en un espacio euclídeo $\mathbb{R}^d$, podemos hacer uso de las distancias de Mahalanobis, que son fácilmente parametrizables a través de matrices. En este contexto, cabe plantearse la pregunta de cómo aprender una distancia. Por lo que acabamos de comentar, el problema puede reducirse a aprender una matriz semidefinida positiva $M$, lo que daría lugar a un problema de optimización real con restricciones, ya que hay que garantizar que $M$ se mantenga semidefinida positiva durante la optimización. La optimización en sí no supone un problema, ya que se podemos ver la matriz como un vector de pesos de tamaño $d\times d$, y optimizar dichos pesos aplicando técnicas como las ya discutidas en el Capítulo \ref{chap:optimizacion}. Para garantizar la restricción, tras la aplicación del gradiente se puede proyectar la matriz resultante sobre el conjunto (convexo) de matrices semidefinidas positivas. Para ello, basta con simetrizarla, extraer sus valores propios, convertir a 0 los valores propios negativos y volver a recomponer la matriz~\parencite{higham1988computing}.
+
+Pero esta no es la única alternativa para parametrizar el problema. Con los siguientes resultados, vamos a demostrar que, además de por matrices semidefinidas positivas, podemos parametrizar el problema por aplicaciones lineales (o matrices cualesquiera), y en este caso la distancia es equivalente a la distancia euclídea tras aplicar la transformación lineal.
+
+
+\begin{proposicion} \label{prop:descomp}
+Sea $M$ una matriz cuadrada de orden $d$ semidefinida positiva. Entonces, existe una matriz cuadrada $L$ de orden $d$ tal que $M = L^TL$.
+\end{proposicion}
+
+\begin{proof}
+    Sea $M$ una matriz cuadadra de orden $d$ semidefinida positiva. Como en particular es simétrica, es diagonalizable ortogonalmente y podemos considerar su descomposición espectral $M = UDU^{-1}$, con $U$ una matriz ortogonal y $D$ una matriz diagonal. Sabemos que $D$ tiene en todas sus entradas diagonales valores no negativos, puesto que $M$ es semidefinida positiva, y vale 0 en el resto de entradas de la matriz. Por tanto, podemos tomar la matriz $D^{1/2}$, definida como la raíz cuadrada elemento a elemento de $D$. Claramente, $(D^{1/2})^2 = D$ y es simétrica también por ser diagonal. Definimos ahora $L$ como la matriz cuadrada resultante de la operación $L = UD^{1/2}U^{-1}$. Como además, $U^{-1} = U^T$, se tiene que
+
+    \begin{align*}
+    L^TL &= (UD^{1/2}U^T)^T(UD^1/2U^T) \\
+         &= (U^T)^TD^{1/2}U^TUD^{1/2}U^T \\
+         &= U(D^{1/2}D^{1/2})U^T = UDU^T = M.
+    \end{align*}
+\end{proof}
+
+Es interesante destacar que esta descomposición no es única. Por ejemplo, la descomposición de Cholesky también verifica esta propiedad, aportando unicidad a la descomposición triangular que ofrece (solo cuando es estrictamente definida positiva). Otra propiedad muy relevante es que, a pesar de no ser únicas estas descomposiciones, si $K$ es cualquier otra matriz tal que $K^TK = M$, entonces $K$ y $L$ son iguales salvo una isometría, es decir, existe una matriz ortogonal $O$ tal que $K = OL$. Esta demostración se puede elaborar definiendo formalmente el concepto de raíz cuadrada anticipado en la demostración anterior para cualquier matriz semidefinida positiva. Esto da pie a la definición del valor absoluto de una matriz cuadrada, a partir de la cual se puede definir la descomposición polar, que permite probar la unicidad salvo isometrías~\parencite{suarez2018tutorial}.
+
+La proposición \ref{prop:descomp} nos permite establecer la segunda alternativa para aprender una distancia de Mahalanobis. Tenemos dos posibilidades:
+
+\begin{itemize}
+    \item Aprender directamente la matriz $M$ que define la distancia $d_M$, como hemos comentado anteriormente.
+    \item Como toda matrix $M$ semidefinida positiva puede descomponerse como $L^TL$, con $L$ una matriz cuadrada, se tiene que
+    \[d_M(x,y)^2 = (x-y)^TM(x-y) = (x-y)^TL^TL(x-y) = (L(x-y))^T(L(x-y)) = \|L(x-y)\|^2_2.\]
+    Por tanto, podemos aprender también los parámetros de la transformación lineal $L$, y en este caso, la distancia aprendida será equivalente a la distancia euclídea tras aplicar la transformación.
+\end{itemize}
+
+Ambos enfoques pueden ser utilizados para aprender, cada uno con ciertas ventajas e inconvenientes. Por ejemplo, el aprendizaje de la matriz $L$ se puede generalizar a matrices no cuadradas, lo que permite aprender distancias en espacios de menor dimensión, y en consecuencia, aprovechar una reducción de dimensionalidad del conjunto de datos. Además, los parámetros de $L$ no tienen restricciones. En cambio, la optimización en $M$ está sujeta a la restricción de ser semidefinida positiva y la reducción de dimensionalidad no se realiza explícitamente (aunque el rango de la matriz la determina implícitamente), pero en cambio suele facilitar el diseño de funciones de pérdida convexas, añadiendo garantías en el proceso de optimización.
+
+\section{Algoritmos relevantes de aprendizaje de métricas de distancia}
+
+En esta sección vamos a describir los algoritmos más relevantes de aprendizaje de distancias que han sido aplicados a lo largo de este trabajo. Consideraremos tres de ellos: el \emph{análisis de componentes principales}, \emph{neighborhood components analysis} y \emph{large margin nearest neighbors}.
+
+\subsection{Análisis de componentes principales (PCA)} \label{sec:pca}
+
+El PCA~\parencite{pearson1901liii} es un algoritmo bastante popular y conocido de reducción de dimensionalidad no supervisado. Se suele considerar como algoritmo de aprendizaje de distancias, en el sentido de que aprende una transformación lineal sobre los datos como se describió en el apartado anterior, si bien es verdad que dicha transformación es realmente una proyección que preserva las distancias en la medida de lo posible en el espacio de llegada.
+
+La idea del PCA es muy sencilla. Dado un conjunto de datos $x_1,\dots, x_N \in \mathbb{R}^d$, buscamos aprender una transformación lineal a un espacio de menor dimensión, es decir, una matriz $L$ de dimensión $d' \times d$, con $d' < d$, y otra transformación decodificadora $K$, de dimensión $d \times d'$, de forma que el error de reconstrucción, definido como el error cuadrático entre los datos originales y los datos proyectados por $L$ y reconstruidos por $K$, sea mínimo. En otras palabras, el problema de optimización es
+
+\begin{equation}\label{eq:pca-formulita}
+ \min_{L \in \mathbb{R}^{d'\times d}, K \in \mathbb{R}^{d \times d'}} \sum_{i=1}^N \|x_i - KLx_i \|_2^2.  \tag{5.3.1}
+\end{equation}
+
+
+Una primera propiedad interesante para poder proceder a calcular la solución a este problema es que realmente no buscamos dos matrices diferentes a optimizar, ya que la matriz decodificadora depende de la matriz de proyección.
+
+\begin{proposicion}
+    Si $L$ y $K$ son matrices solución del problema de optimización de la Ecuación \eqref{eq:pca-formulita}, entonces las filas de $L$ son vectores ortonomales y $K = L^T$.
+\end{proposicion}
+
+\begin{proof}
+    Consideramos la aplicación $g\colon \mathbb{R}^d \to \mathbb{R}^d$, dada por $f(x) = KLx$. Es una aplicación lineal, y por tanto su imagen es un subespacio vectorial de $\mathbb{R}^d$ de dimensión $d'$. Sea $R = \text{im}(g)$. Tomamos $V$ como una matriz de tamaño $d \times d'$ cuyas columnas forman una base ortonormal de este subespacio. Esto es equivalente a decir que el rango de $V$ es $\dim(R) = d'$, y que $V^TV = I$, la matriz identidad en $\mathbb{R}^{d'}$. Como cualquier vector de $R$ es combinación lineal de los vectores columna de $V$, podemos representar cualquier $u \in R$ como $u = Vz$, con $z \in \mathbb{R}^{d'}$. Para cualesquiera $x \in \mathbb{R}^d$ e $y \in \mathbb{R}^{d'}$, usando que $V^TV = U$, ahora podemos ver que \[\|x - Vy\|_2^2 = \langle x - Vy, x - Vy \rangle = \|x\|^2 + y^TV^TVy - 2y^TV^Tx = \|x\|^2 + \|y\|^2 - 2y^T(V^Tx).\]
+
+    Para cualquier $x$ arbitrario, la $y$ que minimiza la expresión anterior puede obtenerse calculando su gradiente con respecto a $y$ e igualándolo a 0. Esto es, $2y - 2(V^Tx) = 0$, o, equivalentemente, $y = V^Tx$. Esto es, para cualquier $x \in \mathbb{R}^d$ hemos visto que el punto que minimiza la distancia en $R$ es $VV^Tx$. Volviendo a la Ecuación \eqref{eq:pca-formulita}, obtenemos que
+
+    \[ \sum_{i=1}^N \|x_i - KLx_i \|^2_2 \ge \sum_{i=1}^N \|x_i - VV^Tx_i\|_2^2, \]
+
+    para cualesquiera valores de $K$ y $L$. La desigualdad anterior nos da la condición necesaria que buscábamos:  para minimizar la ecuación \eqref{eq:pca-formulita} tenemos que tomar $L$ de forma que sus filas sean ortonormales (como $V^T$), y además tiene que verificarse que $K = L^T$.
+\end{proof}
+
+Por tanto, el problema de optimización podemos reducirlo a
+
+\begin{equation}
+ \min_{L \in \mathbb{R}^{d'\times d}, LL^T=I} \sum_{i=1}^N \|x_i - LL^Tx_i \|_2^2.
+\end{equation}
+
+Podemos simplificarlo aún más. Nos centramos en los sumandos:
+\begin{align*}
+    \|x_i - L^TL\|_2^2 &= \langle x_i - L^TLx_i, x_i - L^TLx_i\rangle \\
+                       &= \|x_i\|^2 - 2x_i^TL^TLx_i + x_i^TL^TLL^TLx_i \\
+                       &= \|x_i\|^2 - x_i^TL^TLx_i \\
+                       &= \|x_i\|^2 - \text{tr}(Lx_ix_i^TL^T),
+\end{align*}
+donde en el útlimo paso se ha utilizado que la traza de un escalar es el propio escalar, y después la propiedad de la conmutatividad cíclica del producto en una traza. Puesto que el primer sumando no depende de $L$, podemos reducir el problema de optimización a
+
+\begin{equation}
+    \max_{L \in \mathbb{R}^{d'\times d}, LL^T = I} \text{tr}\left(L\sum_{i=1}^Nx_ix_i^TL^T\right).
+\end{equation}
+
+Finalmente, el siguiente resultado nos dice cómo podemos construir la matriz solución al problema de optimización de PCA.
+
+\begin{teorema}
+    Sea $\Sigma = \sum_{i=1}^Nx_ix_i^T$, y sean $\sigma_1, \dots, \sigma_{d'} \in \mathbb{R}^d$ los vectores propios de $\Sigma$ asociados con los $d'$ mayores valores propios de $\Sigma$. Entonces, una solución al problema de optimización de PCA viene dada por la matriz $L$ que tiene como filas a $\sigma_1, \dots, \sigma_d$.
+\end{teorema}
+
+\begin{proof}
+    $\Sigma$ es simétrica, luego podemos hacer una descomposición espectral $\Sigma = U DU^T$, con $D$ diagonal y $U$ ortonormal. Sea $V$ una matriz con columnas ortonormales de orden $d\times d'$ y sea $B = U^TV$. Entonces, $UB = UU^TV = V$, luego 
+    \[V^TAV = B^TU^TUDU^TUB = B^TDB.\]
+    Como $D$ es diagonal, podemos escribir
+    \[\text{tr}(V^T\Sigma V) = \sum_{j=1}^d D_{jj}\sum_{i=1}^{d'}B_{ji}^2.\]
+
+    Además se tiene que $B^TB = V^TUU^TV = V^TV = I$. Por tanto las columnas de $B$ también son ortonormales, y en consecuencia, $\sum_{j=1}^d\sum_{i=1}^{d'}B_{ij}^2 = \sum_{i=1}^{d'}\sum_{j=1}^d B_{ij}^2  = \sum_{i=1}^{d'} 1 = d'$. Tomamos ahora una matriz $\tilde{B}$ cuadrada de orden $d$ tal que sus $d'$ primeras columnas son las columnas de $B$ y que verifique que $\tilde{B}^T\tilde{B} = I$. Como para cualquier $j=1,\dots, d$ se tiene que $\sum_{i=1}^d \tilde{B}^2_{ji} = 1$, se tiene que dar que $\sum_{i=1}^{d'}B_{ji}^2 \le 1$. Combinando estas expresiones, podemos deducir que
+    \[\text{tr}(V^T\Sigma V) = \sum_{j=1}^d D_{jj}\sum_{i=1}^{d'}B_{ji}^2 \le \max_{\beta \in [0,1]^d, \|\beta\|_1 \le d'} \sum_{j=1}^d D_{jj}\beta_j = \sum_{j=1}^{d'}D_{jj}, \]
+    asumiendo que los valores propios de $D$ están ordenados de mayor a menor. Entonces, tenemos que para cualquier matriz $V$ con columnas ortonormales, se tiene que $\text{tr}(V^T\Sigma V) \le \sum_{j=1}^{d'}D_{jj}$. Pero si justo tomamos $V$ como aquella matriz que tiene por columnas los vectores propios asociados a esos valores propios de $D$ (y, por tanto, de $\sigma$), se tiene la igualdad. Finalmente, si tomamos $L = V^T$ se tiene el resultado buscado.
+\end{proof}
+
+En conclusión, para obtener la proyección que obtiene PCA para transformar los datos a un espacio de menor dimensión minimizando el error de reconstrucción, basta con tomar como matriz $L$ aquella que tiene por filas a los vectores propios asociados a los mayores valores propios de $\Sigma = \sum_{i=1}^Nx_ix_i^T$. Si asumimos que los datos están centrados en 0, o los hemos centrado previamente restándoles su media, entonces lo que tenemos es que la solución al problema de optimización se obtiene con los mayores vectores propios de la matriz de covarianza del conjunto de datos.
+
+\subsection{Neigborhood Components Analysis (NCA)}
+
+NCA~\parencite{goldberger2004neighbourhood} es un algoritmo de aprendizaje de métricas de distancia supervisado y orientado concretamente a mejorar el rendimiento de un clasificador $k$-NN. Aprende una transformación lineal que minimiza el error \emph{leave-one-out} esperado por una clasificación $1$-NN, es decir, estima el error como la probabilidad de cada ejemplo de ser mal clasificado a partir de los demás del entrenamiento, para la medida de probabilidad que definiremos a continuación.
+
+Consideramos el conjunto de entrenamiento supervisado $\{(x_1, y_1), \dots, (x_N, y_N)\}$. Dados dos ejemplos $x_i, X_j \in \mathcal{X} \subset \mathbb{R}^d$ y una métrica de distancia, definida en este caso por una transformación lineal $L$ definimos la probabilidad de que $x_i$ tenga a $x_j$ como su vecino más cercano bajo la distancia definida por $L$ como una función \emph{softmax} sobre las distancias en el conjunto de entrenamiento, esto es,
+
+\begin{align*}
+    p_{ij}(L) &= \frac{\exp(-\|Lx_i - Lx_j\|^2)}{\sum_{k \ne i}\exp(-\|Lx_i - Lx_k\|^2)}, \quad (j \ne i), \\
+    p_{ii}(L) &= 0.
+\end{align*}
+
+Es decir, a menor distancia entre ejemplos, mayor es la probabilidad de que sean vecinos cercanos, y la función softmax se encarga de normalizar esos valores como probabilidades. A partir de estas probabilidades, podemos definir la probabilidad de que el ejemplo $x_i$ sea clasificado correctamente como la suma de las probabilidades de que $x_i$ tenga como vecino más cercano a los distintos ejemplos de su misma clase, es decir,
+
+\begin{equation}
+    p_i(L) = \sum_{j \colon y_i = y_j} p_{ij}(L).
+\end{equation}
+
+Fialmente, la función a optimizar (en este caso maximizar), viene dada por la suma de las probabilidades de clasificación correcta de cada ejemplo en el conjunto de entrenamiento, es decir,
+
+\[f(L) = \sum_{i=1}^N p_i(L) = \sum_{i=1}^N\sum_{j\colon y_i = y_j} p_{ij}(L) = \sum_{i=1}^N\sum_{j\colon y_i = y_j, j \ne i}\frac{\exp(-\|Lx_i-Lx_j\|^2)}{\sum_{k\ne i}\exp(-\|Lx_i-Lx_k\|^2)}.\]
+
+Esta función es diferenciable, al estar formada por operaciones y composiciones de funciones elementales. Su gradiente se puede obtener como
+
+\[ \nabla f(L) = 2L\sum_{i=1}^N \left(p_i(L)\sum_{k=1}^Np_{ik}(L)x_{ik}x_{ik}^T - \sum_{j\colon y_i = y_j}p_{ij}(L)x_{ij}x_{ij}^T\right), \]
+
+donde $x_{ij} = x_i - x_j$. Para la obtención del gradiente se han utilizado las reglas básicas de derivación aplicadas a la optimización de las entradas de la matriz $L$, aplicando propiedades como que $\nabla_L\|Lx\|_2^2 = 2Lxx^T$, lo cual se puede comprobar desarrollando las entradas de $L$ término a término. NCA aplica técnicas de gradiente ascendente para optimizar esta función objetivo. Para concluir, hay que destacar que es posible elegir $L$ de dimensión menor a $d$ y así forzar que el espacio de llegada de los datos sea de menor dimensionalidad.
+
+\subsection{Large Margin Nearest Neighbors (LMNN)}
+
+LMNN~\parencite{weinberger2009distance} es otro algoritmo de aprendizaje de métricas de distancia orientado a mejorar el rendimiento del clasificador $k$-NN. Utiliza una función de pérdida con una interpretación más geométrica que NCA, en la que se busca acercar localmente a ejemplos de una misma clase mientras se mantienen alejados aquellos de diferentes clases.
+
+Dado un conjunto de entrenamiento $\{(x_1, y_1),\dots,(x_N,y_N)\}$, para un ejemplo $x_i \in \mathcal{X} \subset \mathbb{R}^d$ se definen sus \emph{vecinos objetivo} como una serie de ejemplos predeterminados, de la misma clase que $x_i$, para los que se pretende que sean los vecinos seleccionados en una eventual clasificación $k$-NN. Estos vecinos se determinan inicialmente, y pueden calcularse con métricas como la distancia euclídea, o con alguna información adicional si se tiene. El objetivo de LMNN será acercar cada ejemplo lo máximo posible a sus vecinos objetivo. Si $x_j$ es vecino objetivo de $x_i$, lo denotaremos $j \rightarrow i$.
+
+Por otra parte, la función objetivo de LMNN trata de evitar que ejemplos de otras clases invadan un perímetro delimitado por cada ejemplo y sus vecinos más cercanos. Los ejemplos que invadan dicho perímetro se denominarán \emph{impostores}. De esta forma, la función se divide en dos componentes. La primera, que penaliza a los vecinos objetivos lejanos, se define, para una métrica definida por la aplicación lineal $L$, como
+
+\[ \varepsilon_{pull}(L) = \sum_{i=1}^N\sum_{j\to i} \|L(x_i - x_j)\|^2. \]
+
+Y la segunda componente, que penaliza la presencia de impostores, se define como
+
+\[ \varepsilon_{push}(L) = \sum_{i=1}^N\sum_{j\to i}\sum_{l=1}^N(1-y_{il})[1+\|L(x_i - x_j)\|^2 - \|L(x_i - x_l)\|^2]_+, \]
+
+donde $y_{il}$ vale 1 si $y_i = y_l$ y 0 en caso contrario, y $[t]_+ = \max\{t, 0\}$ para cualquier $t$ real.
+
+La función objetivo resultante combina estos dos términos por medio de un parámetro de peso $\mu \in ]0, 1[$:
+
+\[ \varepsilon(L) = (1-\mu)\varepsilon_{pull}(L) + \mu\varepsilon_{push}(L). \]
+
+Como sabemos que se puede reconstruir la matriz $M$ que define la distancia de Mahalanobis como la $M = L^TL$, y en tal caso, $\|L(x_i - xj)\|^2 = d_M^2(x_i, x_j)$, la función objetivo la podemos reformular como 
+
+\[ \varepsilon(M) =  (1-\mu)\sum_{i=1}^N\sum_{j\to i} d_M^2(x_i, x_j) + \mu \sum_{i=1}^N\sum_{j\to i}\sum_{l=1}^N(1-y_{il})[1+d_M^2(x_i, x_j) - d_M^2(x_i, x_l)]_+. \]
+
+La función parametrizada con $M$ garantiza la convexidad del problema, algo que no ocurre optimizando con $L$. La optimización de este problema puede realizarse aplicando gradiente descendente con proyecciones, para asegurar la condición semidefinida positiva de $M$. El gradiente en este caso puede calcularse como
+
+\[ \nabla \varepsilon(M) = (1-\mu)\sum_{i, j\to i} x_{ij}x_{ij}^T + \mu \sum_{i, j \to i, l \text{impostor}} (x_{ij}x_{ij}^T - x_{il}x_{il}^T) \]
+
+donde $x_{ij} = (x_i - x_j)(x_i - x_j)^T$.
+
+En esta derivación se ha usado la propiedad $\nabla_Md_M(x,y) = (x-y)(x-y)^T$, que puede verificarse elemento a elemento tomando derivadas parciales. La formulación a partir de $L$, aunque pierda la convexidad, también puede ser de utilidad si se requiere aplicar reducción de dimensionalidad, ya que se puede forzar la dimensión de $L$ para que el espacio de llegada sea el deseado.
+
+\section{Aprendizaje de distancias no lineal y deep metric learning} \label{sec:contrastive-loss}
+
+El aprendizaje de distancias clásico se reduce, como hemos visto, a aprender una transformación lineal sobre los datos. Es posible introducir no linealidad elevando los datos a un espacio de mayor dimensión (incluso infinita), mediante una aplicación $\phi\colon \mathbb{R}^d \to \mathcal{F}$ que añada características a los datos, y aprender una transformación lineal en $\mathcal{F}$. Aprender una transformación lineal en un espacio de tan alta dimensión puede ser inviable, pero si conocemos los productos escalares en dicho espacio, a lo que se suele denominar \emph{kernel}, es posible realizar ciertos cálculos, como las propias distancias en el espacio, únicamente a partir de dichos productos escalares. A este procedimiento se le denomina \emph{kernel trick}, y es muy popular en otros algoritmos de aprendizaje, como las máquinas de vectores soporte.
+
+Por otra parte, también es posible aprender una transformación arbitraria directamente. Esta última opción se ha popularizado con el auge del deep learning, ya que las redes neuronales permiten obtener \emph{embeddings} que son transformaciones no lineales de los datos originales. Por tanto, eligiendo las funciones de pérdida adecuadas, es posible aprender distancias no lineales sobre los datos. Este paradigma se denomina \emph{deep metric learning} o \emph{aprendizaje de métricas profundo}, y ha demostrado ser efectivo en muchos problemas de deep learning sometidos a la escasez de datos, ya que de esta forma el modelo aprende a discriminar en lugar de a reconocer, y las representaciones de los embeddings que genera pueden estar mejor situadas en el espacio, facilitando las tareas de aprendizaje. Entre las funciones de pérdida del deep metric learning destacamos:
+
+\begin{itemize}
+    \item \textbf{Pérdida de tripletas.} Está función de pérdida es entrenada es utilizada sobre tripletas de datos $(x, x^+, x^-)$, donde $x$ es el embedding de un ejemplo de referencia, $x^+$ es el embedding de un ejemplo positivo (de la misma clase que $x$), y $x^-$ es el embedding un ejemplo negativo (de clase diferente a $x$). La pérdida de tripletas busca acercar el ejemplo de referencia al de su misma clase mientras aleja al negativo hasta un margen predefinido $M$. Se define como
+    \[L(x, x^+, x^-) = \max\{d(x,x^+)-d(x,x^-) + M, 0 \},\]
+    donde $d$ es una distancia predefinida, por ejemplo, la euclídea.
+
+    \item \textbf{Pérdida contrastiva.} Esta función de pérdida se aplica por pares de ejemplos. Si son de la misma clase, se busca acercarlos, y si son de clases diferentes, se busca alejarlos. Se suele usar la métrica de similitud del coseno en lugar de distancias como la euclídea, lo que suele funcionar mejor si los embeddings ya vienen normalizados, y suele ser más estable numéricamente. Se define como
+    \[L(x_i, x_j) = 
+\begin{cases}
+1 - \dfrac{\langle x_i \, x_j\rangle}{\|x_i\| \, \|x_j\|}, & \text{si } y_i = y_j \\[6pt]
+\max \left(0, \dfrac{\langle x_i \, x_j\rangle}{\|x_i\| \, \|x_j\|} - M \right), & \text{si } y_i \ne y_j.
+\end{cases}\]
+
+\end{itemize}
+
+
+\endinput
+%--------------------------------------------------------------------
+% FIN DEL CAPÍTULO. 
+%--------------------------------------------------------------------

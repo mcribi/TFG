@@ -1,0 +1,23 @@
+% !TeX root = ../tfg.tex
+% !TeX encoding = utf8
+%
+%*******************************************************
+% Summary
+%*******************************************************
+
+\selectlanguage{spanish}
+\chapter{Resumen}
+
+La biopsia pulmonar guiada por tomografía computarizada (TC) es un procedimiento diagnóstico esencial para caracterizar nódulos pulmonares y determinar la presencia de neoplasias. Sin embargo, no está exenta de riesgos, presentando complicaciones como hemorragias o neumotórax en un porcentaje significativo de casos. Aunque existen numerosos estudios centrados en la clasificación de la benignidad o malignidad de los nódulos, apenas hay investigaciones que analicen la probabilidad de complicaciones antes de realizar la biopsia. Esta carencia motiva la necesidad de herramientas predictivas que permitan anticipar el riesgo y optimizar la selección de pacientes.
+
+El presente trabajo propone el desarrollo de un sistema predictivo basado en técnicas de radiómica y aprendizaje profundo para estimar el riesgo de complicaciones en biopsias pulmonares guiadas por TC. Para sustentar el diseño del modelo, se estudian en detalle los fundamentos matemáticos necesarios, incluyendo el procesamiento de señales médicas, teoría de convolución, teoría de radiómica y los conceptos teóricos del aprendizaje automático y profundo. 
+
+La metodología incluye el preprocesamiento de imágenes volumétricas con segmentación pulmonar y normalización de intensidades, la extracción de características radiómicas, el uso de redes neuronales convolucionales 3D y la integración de datos clínicos tabulares para construir modelos multimodales. Se emplean estrategias como el preentrenamiento (transfer learning), la validación cruzada estratificada y el análisis de interpretabilidad (Grad-CAM, SHAP) para garantizar robustez y facilitar la validación clínica.
+
+Los resultados obtenidos muestran que, aunque la idea es prometedora, los modelos de aprendizaje profundo sobre imágenes 3D presentaron limitaciones para generalizar de forma sólida, probablemente debido al tamaño reducido y la heterogeneidad del conjunto de datos. Por el contrario, los enfoques clásicos de radiómica ofrecieron resultados más estables. Este trabajo representa así un primer paso en una línea de investigación novedosa, destacando la necesidad de recopilar más datos y refinar estrategias para mejorar la capacidad predictiva en futuros estudios.
+
+\textbf{Palabras clave}: Biopsia pulmonar, Tomografía computarizada, Aprendizaje profundo, Inteligencia Artificial, Radiómica, Redes neuronales convolucionales, Predicción de complicaciones, Segmentación pulmonar, Datos clínicos.
+
+% Al finalizar el resumen en inglés, volvemos a seleccionar el idioma español para el documento
+\selectlanguage{english} 
+\endinput

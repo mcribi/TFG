@@ -1,0 +1,74 @@
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1}{\ignorespaces Neumotórax y hemorragia alveolar grado 2 como complicaciones tras la realización de una biopsia pulmonar guiada por TC \blx@tocontentsinit {0}\parencite {elshafee2019complications}.}}{\es@scroman {xxiv}}{figure.caption.16}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Comparación de características semánticas, radiómicas manuales y radiómicas profundas \blx@tocontentsinit {0}\parencite {wu2021structural}.}}{\es@scroman {xxv}}{figure.caption.17}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Procesos de modelado de biomarcadores basados en imágenes. (A) Canal de radiómica convencional. (B) Canal de aprendizaje profundo. (ROI) Región de interés, (IHC) inmunohistoquímica \blx@tocontentsinit {0}\parencite {leiter2023global}.}}{\es@scroman {xxv}}{figure.caption.18}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Comparación entre patrones sinusoidales de distinta frecuencia espacial \blx@tocontentsinit {0}\parencite {leharFourier}.}}{10}{figure.caption.23}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Comparación de distintos patrones sinusoidales y sus transformadas de Fourier \blx@tocontentsinit {0}\parencite {leharFourier}.}}{11}{figure.caption.24}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Transformada de Fourier directa e inversa de la imagen de entrada. }}{12}{figure.caption.25}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Filtrado paso-bajo en el dominio de Fourier y su resultado tras la transformada inversa. }}{13}{figure.caption.26}%
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Filtrado paso-alto en el dominio de Fourier y su resultado tras la transformada inversa.}}{13}{figure.caption.27}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Primer ejemplo de filtrado paso-banda en el dominio de Fourier y su resultado tras la transformada inversa.}}{14}{figure.caption.28}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Segundo ejemplo con banda más estrecha.}}{14}{figure.caption.29}%
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Filtrado paso-banda en una banda de frecuencias más altas.}}{14}{figure.caption.30}%
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Último ejemplo con banda más estrecha.}}{15}{figure.caption.31}%
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Principio de radiómica y extracción de características a partir de imágenes tumorales \blx@tocontentsinit {0}\parencite {demathematical} }}{16}{figure.caption.32}%
+\contentsline {figure}{\numberline {1.11}{\ignorespaces Técnicas de reconstrucción \blx@tocontentsinit {0}\parencite {bmeReconstruction}}}{20}{figure.caption.42}%
+\contentsline {figure}{\numberline {1.12}{\ignorespaces \blx@tocontentsinit {0}\cite {wikipediaRadon}.}}{24}{figure.caption.43}%
+\contentsline {figure}{\numberline {1.13}{\ignorespaces Reconstrucción del corte original mediante su sinograma de transformada de radón y la transformada de Fourier \blx@tocontentsinit {0}\parencite {wikipediaRadon}.}}{25}{figure.caption.44}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Curvas de nivel de una función objetivo a optimizar (morado). Gradiente descendente (recorrido rojo) y gradiente descendente con proyecciones sobre un conjunto convexo (azul). Se puede observar que el recorrido que se sigue sobre el conjunto convexo también minimiza la función objetivo.}}{31}{figure.caption.45}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Red neuronal feedforward en capas de profundidad 2, tamaño 10 y anchura 5. Hay una neurona en la capa oculta que no tiene aristas entrantes. Además, hay una neurona en la capa oculta que no tiene aristas entrantes. La salida de esta neurona será $f^{(1)}(0)$, es decir, la función de activación evaluada en $0$. Elaboración propia. }}{38}{figure.caption.46}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Visualización de los planos anatómicos estándar con el sistema de coordenadas correspondiente. Se distinguen tres planos de vista estándar: axial (vista superior), sagital (vista lateral) y coronal (vista frontal). La anatomía se define mediante los siguientes ejes anatómicos: frontal (eje X), longitudinal (eje Y) y sagital (eje Z). Fuente: \blx@tocontentsinit {0}\cite {heim2018large}}}{64}{figure.caption.48}%
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Visualización de un volumen 3D de tamaños (256,512,512) desde los tres planos anatómicos: axial, coronal y sagital. Elaboración propia.}}{67}{figure.caption.49}%
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Diagrama de Gantt del proyecto}}{77}{figure.caption.58}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Distribución del número de slices por paciente.}}{79}{figure.caption.59}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Distribución de la edad de los pacientes.}}{81}{figure.caption.60}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Distribución de la variable Complicación (Sí / No).}}{81}{figure.caption.61}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Distribución de la variable Sexo (Hombre / Mujer).}}{81}{figure.caption.61}%
+\contentsline {figure}{\numberline {7.5}{\ignorespaces Frecuencia de categorías en Tipo de cáncer.}}{82}{figure.caption.62}%
+\contentsline {figure}{\numberline {7.6}{\ignorespaces Frecuencia de categorías en Tipo de complicación.}}{83}{figure.caption.63}%
+\contentsline {figure}{\numberline {7.7}{\ignorespaces Frecuencia de categorías en Patología pulmonar.}}{83}{figure.caption.64}%
+\contentsline {figure}{\numberline {7.8}{\ignorespaces Frecuencia de categorías en Factor de riesgo.}}{84}{figure.caption.65}%
+\contentsline {figure}{\numberline {7.9}{\ignorespaces Comparación de la misma imagen axial de TC preprocesada con diferentes configuraciones de ventana HU: sin ventana, con ventana centrada en -600 HU (ancho 1500) y con ventana centrada en -300 HU (ancho 1400). Se observa la mejora de contraste en el parénquima pulmonar tras aplicar el recorte de intensidades. Elaboración propia.}}{86}{figure.caption.66}%
+\contentsline {figure}{\numberline {7.10}{\ignorespaces Ejemplo de un volumen antes y después de la segmentación. Elaboración propia.}}{88}{figure.caption.67}%
+\contentsline {figure}{\numberline {7.11}{\ignorespaces Ejemplo de segmentación en 3D y en los 3 planos anatómicos en 2D. Elaboración propia realizada con 3D Slicer.}}{89}{figure.caption.68}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Estructura de Fused-MBConv \blx@tocontentsinit {0}\parencite {tan2021efficientnetv2}.}}{92}{figure.caption.69}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Un bloque denso de 5 capas con una tasa de crecimiento de $k=4$. Cada capa toma como entrada todos los mapas de características anteriores \blx@tocontentsinit {0}\parencite {huang2017densely}.}}{95}{figure.caption.71}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Una DenseNet profunda con tres bloques densos. Las capas entre dos bloques adyacentes se denominan capas de transición y cambian el tamaño de los mapas de características de mediante convolución y agrupación \blx@tocontentsinit {0}\parencite {huang2017densely}.}}{95}{figure.caption.72}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Visualización de distribuciones de algunas características radiómicas. Se muestran tanto atributos de forma, como atributos sin transformar y los mismos atributos sobre las imágenes con filtros wavelet y logarítmicos.}}{102}{figure.caption.73}%
+\contentsline {figure}{\numberline {9.2}{\ignorespaces Matriz de correlación sobre las características radiómicas originales.}}{103}{figure.caption.74}%
+\contentsline {figure}{\numberline {9.3}{\ignorespaces Matriz de correlación sobre las características radiómicas originales tras eliminar variables redundantes.}}{104}{figure.caption.75}%
+\contentsline {figure}{\numberline {9.4}{\ignorespaces Comparación de las 20 características más correladas con la existencia de complicación en el conjunto original (a) y extendido (b).}}{105}{figure.caption.76}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {10.1}{\ignorespaces Evolución de la pérdida por época en el Fold 3 del mejor experimento de deep learning (G-Mean en test 0.691).}}{118}{figure.caption.79}%
+\contentsline {figure}{\numberline {10.2}{\ignorespaces Evolución por época de las métricas en el entrenamiento del Fold 3. Mejor experimento de deep learning (G-Mean en test 0.691).}}{118}{figure.caption.80}%
+\contentsline {figure}{\numberline {10.3}{\ignorespaces Evolución por época de las métricas en el validación del Fold 3. Mejor experimento de deep learning (G-Mean en test 0.691).}}{119}{figure.caption.81}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {11.1}{\ignorespaces Instancia sin complicación predicha correctamente. Elaboración propia. }}{134}{figure.caption.92}%
+\contentsline {figure}{\numberline {11.2}{\ignorespaces Instancia con complicación predicha correctamente. Tipo de complicación: hemorragia leve. Elaboración propia. }}{135}{figure.caption.93}%
+\contentsline {figure}{\numberline {11.3}{\ignorespaces Instancia sin complicación predicha incorrectamente. Elaboración propia. }}{136}{figure.caption.94}%
+\contentsline {figure}{\numberline {11.4}{\ignorespaces Instancia sin complicación predicha correctamente. Tipo de complicación: neumotórax y hemorragia. Elaboración propia. }}{137}{figure.caption.95}%
+\contentsline {figure}{\numberline {11.5}{\ignorespaces Diagrama resumen de las características más influyentes en la predicción de LightGBM según SHAP.}}{140}{figure.caption.96}%
+\contentsline {figure}{\numberline {11.6}{\ignorespaces Análisis de SHAP de los pacientes clasificados correctamente como negativos.}}{142}{figure.caption.97}%
+\contentsline {figure}{\numberline {11.7}{\ignorespaces Análisis de SHAP de los pacientes clasificados correctamente como positivos.}}{143}{figure.caption.98}%
+\contentsline {figure}{\numberline {11.8}{\ignorespaces Análisis de SHAP de los pacientes clasificados incorrectamente.}}{145}{figure.caption.99}%
+\contentsline {figure}{\numberline {11.9}{\ignorespaces Análisis de la toma de decisiones mejor modelo de árbol de decisión obtenido en función de las componentes principales extraídas.}}{145}{figure.caption.100}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

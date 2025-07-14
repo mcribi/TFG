@@ -1,0 +1,1373 @@
+
+
+=========================
+📂 Modelo: best_model_gridsearch_adrenalmnist3d_64_ceL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.6400, F1: 0.6667, TPR: 0.7500, TNR: 0.5385, G-Mean: 0.6355
+=========================
+
+----- Fold 2 -----
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4800, F1: 0.2353, TPR: 0.1667, TNR: 0.7692, G-Mean: 0.3581
+=========================
+
+----- Fold 3 -----
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.5200, F1: 0.5714, TPR: 0.6667, TNR: 0.3846, G-Mean: 0.5064
+=========================
+
+----- Fold 4 -----
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.6000, F1: 0.6875, TPR: 0.9167, TNR: 0.3077, G-Mean: 0.5311
+=========================
+
+----- Fold 5 -----
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.6000, F1: 0.3750, TPR: 0.2727, TNR: 0.8571, G-Mean: 0.4835
+=========================
+
+
+=========================
+📂 Modelo: best_model_gridsearch_adrenalmnist3d_64_ceL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.6000, F1: 0.5833, TPR: 0.5833, TNR: 0.6154, G-Mean: 0.5991
+=========================
+
+----- Fold 2 -----
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4800, F1: 0.6486, TPR: 1.0000, TNR: 0.0000, G-Mean: 0.0000
+=========================
+
+----- Fold 3 -----
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.3200, F1: 0.4848, TPR: 0.6667, TNR: 0.0000, G-Mean: 0.0000
+=========================
+
+----- Fold 4 -----
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.4400, F1: 0.4615, TPR: 0.5000, TNR: 0.3846, G-Mean: 0.4385
+=========================
+
+----- Fold 5 -----
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.6000, F1: 0.6429, TPR: 0.8182, TNR: 0.4286, G-Mean: 0.5922
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_adrenalmnist3d_64_ceL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5600, F1: 0.5600, TPR: 0.5833, TNR: 0.5385, G-Mean: 0.5604
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.5200, F1: 0.5385, TPR: 0.5833, TNR: 0.4615, G-Mean: 0.5189
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.5600, F1: 0.6452, TPR: 0.8333, TNR: 0.3077, G-Mean: 0.5064
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5600, F1: 0.5600, TPR: 0.5833, TNR: 0.5385, G-Mean: 0.5604
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.6800, F1: 0.6923, TPR: 0.8182, TNR: 0.5714, G-Mean: 0.6838
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_adrenalmnist3d_64_ceL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.6800, F1: 0.6667, TPR: 0.6667, TNR: 0.6923, G-Mean: 0.6794
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.6000, F1: 0.5833, TPR: 0.5833, TNR: 0.6154, G-Mean: 0.5991
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.4400, F1: 0.3636, TPR: 0.3333, TNR: 0.5385, G-Mean: 0.4237
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.4000, F1: 0.4444, TPR: 0.5000, TNR: 0.3077, G-Mean: 0.3922
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.6400, F1: 0.6667, TPR: 0.8182, TNR: 0.5000, G-Mean: 0.6396
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_adrenalmnist3d_64_ceLcontrastiveL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.4000, F1: 0.4444, TPR: 0.5000, TNR: 0.3077, G-Mean: 0.3922
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4800, F1: 0.3810, TPR: 0.3333, TNR: 0.6154, G-Mean: 0.4529
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.3200, F1: 0.3200, TPR: 0.3333, TNR: 0.3077, G-Mean: 0.3203
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.4400, F1: 0.3636, TPR: 0.3333, TNR: 0.5385, G-Mean: 0.4237
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.4800, F1: 0.3810, TPR: 0.3636, TNR: 0.5714, G-Mean: 0.4558
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_adrenalmnist3d_64_ceLcontrastiveL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.4800, F1: 0.4800, TPR: 0.5000, TNR: 0.4615, G-Mean: 0.4804
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.6800, F1: 0.6364, TPR: 0.5833, TNR: 0.7692, G-Mean: 0.6699
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.6800, F1: 0.7143, TPR: 0.8333, TNR: 0.5385, G-Mean: 0.6699
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5600, F1: 0.6207, TPR: 0.7500, TNR: 0.3846, G-Mean: 0.5371
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.6800, F1: 0.6667, TPR: 0.7273, TNR: 0.6429, G-Mean: 0.6838
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_adrenalmnist3d_64_ceLtripletL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.3600, F1: 0.4286, TPR: 0.5000, TNR: 0.2308, G-Mean: 0.3397
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.5200, F1: 0.5000, TPR: 0.5000, TNR: 0.5385, G-Mean: 0.5189
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.4400, F1: 0.3000, TPR: 0.2500, TNR: 0.6154, G-Mean: 0.3922
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.4800, F1: 0.3158, TPR: 0.2500, TNR: 0.6923, G-Mean: 0.4160
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.5600, F1: 0.0000, TPR: 0.0000, TNR: 1.0000, G-Mean: 0.0000
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_adrenalmnist3d_64_ceLtripletL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.4400, F1: 0.3636, TPR: 0.3333, TNR: 0.5385, G-Mean: 0.4237
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.5200, F1: 0.4545, TPR: 0.4167, TNR: 0.6154, G-Mean: 0.5064
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.6000, F1: 0.6429, TPR: 0.7500, TNR: 0.4615, G-Mean: 0.5883
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.4400, F1: 0.5882, TPR: 0.8333, TNR: 0.0769, G-Mean: 0.2532
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.6800, F1: 0.6923, TPR: 0.8182, TNR: 0.5714, G-Mean: 0.6838
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_adrenalmnist3d_64_ceLtripletLcontrastiveL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.6000, F1: 0.5833, TPR: 0.5833, TNR: 0.6154, G-Mean: 0.5991
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4800, F1: 0.3810, TPR: 0.3333, TNR: 0.6154, G-Mean: 0.4529
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.6400, F1: 0.7097, TPR: 0.9167, TNR: 0.3846, G-Mean: 0.5938
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5600, F1: 0.5600, TPR: 0.5833, TNR: 0.5385, G-Mean: 0.5604
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.4800, F1: 0.3158, TPR: 0.2727, TNR: 0.6429, G-Mean: 0.4187
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_adrenalmnist3d_64_ceLtripletLcontrastiveL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5600, F1: 0.4762, TPR: 0.4167, TNR: 0.6923, G-Mean: 0.5371
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4800, F1: 0.3810, TPR: 0.3333, TNR: 0.6154, G-Mean: 0.4529
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.5600, F1: 0.6452, TPR: 0.8333, TNR: 0.3077, G-Mean: 0.5064
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5200, F1: 0.6000, TPR: 0.7500, TNR: 0.3077, G-Mean: 0.4804
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.5600, F1: 0.5600, TPR: 0.6364, TNR: 0.5000, G-Mean: 0.5641
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_adrenalmnist3d_64_tripletL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.4000, F1: 0.3478, TPR: 0.3333, TNR: 0.4615, G-Mean: 0.3922
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.3600, F1: 0.1111, TPR: 0.0833, TNR: 0.6154, G-Mean: 0.2265
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.4400, F1: 0.3636, TPR: 0.3333, TNR: 0.5385, G-Mean: 0.4237
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5200, F1: 0.1429, TPR: 0.0833, TNR: 0.9231, G-Mean: 0.2774
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.5600, F1: 0.2667, TPR: 0.1818, TNR: 0.8571, G-Mean: 0.3948
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_nodulemnist3d_64_ceL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5600, F1: 0.4211, TPR: 0.3333, TNR: 0.7692, G-Mean: 0.5064
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.5600, F1: 0.6207, TPR: 0.7500, TNR: 0.3846, G-Mean: 0.5371
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.6800, F1: 0.7333, TPR: 0.9167, TNR: 0.4615, G-Mean: 0.6504
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.6400, F1: 0.6400, TPR: 0.6667, TNR: 0.6154, G-Mean: 0.6405
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.4000, F1: 0.5455, TPR: 0.8182, TNR: 0.0714, G-Mean: 0.2417
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_nodulemnist3d_64_ceL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5200, F1: 0.5000, TPR: 0.5000, TNR: 0.5385, G-Mean: 0.5189
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.7200, F1: 0.7407, TPR: 0.8333, TNR: 0.6154, G-Mean: 0.7161
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.5200, F1: 0.5000, TPR: 0.5000, TNR: 0.5385, G-Mean: 0.5189
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5200, F1: 0.5000, TPR: 0.5000, TNR: 0.5385, G-Mean: 0.5189
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.3200, F1: 0.2609, TPR: 0.2727, TNR: 0.3571, G-Mean: 0.3121
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_nodulemnist3d_64_ceLcontrastiveL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.4800, F1: 0.5517, TPR: 0.6667, TNR: 0.3077, G-Mean: 0.4529
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4400, F1: 0.3000, TPR: 0.2500, TNR: 0.6154, G-Mean: 0.3922
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.6000, F1: 0.6154, TPR: 0.6667, TNR: 0.5385, G-Mean: 0.5991
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.2800, F1: 0.3571, TPR: 0.4167, TNR: 0.1538, G-Mean: 0.2532
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.5600, F1: 0.6452, TPR: 0.9091, TNR: 0.2857, G-Mean: 0.5096
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_nodulemnist3d_64_ceLcontrastiveL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5600, F1: 0.5600, TPR: 0.5833, TNR: 0.5385, G-Mean: 0.5604
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.5600, F1: 0.5600, TPR: 0.5833, TNR: 0.5385, G-Mean: 0.5604
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.6400, F1: 0.6897, TPR: 0.8333, TNR: 0.4615, G-Mean: 0.6202
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5600, F1: 0.3529, TPR: 0.2500, TNR: 0.8462, G-Mean: 0.4599
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.4800, F1: 0.5517, TPR: 0.7273, TNR: 0.2857, G-Mean: 0.4558
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_nodulemnist3d_64_ceLtripletL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5600, F1: 0.5600, TPR: 0.5833, TNR: 0.5385, G-Mean: 0.5604
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4800, F1: 0.4348, TPR: 0.4167, TNR: 0.5385, G-Mean: 0.4737
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.5600, F1: 0.4211, TPR: 0.3333, TNR: 0.7692, G-Mean: 0.5064
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.6400, F1: 0.5263, TPR: 0.4167, TNR: 0.8462, G-Mean: 0.5938
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.5200, F1: 0.5385, TPR: 0.6364, TNR: 0.4286, G-Mean: 0.5222
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_nodulemnist3d_64_ceLtripletL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5600, F1: 0.4211, TPR: 0.3333, TNR: 0.7692, G-Mean: 0.5064
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.6000, F1: 0.6875, TPR: 0.9167, TNR: 0.3077, G-Mean: 0.5311
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.5200, F1: 0.6000, TPR: 0.7500, TNR: 0.3077, G-Mean: 0.4804
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.4800, F1: 0.5806, TPR: 0.7500, TNR: 0.2308, G-Mean: 0.4160
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.4000, F1: 0.4000, TPR: 0.4545, TNR: 0.3571, G-Mean: 0.4029
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_nodulemnist3d_64_ceLtripletLcontrastiveL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5600, F1: 0.5600, TPR: 0.5833, TNR: 0.5385, G-Mean: 0.5604
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.5200, F1: 0.4000, TPR: 0.3333, TNR: 0.6923, G-Mean: 0.4804
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.5600, F1: 0.6207, TPR: 0.7500, TNR: 0.3846, G-Mean: 0.5371
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5200, F1: 0.4545, TPR: 0.4167, TNR: 0.6154, G-Mean: 0.5064
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.3600, F1: 0.4286, TPR: 0.5455, TNR: 0.2143, G-Mean: 0.3419
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_nodulemnist3d_64_ceLtripletLcontrastiveL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.6800, F1: 0.6364, TPR: 0.5833, TNR: 0.7692, G-Mean: 0.6699
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4400, F1: 0.3636, TPR: 0.3333, TNR: 0.5385, G-Mean: 0.4237
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.5600, F1: 0.6207, TPR: 0.7500, TNR: 0.3846, G-Mean: 0.5371
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5200, F1: 0.4545, TPR: 0.4167, TNR: 0.6154, G-Mean: 0.5064
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.4800, F1: 0.3158, TPR: 0.2727, TNR: 0.6429, G-Mean: 0.4187
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_nodulemnist3d_64_contrastiveL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5200, F1: 0.4545, TPR: 0.4167, TNR: 0.6154, G-Mean: 0.5064
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4800, F1: 0.4348, TPR: 0.4167, TNR: 0.5385, G-Mean: 0.4737
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.4400, F1: 0.4167, TPR: 0.4167, TNR: 0.4615, G-Mean: 0.4385
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.6000, F1: 0.5833, TPR: 0.5833, TNR: 0.6154, G-Mean: 0.5991
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.4800, F1: 0.5806, TPR: 0.8182, TNR: 0.2143, G-Mean: 0.4187
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_nodulemnist3d_64_contrastiveL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.4400, F1: 0.3000, TPR: 0.2500, TNR: 0.6154, G-Mean: 0.3922
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4000, F1: 0.2857, TPR: 0.2500, TNR: 0.5385, G-Mean: 0.3669
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.5200, F1: 0.2500, TPR: 0.1667, TNR: 0.8462, G-Mean: 0.3755
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5200, F1: 0.3333, TPR: 0.2500, TNR: 0.7692, G-Mean: 0.4385
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.6000, F1: 0.4444, TPR: 0.3636, TNR: 0.7857, G-Mean: 0.5345
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_nodulemnist3d_64_tripletL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.3600, F1: 0.3333, TPR: 0.3333, TNR: 0.3846, G-Mean: 0.3581
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.5200, F1: 0.4545, TPR: 0.4167, TNR: 0.6154, G-Mean: 0.5064
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.4400, F1: 0.4167, TPR: 0.4167, TNR: 0.4615, G-Mean: 0.4385
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.4800, F1: 0.5185, TPR: 0.5833, TNR: 0.3846, G-Mean: 0.4737
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.3200, F1: 0.3704, TPR: 0.4545, TNR: 0.2143, G-Mean: 0.3121
+=========================
+
+
+=========================
+ Modelo: best_model_gridsearch_nodulemnist3d_64_tripletLcontrastiveL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5200, F1: 0.6000, TPR: 0.7500, TNR: 0.3077, G-Mean: 0.4804
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.5200, F1: 0.2500, TPR: 0.1667, TNR: 0.8462, G-Mean: 0.3755
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.5600, F1: 0.3529, TPR: 0.2500, TNR: 0.8462, G-Mean: 0.4599
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.4400, F1: 0.3636, TPR: 0.3333, TNR: 0.5385, G-Mean: 0.4237
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.6000, F1: 0.4444, TPR: 0.3636, TNR: 0.7857, G-Mean: 0.5345
+=========================
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_ceL_stop_acc.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_ceL_stop_loss.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_ceLcontrastiveL_stop_acc.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_ceLcontrastiveL_stop_loss.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_ceLtripletL_stop_acc.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_ceLtripletL_stop_loss.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_ceLtripletLcontrastiveL_stop_acc.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_ceLtripletLcontrastiveL_stop_loss.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_contrastiveL_stop_acc.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_contrastiveL_stop_loss.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_tripletL_stop_acc.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_tripletL_stop_loss.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_tripletLcontrastiveL_stop_acc.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_gridsearch_organmnist3d_64_tripletLcontrastiveL_stop_loss.pth ===
+ Tipo desconocido. Saltado.
+
+
+=========================
+ Modelo: best_model_prueba_nodulemnist3d_64_ceLtripletLcontrastiveL.pth
+Tipo detectado: densenet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5600, F1: 0.5926, TPR: 0.6667, TNR: 0.4615, G-Mean: 0.5547
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4800, F1: 0.2353, TPR: 0.1667, TNR: 0.7692, G-Mean: 0.3581
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.7200, F1: 0.7200, TPR: 0.7500, TNR: 0.6923, G-Mean: 0.7206
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.4800, F1: 0.5185, TPR: 0.5833, TNR: 0.3846, G-Mean: 0.4737
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.5600, F1: 0.4211, TPR: 0.3636, TNR: 0.7143, G-Mean: 0.5096
+=========================
+
+
+=========================
+ Modelo: best_model_prueba_nodulemnist3d_64_ceLtripletLcontrastiveL_stop_acc.pth
+Tipo detectado: densenet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5200, F1: 0.4000, TPR: 0.3333, TNR: 0.6923, G-Mean: 0.4804
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.3600, F1: 0.2727, TPR: 0.2500, TNR: 0.4615, G-Mean: 0.3397
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.6000, F1: 0.6667, TPR: 0.8333, TNR: 0.3846, G-Mean: 0.5661
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5600, F1: 0.4211, TPR: 0.3333, TNR: 0.7692, G-Mean: 0.5064
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.4400, F1: 0.5333, TPR: 0.7273, TNR: 0.2143, G-Mean: 0.3948
+=========================
+
+
+=========================
+ Modelo: best_model_prueba_nodulemnist3d_64_ceLtripletLcontrastiveL_stop_loss.pth
+Tipo detectado: densenet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5200, F1: 0.4545, TPR: 0.4167, TNR: 0.6154, G-Mean: 0.5064
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4000, F1: 0.1176, TPR: 0.0833, TNR: 0.6923, G-Mean: 0.2402
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.3600, F1: 0.2000, TPR: 0.1667, TNR: 0.5385, G-Mean: 0.2996
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5600, F1: 0.4211, TPR: 0.3333, TNR: 0.7692, G-Mean: 0.5064
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.2800, F1: 0.3571, TPR: 0.4545, TNR: 0.1429, G-Mean: 0.2548
+=========================
+
+=== Modelo: best_model_prueba_organmnist3d_64.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_prueba_organmnist3d_64_ceL.pth ===
+ Tipo desconocido. Saltado.
+
+=== Modelo: best_model_prueba_organmnist3d_64_ceLtripletLcontrastiveL.pth ===
+ Tipo desconocido. Saltado.
+
+
+=========================
+ Modelo: final_model_gridsearch_adrenalmnist3d_64_ceL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.3200, F1: 0.1905, TPR: 0.1667, TNR: 0.4615, G-Mean: 0.2774
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.5600, F1: 0.4762, TPR: 0.4167, TNR: 0.6923, G-Mean: 0.5371
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.6000, F1: 0.6429, TPR: 0.7500, TNR: 0.4615, G-Mean: 0.5883
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5600, F1: 0.6452, TPR: 0.8333, TNR: 0.3077, G-Mean: 0.5064
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.6000, F1: 0.5455, TPR: 0.5455, TNR: 0.6429, G-Mean: 0.5922
+=========================
+
+
+=========================
+ Modelo: final_model_gridsearch_adrenalmnist3d_64_ceL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5200, F1: 0.5000, TPR: 0.5000, TNR: 0.5385, G-Mean: 0.5189
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.6000, F1: 0.5833, TPR: 0.5833, TNR: 0.6154, G-Mean: 0.5991
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.5600, F1: 0.5926, TPR: 0.6667, TNR: 0.4615, G-Mean: 0.5547
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5600, F1: 0.5926, TPR: 0.6667, TNR: 0.4615, G-Mean: 0.5547
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.8000, F1: 0.7368, TPR: 0.6364, TNR: 0.9286, G-Mean: 0.7687
+=========================
+
+
+=========================
+ Modelo: final_model_gridsearch_adrenalmnist3d_64_ceLcontrastiveL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.4000, F1: 0.3478, TPR: 0.3333, TNR: 0.4615, G-Mean: 0.3922
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.5200, F1: 0.5000, TPR: 0.5000, TNR: 0.5385, G-Mean: 0.5189
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.6000, F1: 0.5000, TPR: 0.4167, TNR: 0.7692, G-Mean: 0.5661
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.4800, F1: 0.2353, TPR: 0.1667, TNR: 0.7692, G-Mean: 0.3581
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.7200, F1: 0.6667, TPR: 0.6364, TNR: 0.7857, G-Mean: 0.7071
+=========================
+
+
+=========================
+ Modelo: final_model_gridsearch_adrenalmnist3d_64_ceLcontrastiveL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.4400, F1: 0.4615, TPR: 0.5000, TNR: 0.3846, G-Mean: 0.4385
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.5600, F1: 0.5217, TPR: 0.5000, TNR: 0.6154, G-Mean: 0.5547
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.6000, F1: 0.6429, TPR: 0.7500, TNR: 0.4615, G-Mean: 0.5883
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.4800, F1: 0.3810, TPR: 0.3333, TNR: 0.6154, G-Mean: 0.4529
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.5600, F1: 0.5217, TPR: 0.5455, TNR: 0.5714, G-Mean: 0.5583
+=========================
+
+
+=========================
+ Modelo: final_model_gridsearch_adrenalmnist3d_64_ceLtripletL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.4800, F1: 0.5185, TPR: 0.5833, TNR: 0.3846, G-Mean: 0.4737
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4400, F1: 0.3000, TPR: 0.2500, TNR: 0.6154, G-Mean: 0.3922
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.5200, F1: 0.4000, TPR: 0.3333, TNR: 0.6923, G-Mean: 0.4804
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5600, F1: 0.4211, TPR: 0.3333, TNR: 0.7692, G-Mean: 0.5064
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.5600, F1: 0.0000, TPR: 0.0000, TNR: 1.0000, G-Mean: 0.0000
+=========================
+
+
+=========================
+ Modelo: final_model_gridsearch_adrenalmnist3d_64_ceLtripletL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5200, F1: 0.5000, TPR: 0.5000, TNR: 0.5385, G-Mean: 0.5189
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.5200, F1: 0.4545, TPR: 0.4167, TNR: 0.6154, G-Mean: 0.5064
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.6000, F1: 0.6429, TPR: 0.7500, TNR: 0.4615, G-Mean: 0.5883
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.4000, F1: 0.5714, TPR: 0.8333, TNR: 0.0000, G-Mean: 0.0000
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.7600, F1: 0.7500, TPR: 0.8182, TNR: 0.7143, G-Mean: 0.7645
+=========================
+
+
+=========================
+ Modelo: final_model_gridsearch_adrenalmnist3d_64_ceLtripletLcontrastiveL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.3600, F1: 0.4286, TPR: 0.5000, TNR: 0.2308, G-Mean: 0.3397
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4800, F1: 0.2353, TPR: 0.1667, TNR: 0.7692, G-Mean: 0.3581
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.5200, F1: 0.5000, TPR: 0.5000, TNR: 0.5385, G-Mean: 0.5189
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.6000, F1: 0.5455, TPR: 0.5000, TNR: 0.6923, G-Mean: 0.5883
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.4000, F1: 0.3478, TPR: 0.3636, TNR: 0.4286, G-Mean: 0.3948
+=========================
+
+
+=========================
+ Modelo: final_model_gridsearch_nodulemnist3d_64_ceL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.6400, F1: 0.5263, TPR: 0.4167, TNR: 0.8462, G-Mean: 0.5938
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.4400, F1: 0.5000, TPR: 0.5833, TNR: 0.3077, G-Mean: 0.4237
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.6400, F1: 0.7097, TPR: 0.9167, TNR: 0.3846, G-Mean: 0.5938
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.6000, F1: 0.6154, TPR: 0.6667, TNR: 0.5385, G-Mean: 0.5991
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.4000, F1: 0.4828, TPR: 0.6364, TNR: 0.2143, G-Mean: 0.3693
+=========================
+
+
+=========================
+ Modelo: final_model_gridsearch_nodulemnist3d_64_ceL_stop_loss.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.4000, F1: 0.3478, TPR: 0.3333, TNR: 0.4615, G-Mean: 0.3922
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.6400, F1: 0.6667, TPR: 0.7500, TNR: 0.5385, G-Mean: 0.6355
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.4800, F1: 0.5517, TPR: 0.6667, TNR: 0.3077, G-Mean: 0.4529
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.5600, F1: 0.4762, TPR: 0.4167, TNR: 0.6923, G-Mean: 0.5371
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.4400, F1: 0.4167, TPR: 0.4545, TNR: 0.4286, G-Mean: 0.4414
+=========================
+
+
+=========================
+ Modelo: final_model_gridsearch_nodulemnist3d_64_ceLcontrastiveL_stop_acc.pth
+Tipo detectado: resnet3d
+BatchSize: 16, LR: 0.001, Epochs: 30
+=========================
+
+----- Fold 1 -----
+
+RESULTADOS FINALES Fold 1:
+Test Acc: 0.5600, F1: 0.5926, TPR: 0.6667, TNR: 0.4615, G-Mean: 0.5547
+=========================
+
+----- Fold 2 -----
+
+RESULTADOS FINALES Fold 2:
+Test Acc: 0.5600, F1: 0.5926, TPR: 0.6667, TNR: 0.4615, G-Mean: 0.5547
+=========================
+
+----- Fold 3 -----
+
+RESULTADOS FINALES Fold 3:
+Test Acc: 0.6000, F1: 0.6429, TPR: 0.7500, TNR: 0.4615, G-Mean: 0.5883
+=========================
+
+----- Fold 4 -----
+
+RESULTADOS FINALES Fold 4:
+Test Acc: 0.3200, F1: 0.4138, TPR: 0.5000, TNR: 0.1538, G-Mean: 0.2774
+=========================
+
+----- Fold 5 -----
+
+RESULTADOS FINALES Fold 5:
+Test Acc: 0.5600, F1: 0.6452, TPR: 0.9091, TNR: 0.2857, G-Mean: 0.5096
+=========================

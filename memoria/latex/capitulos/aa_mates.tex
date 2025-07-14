@@ -1,0 +1,94 @@
+% !TeX root = ../tfg.tex
+% !TeX encoding = utf8
+
+\chapter{Fundamentos matemáticos del aprendizaje automático} \label{chap:aa-mates}
+En este capítulo se abordarán los conceptos fundamentales del aprendizaje automático. Se comenzará por definir formalmente qué significa aprender para un sistema informático y se describirán las principales modalidades de aprendizaje automático, como el aprendizaje supervisado y no supervisado. A partir de estas bases, se introducirán conceptos clave como el problema de clasificación.
+
+
+
+\section{Concepto de Aprendizaje Automático}
+
+El Aprendizaje Automático se encarga de aprender de datos a través de un algoritmo o programa informático. Vamos a definir que se considera como aprender según \cite{mitchell1997machine}: 
+
+\begin{definicion}
+Un programa informático aprende de la experiencia E con respecto a una clase de tareas T y una medida de rendimiento P, si su rendimiento en tareas de T, medido por P, mejora con la experiencia E.
+\end{definicion}
+
+El aprendizaje automático permite abordar tareas que son demasiado complejas para ser resueltas con programas fijos diseñados manualmente por seres humanos. La tarea es el tipo de problema a resolver. Actualmente hay una inmensidad de posibilidades y problemas a resolver (clasificación, regresión, transcripción, traducción, detección de anomalías, imputación de valores faltantes, etc.). La tarea define lo que se espera que el modelo aprenda a hacer. Por ejemplo, puede tratarse de clasificar imágenes médicas según la presencia o ausencia de una enfermedad, predecir el precio de una vivienda o reconocer voz humana. 
+
+La medida de rendimiento (P) es la forma en la que evaluamos cualitativamente la capacidad del modelo en la tarea T. Dependiendo del tipo de tarea es más informativa una u otra medida que nos permite cuantificar si el sistema está mejorando a medida que entrena con más experiencia. Algunas métricas comunes son: precisión (Accuracy) que se utiliza comúnmente para tareas de clasificación, error cuadrático medio (Mean Squared Error, MSE) para tareas de regresión, F-score, precisión, recall ...
+
+Por último, la experiencia (E) son los datos con el que sistema aprende. Constituyen la base a partir de la cual el modelo extrae patrones y lo generaliza. Cuanto más rica y representativa sea la experiencia, mejor podrá el modelo aprender. Los algoritmos de aprendizaje automático se clasifican ampliamente según el tipo de experiencia que se les permite tener durante el proceso de aprendizaje. 
+
+
+
+\section{Tipos de aprendizaje automático}
+El campo de aprendizaje es muy amplio. Por consiguiente, el aprendizaje automático se ha dividido en varios subcampos para estudiar los distintos tipos de tareas de aprendizaje. 
+
+Una taxonomía general en función de la experiencia E es dividir el aprendizaje automático entre aprendizaje supervisado y no supervisado. 
+
+\subsection{Aprendizaje supervisado}
+Este tipo de aprendizaje implica algoritmos que aprenden a asociar alguna entrada con alguna salida, dado un conjunto de entrenamiento de ejemplos que incluyen tanto las entradas ($x$) como sus correspondientes salidas o \textit{etiquetas} ($y$). A continuación determinamos las características de este aprendizaje:
+
+\begin{itemize}
+    \item Datos de entrenamiento: Cada ejemplo en el conjunto de datos está asociado con una etiqueta. 
+    \item Objetivo: El objetivo principal es predecir y a partir de $x$, lo que generalmente se logra estimando la distribución de probabilidad condicional $p(y|x)$.
+    \item Tareas comunes: Tradicionalmente, se consideran tareas de aprendizaje supervisado la regresión (predecir un valor numérico), la clasificación (predecir una categoría) y los problemas de salida estructurada (predecir una secuencia o estructura más compleja). Un ejemplo de regresión es predecir un valor y a partir de x usando una función lineal, como en la regresión lineal.
+    \item Modelos probabilísticos: Muchos algoritmos de aprendizaje supervisado se basan en estimar $p(y|x)$ utilizando la estimación de máxima verosimilitud para encontrar el mejor vector de parámetros $\theta$ para una familia paramétrica de distribuciones.
+\end{itemize}
+
+
+Vamos a formalizar el enfoque siguiendo a \cite{shalev2014understanding}, explicando los elementos de un algoritmo de aprendizaje supervisado. Como entrada del algoritmo se definen los siguientes componentes:
+
+\begin{itemize}
+    \item \textbf{Conjunto de dominio} $\mathcal{X}$: es un conjunto arbitrario de objetos (también llamados \emph{instancias}) que se desea etiquetar denominado como $\mathcal{X}$. Los elementos de $\mathcal{X}$ se representan mediante vectores de características.
+    
+    \item \textbf{Conjunto de etiquetas} $\mathcal{Y}$: es otro conjunto arbitrario, esta vez finito de posibles etiquetas. 
+    
+    \item \textbf{Conjunto de los datos de entrenamiento} $S = \{(x_1, y_1), \ldots, (x_m, y_m)\} \subseteq \mathcal{X} \times \mathcal{Y}$: secuencia finita de pares instancia-etiqueta. Este es el conjunto de datos etiquetados que se proporciona al algoritmo.
+\end{itemize}
+
+El objetivo del aprendizaje es generar una \textit{regla de predicción} o \emph{hipótesis} $h: \mathcal{X} \to \mathcal{Y}$ que, dada una nueva instancia $x \in \mathcal{X}$, sea capaz de predecir correctamente su etiqueta. 
+
+Para modelar el problema se asume que los datos $(x_i, y_i)$ están generados siguiendo una determinada distribución de probabilidad $D$ sobre $\mathcal{X}$ y una función de etiquetado desconocida $f: \mathcal{X} \to \mathcal{Y}$, tal que $y_i = f(x_i)$.
+
+
+El rendimiento del clasificador $h$ se mide mediante su \textit{error de generalización} respecto a $D$ y $f$, definido como:
+
+\begin{equation}
+L_{D, f}(h) \overset{\text{def}}{=} \mathbb{P}_{x \sim D} \left[ h(x) \neq f(x) \right]
+\end{equation}
+
+Este valor representa la probabilidad de que $h$ cometa un error al predecir la etiqueta de una instancia $x$ tomada al azar según $D$.
+
+El objetivo del aprendizaje es minimizar esta cantidad, es decir, encontrar una función $h$ que generalice bien sobre datos no vistos.
+
+
+\subsection{Aprendizaje no supervisado} 
+Los algoritmos de aprendizaje no supervisado son aquellos que solo reciben \emph{características} (x) pero no una señal de supervisión o etiquetas. Las características principales son: 
+
+\begin{itemize}
+    \item \textbf{Datos de entrenamiento}: Solo se observan ejemplos de un vector aleatorio $x$, sin etiquetas asociadas.
+    \item \textbf{Objetivo}: Intentar aprender implícita o explícitamente la distribución de probabilidad $p(x)$ o algunas propiedades interesantes de esa distribución. El objetivo clásico es encontrar la \emph{mejor} representación de los datos, lo que implica preservar la mayor cantidad de información posible sobre $x$ mientras se mantienen propiedades deseables como menor dimensionalidad, escasez o independencia en la representación.
+    \item \textbf{Tareas comunes}: Estimación de densidad (modelar la distribución de los datos), aprender a extraer muestras de una distribución, quitar ruido de datos (denoising), encontrar una variedad (manifold) cercana a la que se encuentran los datos, o agrupar los datos en clusters de ejemplos relacionados.
+\end{itemize}
+
+Además del aprendizaje no supervisado clásico, existen otras variantes del paradigma en distintos contextos. Por ejemplo, el aprendizaje semisupervisado combina datos etiquetados y no etiquetados para mejorar la generalización cuando las etiquetas son escasas o costosas de obtener. El aprendizaje multiinstancia permite entrenar modelos cuando las etiquetas no están disponibles para instancias individuales, sino para conjuntos o bolsas de instancias, siendo útil en dominios como la histopatología o la visión por computador. Las reglas de decisión son estrategias formales para definir cómo un modelo toma decisiones basadas en los datos, estableciendo criterios claros y sistemáticos que facilitan la interpretación y la implementación de los resultados del aprendizaje. Por último, el aprendizaje por refuerzo consiste en entrenar un agente que aprende a tomar decisiones secuenciales a través de la interacción con un entorno, optimizando una señal de recompensa acumulada en el tiempo, y se utiliza en aplicaciones que van desde robótica hasta videojuegos o sistemas de recomendación.
+
+\section{Problema de clasificación}
+El problema de clasificación consiste en aprender una función (clasificador) que asigne a cada dato en el dominio $\mathcal{X}$ una clase de entre un conjunto finito de clases, que conforman $\mathcal{Y}$. El problema de clasificación más común es el binario, donde el conjunto $\mathcal{Y}$ tiene solo dos elementos. Se suele representar en estos casos $\mathcal{Y} = \{-1,1\}$ o $\mathcal{Y} = \{0,1\}$. La clasificación binaria es de gran importancia, pues cualquier otro problema de clasificación puede reducirse a subproblemas de clasificación binaria. Muchos algoritmos de clasificación trabajan, por tanto, con problemas binarios, y reducen los problemas con más clases a subproblemas de este tipo. Los problemas de clasificación con más de dos clases se conocen como multiclase. 
+
+Los problemas de clasificación tienen gran cantidad de aplicaciones en ámbitos muy variados, como por ejemplo, la detección de enfermedades, el reconocimiento de imágenes o sonidos, la detección de correos de spam, el desarrollo de motores de búsqueda en Internet, la taxonomía dentro de la biología o la clasificación de documentos.
+
+
+
+
+
+
+
+
+
+\endinput
+%--------------------------------------------------------------------
+% FIN DEL CAPÍTULO. 
+%--------------------------------------------------------------------

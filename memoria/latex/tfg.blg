@@ -1,0 +1,28 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is 'tfg.blg'
+[42] biber:340> INFO - === lun jul 14, 2025, 23:11:20
+[51] Biber.pm:419> INFO - Reading 'tfg.bcf'
+[99] Biber.pm:979> INFO - Found 71 citekeys in bib section 0
+[110] Biber.pm:4419> INFO - Processing section 0
+[116] Biber.pm:4610> INFO - Looking for bibtex file 'library.bib' for section 0
+[118] bibtex.pm:1713> INFO - LaTeX decoding ...
+[157] bibtex.pm:1519> INFO - Found BibTeX data source 'library.bib'
+[547] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[547] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[547] Biber.pm:4239> INFO - Sorting list 'apa/apasortcite//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[640] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[640] UCollate.pm:68> INFO - Overriding locale 'es-ES' defaults 'variable = shifted' with 'variable = non-ignorable'
+[640] Biber.pm:4239> INFO - Sorting list 'apa/global//global/global' of type 'entry' with template 'apa' and locale 'es-ES'
+[701] bbl.pm:660> INFO - Writing 'tfg.bbl' with encoding 'UTF-8'
+[752] bbl.pm:763> INFO - Output to tfg.bbl
+[752] Biber.pm:131> WARN - Duplicate entry key: 'mckinney-proc-scipy-2010' in file 'library.bib', skipping ...
+[752] Biber.pm:131> WARN - legacy year field 's.f.' in entry 'aepdAnonimizacion' is not an integer - this will probably not sort properly.
+[752] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_gzGx/7f56027f9015dc497dc7645faffbdd71_1005518.utf8, line 494, warning: 11 characters of junk seen at toplevel
+[752] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_gzGx/7f56027f9015dc497dc7645faffbdd71_1005518.utf8, line 506, warning: 29 characters of junk seen at toplevel
+[752] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_gzGx/7f56027f9015dc497dc7645faffbdd71_1005518.utf8, line 517, warning: 9 characters of junk seen at toplevel
+[752] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_gzGx/7f56027f9015dc497dc7645faffbdd71_1005518.utf8, line 528, warning: 11 characters of junk seen at toplevel
+[752] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_gzGx/7f56027f9015dc497dc7645faffbdd71_1005518.utf8, line 539, warning: 20 characters of junk seen at toplevel
+[752] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_gzGx/7f56027f9015dc497dc7645faffbdd71_1005518.utf8, line 550, warning: 11 characters of junk seen at toplevel
+[752] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_gzGx/7f56027f9015dc497dc7645faffbdd71_1005518.utf8, line 691, warning: 14 characters of junk seen at toplevel
+[752] Biber.pm:131> WARN - BibTeX subsystem: /tmp/biber_tmp_gzGx/7f56027f9015dc497dc7645faffbdd71_1005518.utf8, line 700, warning: 12 characters of junk seen at toplevel
+[752] Biber.pm:133> INFO - WARNINGS: 10

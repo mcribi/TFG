@@ -1,0 +1,43 @@
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\babel@toc {english}{}\relax 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\babel@toc {spanish}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {1.1}{\ignorespaces Principales características de primer orden.}}{19}{table.caption.37}%
+\contentsline {table}{\numberline {1.2}{\ignorespaces Características extraídas de la matriz de co-ocurrencia de niveles de gris (GLCM). $(\mu _i, \sigma _i)$ y $(\mu _j, \sigma _j)$ son la media y la varianza de las filas o columnas de la matriz $C$ de GLCM.}}{21}{table.caption.38}%
+\contentsline {table}{\numberline {1.3}{\ignorespaces Características locales extraídas de la matriz de longitudes de recorrido de niveles de gris (GLRLM). $N_r$ es el número total de pasadas homogéneas, $G$ es el número total de niveles de gris, $N$ es el tamaño máximo de recorridos homogéneos y $R$ es la matriz de GLRLM.}}{22}{table.caption.39}%
+\contentsline {table}{\numberline {1.4}{\ignorespaces Características extraídas de la matriz de zonas de tamaño de niveles de gris (GLSZM). $N_z$ es el número total de zonas homogéneas, $G$ es el número total de niveles de gris, $N$ es el tamaño máximo de zonas homogéneas y $Z$ es la matriz de GLSZM.}}{23}{table.caption.40}%
+\contentsline {table}{\numberline {1.5}{\ignorespaces Características extraídas de la matriz de diferencia de niveles de gris (GLDM). $E$ es el número total de vóxeles en el VOI, $G$ es el número total de niveles de gris y $N$ es la matriz de GLDM.}}{24}{table.caption.41}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces Presupuesto destinado a recursos humanos.}}{74}{table.caption.56}%
+\contentsline {table}{\numberline {6.2}{\ignorespaces Presupuesto destinado a capacidad de cómputo.}}{75}{table.caption.57}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {8.1}{\ignorespaces Arquitectura ResNet 3D. Los bloques residuales se muestran entre paréntesis. Cada capa convolucional va seguida de normalización por lotes y ReLU. El muestreo descendente se realiza mediante conv3\_1, conv4\_1, conv5\_1 con un paso de 2. La dimensión de la última capa totalmente conectada se establece para el conjunto de datos Kinetics (400 categorías) \blx@tocontentsinit {0}\parencite {hara2017learning}.}}{94}{table.caption.70}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {9.1}{\ignorespaces Reducción de dimensionalidad para los conjuntos con características originales y extendidas obtenidas a partir del dataset de tamaño $128\times 256 \times 256$ sin aplicar ventanas Hounsfield.}}{106}{table.caption.77}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {10.1}{\ignorespaces Resultados medios con DenseNet121 en test y validación con validación cruzada con k=5. Ordenados por G-Mean.}}{117}{table.caption.78}%
+\contentsline {table}{\numberline {10.2}{\ignorespaces Resultados con DenseNet121 medios en test y validación del modelo híbrido (datos y volúmenes) para cada configuración ordenados por G-Mean.}}{119}{table.caption.82}%
+\contentsline {table}{\numberline {10.3}{\ignorespaces Resultados en test para configuraciones con fine-tuning, validación cruzada con k=5 y distintas funciones de pérdida ordenados por G-Mean.}}{120}{table.caption.83}%
+\contentsline {table}{\numberline {10.4}{\ignorespaces Resultados medios solo con los datos clínicos en test para KNN (5-fold Cross-Validation) ordenados por G-Mean.}}{121}{table.caption.84}%
+\contentsline {table}{\numberline {10.5}{\ignorespaces Resultados medios solo con los datos clínicos en test para Random Forest (5-fold Cross-Validation) ordenados por G-Mean.}}{121}{table.caption.85}%
+\contentsline {table}{\numberline {10.6}{\ignorespaces Resultados medios solo con los datos clínicos en test para LightGBM (5-fold Cross-Validation) ordenados por G-Mean.}}{121}{table.caption.86}%
+\contentsline {table}{\numberline {10.7}{\ignorespaces Resultados medios solo con los datos clínicos en test para XGBoost (5-fold Cross-Validation) ordenados por G-Mean.}}{121}{table.caption.87}%
+\contentsline {table}{\numberline {10.8}{\ignorespaces Resultados medios en test de radiómica sin datos clínicos y sin DML para distintos modelos con 5-fold Cross-Validation ordenados por G-Mean. Todas las características son extendidas.}}{122}{table.caption.88}%
+\contentsline {table}{\numberline {10.9}{\ignorespaces Resultados medios en test de radiómica con datos clínicos y sin DML para distintos modelos con 5-fold Cross-Validation ordenados por G-Mean.}}{123}{table.caption.89}%
+\contentsline {table}{\numberline {10.10}{\ignorespaces Resultados medios en test de radiómica sin datos clínicos y con DML para KNN con 5-fold Cross-Validation ordenados por G-Mean. Todas las características son extendidas.}}{124}{table.caption.90}%
+\contentsline {table}{\numberline {10.11}{\ignorespaces Resultados medios en test de radiómica con datos clínicos y con DML para KNN con 5-fold Cross-Validation ordenados por G-Mean. Todas las características son extendidas.}}{125}{table.caption.91}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
