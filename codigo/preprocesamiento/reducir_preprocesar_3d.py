@@ -5,7 +5,7 @@ import scipy.ndimage
 from tqdm import tqdm
 from pydicom import dcmread
 
-# Parámetros
+# parametros
 DICOM_ROOT = "./datos_anonimizados"
 OUTPUT_DIR = "./volumenes_preprocesados_3d_reducidos"
 HU_MIN = -1000
@@ -25,7 +25,7 @@ def convert_to_hu(dicom_slice):
     image += intercept
 
     image = np.clip(image, HU_MIN, HU_MAX)
-    image = (image - HU_MIN) / (HU_MAX - HU_MIN)  # Normalización
+    image = (image - HU_MIN) / (HU_MAX - HU_MIN)  # normalizamos hu
 
     return image
 
@@ -60,7 +60,7 @@ def preprocess_dicom_volumes(dicom_root, output_dir):
                 continue
 
         if not dicom_files:
-            print(f"❌ No se encontraron archivos DICOM en {patient_id}. Se omite.")
+            print(f" No se encontraron archivos DICOM en {patient_id}. Se omite.")
             continue
 
         try:
@@ -71,10 +71,10 @@ def preprocess_dicom_volumes(dicom_root, output_dir):
 
             save_path = os.path.join(output_dir, f"{patient_id}.npy")
             np.save(save_path, volume)
-            print(f"✅ Guardado: {save_path} | Shape: {volume.shape}")
+            print(f" Guardado: {save_path} | Shape: {volume.shape}")
         except Exception as e:
-            print(f"❌ Error procesando {patient_id}: {e}")
+            print(f" Error procesando {patient_id}: {e}")
 
-# Ejecutar
+# main
 if __name__ == "__main__":
     preprocess_dicom_volumes(DICOM_ROOT, OUTPUT_DIR)

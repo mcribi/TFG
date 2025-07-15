@@ -11,18 +11,18 @@ def convertir_dicom_a_nifti(dicom_root, output_dir):
             continue
 
         try:
-            print(f"🔄 Procesando {paciente}...")
+            print(f" Procesando {paciente}...")
             output_path = os.path.join(output_dir, f"{paciente}.nii.gz")
             dicom2nifti.convert_dicom.dicom_series_to_nifti(
                 paciente_dir,
                 output_path
             )
-            print(f"✅ Guardado: {output_path}")
+            print(f" Guardado: {output_path}")
         except Exception as e:
-            print(f"❌ Error con {paciente}: {e}")
+            print(f" Error con {paciente}: {e}")
 
-# USO
-dicom_root = "./datosprueba/casosradiomica/nuevos1julio/"               # Carpeta con subcarpetas por paciente preprocesados
-output_dir = "./nifti_convertidos_anonimizados/1julio"   # Carpeta de salida para los .nii.gz
+#uso
+dicom_root = "./datosprueba/casosradiomica/nuevos1julio/" # carpeta con subcarpetas por paciente preprocesados
+output_dir = "./nifti_convertidos_anonimizados/1julio"   #carpeta de salida para los .nii.gz
 
 convertir_dicom_a_nifti(dicom_root, output_dir)

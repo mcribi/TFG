@@ -3,22 +3,20 @@ dataset_generico/
 datos_clinicos/
 gradcam/
 modelos_con_pesos/
-__pycache__/
 segmentacion/
 volumenes/
 
+.gitignore/
 
-codigo/modelo3D/gradcam/
-codigo/modelo3D/modelos_pesos/
-codigo/modelo3D/shap_slices_output/
-codigo/modelo3D/__pycache__/
-codigo/modelo3D/slurm_outputs/
+codigo/modelos/shap_slices_output/
+codigo/modelos/shap_explanation_downsampled.png
 
-codigo/preentrenamiento/modelos_pesos/
-codigo/preentrenamiento/slurm_outputs/
-
+**/__pycache__/
+**/gradcam/
+**/modelos_pesos/
 **/slurm_outputs/
 *.sh
-**/modelos_pesos/
+*.json
+
 
 

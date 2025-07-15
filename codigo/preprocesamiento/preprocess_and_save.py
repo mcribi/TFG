@@ -23,17 +23,17 @@ def save_nifti(output_path, array, affine=np.eye(4)):
 
 def run_preprocessing_configs(image_dir, mask_dir, output_base_dir, configs_dict):
     for config_name, config in configs_dict.items():
-        print(f"\n🚀 Procesando configuración: {config_name}")
+        print(f"\n Procesando configuración: {config_name}")
         base_output_dir = os.path.join(output_base_dir, config_name)
 
-        # Validar formatos
+        # validamos formatos
         save_formats = config.get("save_format", ["npy"])
         if isinstance(save_formats, str):
             save_formats = [save_formats]
         for fmt in save_formats:
-            assert fmt in ["npy", "nifti"], f"❌ Formato no soportado: {fmt}"
+            assert fmt in ["npy", "nifti"], f" Formato no soportado: {fmt}"
 
-        # Dataset
+        # datasets
         dataset = LungCTWithMaskDataset(
             image_dir=image_dir,
             mask_dir=mask_dir,
@@ -73,7 +73,7 @@ def run_preprocessing_configs(image_dir, mask_dir, output_base_dir, configs_dict
                     save_to_all_formats(combined, "combined", fname)
 
             except Exception as e:
-                print(f"⚠️ Error procesando {dataset.files[i]}:")
+                print(f" Error procesando {dataset.files[i]}:")
                 traceback.print_exc()
 
 
@@ -82,7 +82,7 @@ transforms_small = Compose([
     DebugShaped(keys=["image", "mask"], name="EnsureChannelFirstd"),
     EnsureChannelFirstd(keys=["image", "mask"]),
     DebugShaped(keys=["image", "mask"], name="TransposeD"),
-    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)),    # [1, D, H, W]
+    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)), # [1, D, H, W]
     DebugShaped(keys=["image", "mask"], name="ResizeD"),
     ResizeD(keys=["image", "mask"], spatial_size=(128, 256, 256), mode="trilinear", align_corners=True),
     DebugShaped(keys=["image", "mask"], name="ToTensord"),
@@ -94,7 +94,7 @@ transforms_small_hu_m600_1500 = Compose([
     DebugShaped(keys=["image", "mask"], name="EnsureChannelFirstd"),
     EnsureChannelFirstd(keys=["image", "mask"]),
     DebugShaped(keys=["image", "mask"], name="TransposeD"),
-    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)),    # [1, D, H, W]
+    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)), # [1, D, H, W]
     DebugShaped(keys=["image", "mask"], name="ResizeD"),
     ResizeD(keys=["image", "mask"], spatial_size=(128, 256, 256), mode="trilinear", align_corners=True),
     DebugShaped(keys=["image", "mask"], name="Windowingd"),
@@ -108,7 +108,7 @@ transforms_small_hu_m300_1400 = Compose([
     DebugShaped(keys=["image", "mask"], name="EnsureChannelFirstd"),
     EnsureChannelFirstd(keys=["image", "mask"]),
     DebugShaped(keys=["image", "mask"], name="TransposeD"),
-    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)),    # [1, D, H, W]
+    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)), #[1, D, H, W]
     DebugShaped(keys=["image", "mask"], name="ResizeD"),
     ResizeD(keys=["image", "mask"], spatial_size=(128, 256, 256), mode="trilinear", align_corners=True),
     DebugShaped(keys=["image", "mask"], name="Windowingd"),
@@ -122,13 +122,13 @@ transforms_small_multiwindowing = Compose([
     DebugShaped(keys=["image", "mask"], name="EnsureChannelFirstd"),
     EnsureChannelFirstd(keys=["image", "mask"]),
     DebugShaped(keys=["image", "mask"], name="TransposeD"),
-    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)),    # [1, D, H, W]
+    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)), # [1, D, H, W]
     DebugShaped(keys=["image", "mask"], name="ResizeD"),
     ResizeD(keys=["image", "mask"], spatial_size=(128, 256, 256), mode="trilinear", align_corners=True),
     DebugShaped(keys=["image", "mask"], name="Multiwindowingd"),
     MultiWindowingd(
         keys=["image"],
-        windows=[(-600, 1500), (40, 400), (-160, 600)]  # Pulmón, mediastino, consolidación
+        windows=[(-600, 1500), (40, 400), (-160, 600)]  #pulmon, mediastino, consolidacion
     ),
     DebugShaped(keys=["image", "mask"], name="ToTensord"),
     ToTensord(keys=["image", "mask"])
@@ -139,7 +139,7 @@ transforms_medium = Compose([
     DebugShaped(keys=["image", "mask"], name="EnsureChannelFirstd"),
     EnsureChannelFirstd(keys=["image", "mask"]),
     DebugShaped(keys=["image", "mask"], name="TransposeD"),
-    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)),    # [1, D, H, W]
+    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)), # [1, D, H, W]
     DebugShaped(keys=["image", "mask"], name="ResizeD"),
     ResizeD(keys=["image", "mask"], spatial_size=(256, 512, 512), mode="trilinear", align_corners=True),
     DebugShaped(keys=["image", "mask"], name="ToTensord"),
@@ -151,7 +151,7 @@ transforms_medium_hu_m600_1500 = Compose([
     DebugShaped(keys=["image", "mask"], name="EnsureChannelFirstd"),
     EnsureChannelFirstd(keys=["image", "mask"]),
     DebugShaped(keys=["image", "mask"], name="TransposeD"),
-    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)),    # [1, D, H, W]
+    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)),# [1, D, H, W]
     DebugShaped(keys=["image", "mask"], name="ResizeD"),
     ResizeD(keys=["image", "mask"], spatial_size=(256, 512, 512), mode="trilinear", align_corners=True),
     DebugShaped(keys=["image", "mask"], name="Windowingd"),
@@ -165,7 +165,7 @@ transforms_medium_hu_m300_1400 = Compose([
     DebugShaped(keys=["image", "mask"], name="EnsureChannelFirstd"),
     EnsureChannelFirstd(keys=["image", "mask"]),
     DebugShaped(keys=["image", "mask"], name="TransposeD"),
-    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)),    # [1, D, H, W]
+    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)),# [1, D, H, W]
     DebugShaped(keys=["image", "mask"], name="ResizeD"),
     ResizeD(keys=["image", "mask"], spatial_size=(256, 512, 512), mode="trilinear", align_corners=True),
     DebugShaped(keys=["image", "mask"], name="Windowingd"),
@@ -179,13 +179,13 @@ transforms_medium_multiwindowing = Compose([
     DebugShaped(keys=["image", "mask"], name="EnsureChannelFirstd"),
     EnsureChannelFirstd(keys=["image", "mask"]),
     DebugShaped(keys=["image", "mask"], name="TransposeD"),
-    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)),    # [1, D, H, W]
+    TransposeD(keys=["image", "mask"], indices=(0, 3, 1, 2)),# [1, D, H, W]
     DebugShaped(keys=["image", "mask"], name="ResizeD"),
     ResizeD(keys=["image", "mask"], spatial_size=(256, 512, 512), mode="trilinear", align_corners=True),
     DebugShaped(keys=["image", "mask"], name="Multiwindowingd"),
     MultiWindowingd(
         keys=["image"],
-        windows=[(-600, 1500), (40, 400), (-160, 600)]  # Pulmón, mediastino, consolidación
+        windows=[(-600, 1500), (40, 400), (-160, 600)] #pulmon, mediastino, consolidacion
     ),
     DebugShaped(keys=["image", "mask"], name="ToTensord"),
     ToTensord(keys=["image", "mask"])

@@ -11,19 +11,18 @@ def clean_dirs():
         shutil.rmtree(PARTITIONS_DIR)
 
 def count_files_recursively(folder):
-    print(f"🔎 Explorando: {folder}")
+    print(f" Explorando: {folder}")
     total = 0
-    for root, _, files in os.walk(folder, followlinks=True):  # 👈 followlinks añadido
+    for root, _, files in os.walk(folder, followlinks=True): 
         for f in files:
             if f.endswith(".nii.gz"):
-                # print(f"✅ Encontrado: {os.path.join(root, f)}")
                 total += 1
     return total
 
 
 def run_tests():
     total_original = len([f for f in os.listdir(NIFTI_DIR) if f.endswith('.nii.gz')])
-    print(f"📂 Total archivos originales: {total_original}")
+    print(f"Total archivos originales: {total_original}")
 
     test_cases = [
         {
@@ -54,7 +53,7 @@ def run_tests():
 
     for case in test_cases:
         for strat_keys in stratify_combinations:
-            print(f"\n🧪 Testing: {case['split_type']} with stratify_keys = {strat_keys}")
+            print(f"\n Testing: {case['split_type']} with stratify_keys = {strat_keys}")
             try:
                 output = create_partitions(
                     nifti_dir=NIFTI_DIR,
@@ -66,21 +65,20 @@ def run_tests():
                     **case['kwargs']
                 )
 
-                # Contar archivos generados en esta partición
+                # contamos los archivos generados en esta particion
                 print(output)
                 count = count_files_recursively(output)
                 expected_total += count
-                print(f"   Archivos generados: {count}")
+                print(f"Archivos generados: {count}")
 
             except ValueError as e:
-                print(f"⚠️ Error: {e}")
+                print(f" Error: {e}")
 
     actual_total = count_files_recursively(PARTITIONS_DIR)
-    print(f"\n📊 Total archivos realmente generados: {actual_total}")
-    print(f"📊 Total archivos esperados (sumados por split): {expected_total}")
+    print(f"\n Total archivos realmente generados: {actual_total}")
+    print(f" Total archivos esperados (sumados por split): {expected_total}")
 
-    assert actual_total == expected_total, "❌ Número de archivos final no coincide con suma parcial"
-    print("✅ Test de integridad PASADO")
+    assert actual_total == expected_total, " Número de archivos final no coincide con suma parcial"
 
 if __name__ == "__main__":
     clean_dirs()

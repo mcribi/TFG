@@ -1,0 +1,25 @@
+79030: resultados_param_final:
+ set  accuracy       f1      tpr      tnr    gmean  batch_size  learning_rate  weight_decay  dropout_prob                      preprocessed_dir
+TEST     0.680 0.686983 0.746970 0.618681 0.674282          16          0.001       0.00000           0.4    resize_mini_hu_m300_1400_separadas
+VALIDATION     0.670 0.687185 0.784444 0.576364 0.664565          16          0.001       0.00000           0.4 resize_smaller_hu_m600_1500_separadas
+
+79034:resultados_param_k5_final_now (small)
+ set  accuracy       f1      tpr      tnr    gmean  batch_size  learning_rate  weight_decay  dropout_prob                      preprocessed_dir
+TEST     0.600 0.640572 0.760606 0.451648 0.571545           4         0.0010             0           0.4 resize_small_hu_m600_1500_separadas
+VALIDATION     0.670 0.669497 0.720000 0.634545 0.668022           4         0.0010             0           0.4 resize_small_hu_m600_1500_separadas
+
+79031 (10fold):
+ set  accuracy       f1      tpr      tnr    gmean  batch_size  learning_rate  weight_decay  dropout_prob                      preprocessed_dir
+VALIDATION  0.660870 0.662581 0.700000 0.625000 0.655665           4          0.001       0.00000           0.3 resize_smaller_hu_m300_1400_separadas
+TEST  0.682051 0.652598 0.643333 0.709524 0.654854           4          0.001       0.00000           0.3 resize_smaller_hu_m300_1400_separadas
+
+
+
+solomini: 
+VALIDATION     0.660 0.626185 0.633333 0.685455 0.655441          16          0.001             0           0.3 resize_mini_hu_m300_1400_separadas
+ TEST     0.680 0.713172 0.830303 0.541758 0.666293          16          0.001             0           0.3 resize_mini_hu_m300_1400_separadas
+ 
+ 
+solo mini con semilla 9: 
+TEST     0.696 0.679527 0.678788 0.708791 0.691183           4          0.001             0           0.3 resize_mini_hu_m300_1400_separadas
+VALIDATION     0.720 0.697030 0.720000 0.721818 0.714943           4          0.001             0           0.3 resize_mini_hu_m300_1400_separadas

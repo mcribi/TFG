@@ -7,311 +7,6 @@ import numpy as np
 import nibabel as nib
 from torch.utils.data import Dataset
 
-class CustomDataset(torch.utils.data.Dataset):
-    def __init__(self, root, transforms):
-        self.root = root
-        self.transforms = transforms
-        self.imgs = list(sorted(os.listdir(os.path.join(root, "images"))))
-        self.annos = list(sorted(os.listdir(os.path.join(root, "annotations"))))
-
-    def __getitem__(self, idx):
-        img_path = os.path.join(self.root, "images", self.imgs[idx])
-        anno_path = os.path.join(self.root, "annotations", self.annos[idx])
-
-        img = Image.open(img_path).convert("RGB")
-        with open(anno_path) as f:
-            anno = json.load(f)
-
-        boxes = torch.as_tensor(anno["boxes"], dtype=torch.float32)
-        labels = torch.as_tensor(anno["labels"], dtype=torch.int64)
-        image_id = torch.tensor([idx])
-        area = (boxes[:, 3] - boxes[:, 1]) * (boxes[:, 2] - boxes[:, 0])
-        iscrowd = torch.zeros((len(boxes),), dtype=torch.int64)
-
-        target = {
-            "boxes": boxes,
-            "labels": labels,
-            "image_id": image_id,
-            "area": area,
-            "iscrowd": iscrowd,
-        }
-
-        if self.transforms:
-            img = self.transforms(img)
-
-        return img, target
-
-    def __len__(self):
-        return len(self.imgs)
-
-
-class VOCDatasetV1(torch.utils.data.Dataset):
-    def __init__(self, root, transforms=None, classes=None):
-        """
-        Args:
-            root (str): Root directory of the dataset.
-                        Expected structure:
-                        root/
-                        ├── images/
-                        └── annotations/
-            transforms (callable, optional): A function/transform to apply to the images.
-            classes (list, optional): List of class names in the dataset.
-                                      The first class must be "__background__".
-                                      Example: ["__background__", "fronton", "fronton-curvo", ...]
-        """
-        self.root = root
-        self.transforms = transforms
-        self.classes = classes
-        self.class_to_idx = {c: i for i, c in enumerate(self.classes)}
-        self.imgs = list(sorted(os.listdir(os.path.join(root, "images"))))
-        self.annos = list(sorted(os.listdir(os.path.join(root, "annotations"))))
-
-    def parse_xml(self, file_path):
-        tree = ET.parse(file_path)
-        root = tree.getroot()
-        boxes = []
-        labels = []
-
-        for obj in root.findall("object"):
-            label = obj.find("name").text
-            if label not in self.class_to_idx:
-                continue  # Skip unknown labels
-            labels.append(self.class_to_idx[label])
-
-            bndbox = obj.find("bndbox")
-            xmin = int(bndbox.find("xmin").text)
-            ymin = int(bndbox.find("ymin").text)
-            xmax = int(bndbox.find("xmax").text)
-            ymax = int(bndbox.find("ymax").text)
-            boxes.append([xmin, ymin, xmax, ymax])
-
-        return torch.tensor(boxes, dtype=torch.float32), torch.tensor(labels, dtype=torch.int64)
-
-    def __getitem__(self, idx):
-        # Load image
-        img_path = os.path.join(self.root, "images", self.imgs[idx])
-        img = Image.open(img_path).convert("RGB")
-
-        # Load annotations
-        anno_path = os.path.join(self.root, "annotations", self.annos[idx])
-        boxes, labels = self.parse_xml(anno_path)
-
-        # Build the target dictionary
-        target = {
-            "boxes": boxes,
-            "labels": labels,
-            "image_id": torch.tensor([idx]),
-            "area": (boxes[:, 2] - boxes[:, 0]) * (boxes[:, 3] - boxes[:, 1]),
-            "iscrowd": torch.zeros((len(boxes),), dtype=torch.int64),
-        }
-
-        # Apply transforms
-        if self.transforms:
-            img = self.transforms(img)
-
-        return img, target
-
-    def __len__(self):
-        return len(self.imgs)
-
-
-KEY_ELEMENTS_MONUMAI = [
-    "__background__",
-    'fronton-partido',
-    'vano-adintelado',
-    'fronton',
-    'arco-medio-punto',
-    'columna-salomonica',
-    'ojo-de-buey',
-    'fronton-curvo',
-    'serliana',
-    'arco-apuntado',
-    'pinaculo-gotico',
-    'arco-conopial',
-    'arco-trilobulado',
-    'arco-herradura',
-    'dintel-adovelado',
-    'arco-lobulado'
-]
-
-class VOCDataset(torch.utils.data.Dataset):
-    def __init__(self, root, transforms=None, classes=KEY_ELEMENTS_MONUMAI):
-        """
-        Args:
-            root (str): Root directory of the dataset.
-                        Expected structure:
-                        root/
-                        ├── images/
-                        └── annotations/
-            transforms (callable, optional): A function/transform to apply to the images.
-            classes (list, optional): List of class names in the dataset.
-                                      The first class must be "__background__".
-                                      Example: ["__background__", "fronton", "fronton-curvo", ...]
-        """
-        self.root = root
-        self.transforms = transforms
-        self.classes = classes
-        self.class_to_idx = {c: i for i, c in enumerate(self.classes)}
-
-        # Ensure sorted order for consistency
-        self.imgs = sorted(f for f in os.listdir(os.path.join(root, "images")) if f.endswith(".jpg"))
-        self.annos = sorted(f for f in os.listdir(os.path.join(root, "annotations")) if f.endswith(".xml"))
-
-        # Check that images and annotations match
-        assert len(self.imgs) == len(self.annos), "Mismatch between images and annotations."
-        for img, anno in zip(self.imgs, self.annos):
-            assert os.path.splitext(img)[0] == os.path.splitext(anno)[0], "Image and annotation file names do not match."
-
-    def parse_xml(self, file_path):
-        tree = ET.parse(file_path)
-        root = tree.getroot()
-        boxes = []
-        labels = []
-
-        for obj in root.findall("object"):
-            label = obj.find("name").text
-            if label not in self.class_to_idx:
-                continue  # Skip unknown labels
-            labels.append(self.class_to_idx[label])
-
-            bndbox = obj.find("bndbox")
-            xmin = int(bndbox.find("xmin").text)
-            ymin = int(bndbox.find("ymin").text)
-            xmax = int(bndbox.find("xmax").text)
-            ymax = int(bndbox.find("ymax").text)
-            boxes.append([xmin, ymin, xmax, ymax])
-
-        # Return empty tensors if no valid objects
-        if not boxes:
-            boxes = torch.zeros((0, 4), dtype=torch.float32)
-            labels = torch.zeros((0,), dtype=torch.int64)
-
-        # return torch.tensor(boxes, dtype=torch.float32), torch.tensor(labels, dtype=torch.int64)
-        return torch.tensor(boxes, dtype=torch.float32), labels
-
-    def __getitem__(self, idx):
-        # Load image
-        img_path = os.path.join(self.root, "images", self.imgs[idx])
-        img = Image.open(img_path).convert("RGB")
-        img = np.array(img)
-
-        # Load annotations
-        anno_path = os.path.join(self.root, "annotations", self.annos[idx])
-        boxes, labels = self.parse_xml(anno_path)
-
-        # Build the target dictionary
-        target = {
-            "boxes": boxes,
-            "labels": labels,
-            "image_id": idx,  # torch.tensor([idx]),
-            "area": (boxes[:, 2] - boxes[:, 0]) * (boxes[:, 3] - boxes[:, 1]),
-            "iscrowd": torch.zeros((len(boxes),), dtype=torch.int64),
-        }
-
-        # print ("Prior boxes: ", boxes)
-        # print ("Prior labels: ", labels)
-        # if self.transforms:
-        #     img = self.transforms(img)
-
-        # Apply albumentations transform if provided
-        if self.transforms:
-            transformed = self.transforms(image=img, bboxes=boxes, labels=labels)
-            img = transformed['image']  # already converted to tensor by ToTensorV2
-            boxes = transformed['bboxes']
-            labels = transformed['labels']
-            
-            # Update target: convert boxes and labels to torch tensors
-            target["boxes"] = torch.as_tensor(boxes, dtype=torch.float32)
-            target["labels"] = torch.as_tensor(labels, dtype=torch.int64)
-            
-            # Optionally recompute area if needed (or let your collate function handle it)
-            if len(boxes) > 0:
-                boxes_np = np.array(boxes)
-                target["area"] = torch.as_tensor((boxes_np[:, 2] - boxes_np[:, 0]) * (boxes_np[:, 3] - boxes_np[:, 1]), dtype=torch.float32)
-            else:
-                target["area"] = torch.tensor([])
-            
-            target["iscrowd"] = torch.zeros((len(boxes),), dtype=torch.int64)
-
-        # print ("Post boxes: ", target["boxes"])
-        # print ("Post labels: ", target["labels"])
-
-        return img, target
-
-    def __len__(self):
-        return len(self.imgs)
-    
-
-class StyleClassificationDataset(torch.utils.data.Dataset):
-    def __init__(self, root, transform=None):
-        """
-        Args:
-            root (str): Root directory of the dataset.
-                        Expected structure:
-                        root/
-                        ├── images/
-                        └── annotations/
-            transform (callable, optional): A function/transform to apply to the images.
-        """
-        self.root = root
-        self.transform = transform
-        self.imgs = list(sorted(os.listdir(os.path.join(root, "images"))))
-        self.annos = list(sorted(os.listdir(os.path.join(root, "annotations"))))
-
-        # Extract the list of all unique labels from XML annotations
-        self.labels = self._get_labels()
-
-        # Create a mapping from label names to integer indices
-        self.class_to_idx = {label: idx for idx, label in enumerate(self.labels)}
-
-    def _get_labels(self):
-        """Extracts unique labels from the XML annotations."""
-        labels = set()
-        for anno_file in self.annos:
-            xml_path = os.path.join(self.root, "annotations", anno_file)
-            tree = ET.parse(xml_path)
-            root = tree.getroot()
-
-            # Extract the <style> tag content as the label
-            style_tag = root.find("style")
-            if style_tag is not None:
-                labels.add(style_tag.text)
-
-        return sorted(labels)
-
-    def __getitem__(self, idx):
-        # Load image
-        img_file = self.imgs[idx]
-        img_path = os.path.join(self.root, "images", img_file)
-        img = Image.open(img_path).convert("RGB")
-
-        # Load annotation
-        anno_file = self.annos[idx]
-        anno_path = os.path.join(self.root, "annotations", anno_file)
-        tree = ET.parse(anno_path)
-        root = tree.getroot()
-
-        # Extract the <style> tag content as the label
-        style_tag = root.find("style")
-        if style_tag is not None:
-            label = style_tag.text
-        else:
-            raise ValueError(f"Style tag missing in annotation {anno_file}")
-
-        # Convert label to index
-        label_idx = self.class_to_idx[label]
-
-        # Apply transformations if provided
-        if self.transform:
-            img = self.transform(img)
-
-        return img, label_idx
-
-    def __len__(self):
-        return len(self.imgs)
-    
-
-
 
 class LungCTDataset(Dataset):
     def __init__(self, root_dir, task='complicacion', transform=None, use_monai_io=False, only_labels=False):
@@ -359,7 +54,7 @@ class LungCTDataset(Dataset):
         else:
             fname = filename
 
-        # Buscar sexo (primer no dígito)
+        # buscamos el sexo (primer no numero)
         for i, c in enumerate(fname):
             if not c.isdigit():
                 sexo = c
@@ -431,21 +126,20 @@ class MaskedLungCTDataset(Dataset):
         self.transform = transform
         self.use_monai_io = use_monai_io
 
-        # Construir mapping base_name → ruta imagen y máscara
+        # construimos mapping base_name 
         self.image_files = self._index_files(image_dir)
         self.mask_files = self._index_files(mask_dir)
 
-        # Filtrar solo los que están en ambos
+        # filtramos solo los que estan en los dos
         common_keys = sorted(set(self.image_files.keys()) & set(self.mask_files.keys()))
         self.pairs = [(self.image_files[k], self.mask_files[k]) for k in common_keys]
         self.filenames = common_keys  # para parsear etiquetas
 
-        # Mapeos de etiquetas
+        # mapeos de etiquetas
         self.label_maps = {k: {} for k in ['sexo', 'tumor', 'complicacion', 'tipo_complicacion']}
         self._build_label_maps()
 
     def _index_files(self, directory):
-        """Mapea nombre base (sin extensión) → ruta absoluta"""
         index = {}
         for f in os.listdir(directory):
             if f.endswith(".nii") or f.endswith(".nii.gz"):
@@ -460,7 +154,7 @@ class MaskedLungCTDataset(Dataset):
                 tumor_start = i + 1
                 break
         else:
-            raise ValueError(f"No se encontró sexo en el nombre: {fname}")
+            raise ValueError(f"No se encontro sexo en el nombre: {fname}")
         tipo_complicacion = fname[-1]
         complicacion = fname[-2]
         tumor = fname[tumor_start:-2]

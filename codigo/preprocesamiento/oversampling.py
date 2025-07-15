@@ -1,4 +1,4 @@
-#Importación de librerías: DICOM, numpy, matplotlib y widgets interactivos
+#librerias: DICOM, numpy, matplotlib y widgets interactivos
 from pydicom import dcmread
 import numpy as np
 from pydicom.fileset import FileSet
@@ -17,44 +17,34 @@ from torch.nn.functional import softmax
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader, Subset
-
 import pydicom
 from pydicom.filereader import dcmread
 from pydicom.errors import InvalidDicomError
-
 from torchvision.transforms.functional import resize
-from skimage.transform import resize  # Para redimensionar las imágenes
+from skimage.transform import resize 
 from PIL import Image
-
+from collections import Counter
 import random
 from tqdm import tqdm
-
 from sklearn.metrics import accuracy_score, f1_score, roc_auc_score
 import matplotlib.pyplot as plt
-
 from sklearn.model_selection import KFold
 from sklearn.model_selection import StratifiedKFold
 from sklearn.model_selection import StratifiedGroupKFold
-
 import re #para expresiones regulares
-
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import MinMaxScaler
-
 import pydicom
 from pydicom import dcmread
 import scipy.ndimage
 import cv2
-
 from torch.utils.data import DataLoader, random_split
 from torchvision.transforms import Compose
-
 from monai.networks.nets import DenseNet121
 import torch
 from monai.data import DataLoader, Dataset
-from monai.transforms import Compose, EnsureChannelFirstD, ScaleIntensityD, ToTensor
-from monai.transforms import Compose, EnsureChannelFirst, ScaleIntensity, ToTensor, EnsureType
+from monai.transforms import Compose, EnsureChannelFirstD, ScaleIntensityD, ToTensor, EnsureType
 
 #lectura csv
 train = pd.read_csv("datos_filtrados.csv", na_values="NaN", sep = ",") # Definimos na_values para identificar bien los valores perdidos
@@ -65,21 +55,21 @@ train = train.drop([63])
 import warnings
 warnings.filterwarnings("ignore")
 
-# Crear un diccionario que mapee Id_paciente a Complicación
+# creamos un diccionario que mapee Id_paciente a Complicación
 labels_dict = dict(zip(train['Id_paciente'], train['Complicación']))
 
 unique_labels = set(labels_dict.values())
 print(f"Labels únicas: {unique_labels}")
 
-# Convertir a numérico
+# convertimos a numérico
 labels_dict_numeric = {k: 1 if v.lower() in ['sí', 'si', 'yes', '1', 'true'] else 0 
                       for k, v in labels_dict.items()}
 
 unique_labels_numeric = set(labels_dict_numeric.values())
 print(f"Labels únicas: {unique_labels_numeric}")
 
-#DATOS ANONIMIZADOS
-root_path = "./datos_anonimizados/"  # Directorio raíz que contiene los pacientes
+#datos
+root_path = "./datos_anonimizados/" 
 patient_dirs = [os.path.join(root_path, d) for d in os.listdir(root_path) if os.path.isdir(os.path.join(root_path, d))]
 
 #activamos gpu
@@ -100,7 +90,7 @@ def apply_3d_window(volume, window_level=-600, window_width=1500):
     min_val = window_level - window_width/2
     max_val = window_level + window_width/2
     
-    # Aplicar ventana y normalizar
+    # aplicamos ventana y normalizamos
     windowed = np.clip(volume, min_val, max_val)
     normalized = (windowed - min_val) / (max_val - min_val)
     
@@ -120,8 +110,8 @@ class LungCTDataset(Dataset):
     def __getitem__(self, idx):
         patient_id = self.patients[idx]
         volume_path = os.path.join(self.data_dir, f"{patient_id}.npy")
-        volume = np.load(volume_path)  # Cargar volumen preprocesado (256, 512, 512)
-        # Aplicar ventana pulmonar
+        volume = np.load(volume_path)  # cargamos volumen preprocesado 
+        # aplicamos ventana pulmonar
         volume = apply_3d_window(volume, window_level=-600, window_width=1500)
         volume = np.expand_dims(volume, axis=0)
         label = self.labels[patient_id]
@@ -133,7 +123,7 @@ class LungCTDataset(Dataset):
     
 
 transform = Compose([
-    #EnsureChannelFirst(), #para que sea del tipo (1, 256, 512, 512)
+    #EnsureChannelFirst(),
     EnsureType()
 ])
 
@@ -143,34 +133,34 @@ TARGET_SIZE = (512, 512)
 
 dataset = LungCTDataset(NPY_DIR, labels_dict_numeric, transform=transform)
 
-# División en 90% entrenamiento y 10% validación
+# division en 90/10
 train_size = int(0.9 * len(dataset))
 val_size = len(dataset) - train_size
 train_dataset, val_dataset = random_split(dataset, [train_size, val_size])
 
 #obtenemos los indices de cada conjunto
-train_indices = train_dataset.indices  # Índices del conjunto de entrenamiento
+train_indices = train_dataset.indices
 val_indices = val_dataset.indices  
 
-from collections import Counter
-# 2. Contar etiquetas en cada conjunto
+
+#contamos etiquetas en cada conjunto
 def count_labels(dataset, indices):
     labels = []
     for idx in indices:
-        _, label = dataset[idx]  # Asumiendo que tu dataset devuelve (volumen, label, id)
+        _, label = dataset[idx]  
         labels.append(label.item() if torch.is_tensor(label) else label)
     return Counter(labels)
 
-# Contar en train y val
+# contamos en train y val
 train_counts = count_labels(dataset, train_indices)
 val_counts = count_labels(dataset, val_indices)
 
-# 3. Mostrar resultados
+# resultados
 print("\nDistribución de clases:")
 print(f"Entrenamiento - Total: {train_size} | Clase 0: {train_counts[0]} | Clase 1: {train_counts[1]}")
 print(f"Validación - Total: {val_size} | Clase 0: {val_counts[0]} | Clase 1: {val_counts[1]}")
 
-# Loop de entrenamiento
+# loop de train
 def train_model(model, train_loader, val_loader, criterion, optimizer, epochs=10):
     model.train()
     for epoch in range(epochs):
@@ -194,7 +184,7 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, epochs=10
         f1 = f1_score(all_labels, all_preds)
         print(f"Epoch {epoch+1}, Loss: {running_loss:.4f}, Accuracy: {acc:.4f}, F1 Score: {f1:.4f}")
         
-        # Validación
+        # val
         model.eval()
         val_preds, val_labels = [], []
         val_loss = 0.0
@@ -216,10 +206,10 @@ def train_model(model, train_loader, val_loader, criterion, optimizer, epochs=10
 from torch.utils.data import WeightedRandomSampler
 #calculamos el sampler para cada el train
 def get_sampler(subset, power=1.0):
-    # Obtener labels del subset
+    # labels del subset
     subset_labels = [dataset.labels[dataset.patients[idx]] for idx in subset.indices]
     class_counts = np.bincount(subset_labels)
-    weights = 1. / torch.tensor(class_counts**power, dtype=torch.float) #inverso al cuadrado para darle aun más peso a las clases minoritarias
+    weights = 1. / torch.tensor(class_counts**power, dtype=torch.float) #damos mas peso a las clases minoritarias
     samples_weights = weights[subset_labels]
     return WeightedRandomSampler(samples_weights, len(samples_weights), replacement=True)
 
@@ -229,7 +219,7 @@ train_sampler = get_sampler(train_dataset, 1.7)
 train_loader = DataLoader(
     train_dataset,
     batch_size=BATCH_SIZE,
-    sampler=train_sampler, # Sampler de entrenamiento
+    sampler=train_sampler, # sampler de entrenamiento
     num_workers=4,
     pin_memory=True
 )
@@ -243,15 +233,14 @@ val_loader = DataLoader(
 
 #modelo MONAI
 model = DenseNet121(
-    spatial_dims=3,          # 3D
-    in_channels=1,           # Canales de entrada
-    out_channels=2,          # Salida binaria
-    #pretrained=False,        # sin pesos preentrenados
-    dropout_prob=0.4         # Regularización
+    spatial_dims=3,# 3D
+    in_channels=1, # canales de entrada
+    out_channels=2, # salida binaria
+    dropout_prob=0.4  # dropout
 ).to(device)
 
 
-#optimizer = optim.Adam(model.parameters(), lr=1e-4)
+#optimizer = optim.Adam(model.parameters(), lr=1e-4) #prueba
 optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4, weight_decay=1e-5)
 scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode='min', patience=2)
 
@@ -267,34 +256,34 @@ class FocalLoss(nn.Module):
         loss = self.alpha * (1-pt)**self.gamma * BCE_loss
         return loss.mean()
 
-# Configuración de entrenamiento (con focal loss)
-criterion = FocalLoss(alpha=0.9, gamma=1.8) # alpha ~1/clase_minoritaria
+#  perdida: focal loss
+criterion = FocalLoss(alpha=0.9, gamma=1.8)
 
 # con power=1.5
 train_model(model, train_loader, val_loader, criterion, optimizer, epochs=10)
 
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
-# 1. Poner el modelo en modo evaluación
+
 model.eval()
 
-# 2. Listas para almacenar predicciones y etiquetas reales
+# predicciones y etiquetas reales
 all_preds = []
 all_labels = []
 
-# 3. Iterar sobre el DataLoader de validación
+#iteramos sobre el dataloader de val
 with torch.no_grad():
     for inputs, labels in val_loader:
         inputs = inputs.to(device)
         outputs = model(inputs)
         
-        # Para clasificación binaria con 2 neuronas de salida (out_channels=2)
+        #como es clasif binaria, 2 neuronas de salida 
         preds = torch.argmax(outputs, dim=1).cpu().numpy()
         
         all_preds.extend(preds)
         all_labels.extend(labels.cpu().numpy())
 
-# 4. Calcular y mostrar la matriz
+# matriz de confusino
 cm = confusion_matrix(all_labels, all_preds)
 disp = ConfusionMatrixDisplay(confusion_matrix=cm,
                              display_labels=["No Complicación", "Complicación"])
@@ -302,11 +291,11 @@ disp.plot(cmap='Blues')
 plt.title("Matriz de Confusión Final (Validación)")
 plt.show()
 
-# 5. Métricas adicionales
+#metricas otras
 print(f"Accuracy: {accuracy_score(all_labels, all_preds):.4f}")
 print(f"F1-Score: {f1_score(all_labels, all_preds):.4f}")
 
-# Guardar el modelo entrenado
+# guardamos el modelo entrenado
 torch.save(model.state_dict(), 'modelo_entrenado_WeightedRandomSampler_1.7.pth')
-# Guardar el modelo completo (arquitectura + pesos)
+# guardamos el modelo completo (arquitectura + pesos)
 torch.save(model, 'modelo_entrenado_completo_WeightedRandomSampler_1.7.pth')

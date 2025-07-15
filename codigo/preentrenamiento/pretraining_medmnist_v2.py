@@ -9,11 +9,10 @@ import torch.nn.functional as F
 from torchvision.models.video import r3d_18
 from monai.networks.nets import DenseNet121
 import argparse
-
-
 import medmnist
 from medmnist import INFO
 
+#para saber si el modelo es resnet o densenet
 def get_model(model_name, n_classes):
     if model_name == 'resnet3d':
         model = r3d_18(pretrained=False)
@@ -32,23 +31,24 @@ def get_model(model_name, n_classes):
     return model
 
 def get_triplet_batch(inputs, targets):
-    # simplificado: elige ancla, positivo y negativo aleatorios del batch
+    #elige ancla, positivo y negativo aleatorios del batch
     anchors, positives, negatives = [], [], []
 
     for i in range(len(targets)):
         anchor = inputs[i]
         anchor_label = targets[i]
 
-        # Buscar positivo y negativo
+        # buscamos positivo y negativo
         pos_idx = (targets == anchor_label).nonzero(as_tuple=True)[0]
         neg_idx = (targets != anchor_label).nonzero(as_tuple=True)[0]
 
         if len(pos_idx) > 1 and len(neg_idx) > 0:
             pos_choice = pos_idx[pos_idx != i][torch.randint(0, len(pos_idx)-1, (1,))]
             neg_choice = neg_idx[torch.randint(0, len(neg_idx), (1,))]
-            anchors.append(anchor)  # Eliminar dimensión extra
-            positives.append(inputs[pos_choice].squeeze(0))  # Eliminar dimensión extra
-            negatives.append(inputs[neg_choice].squeeze(0))  # Eliminar dimensión extra
+            # eliminamos dimensiones extra
+            anchors.append(anchor) 
+            positives.append(inputs[pos_choice].squeeze(0))  
+            negatives.append(inputs[neg_choice].squeeze(0)) 
 
     if anchors:
         return torch.stack(anchors), torch.stack(positives), torch.stack(negatives)
@@ -84,18 +84,16 @@ args = parser.parse_args()
 
 
 
-##########################################
-# CONFIGURACIÓN
-##########################################
+#config
 
 # experiment_name = 'prueba'
-# data_flag = 'organmnist3d'   # Cambia el dataset
-# desired_size = 64            # ¡AQUÍ CAMBIAS EL TAMAÑO! (28 o 64)
+# data_flag = 'organmnist3d' 
+# desired_size = 64           
 # num_epochs = 50
 # batch_size = 16
 # learning_rate = 1e-3
-# patience = num_epochs  # Guardamos el mejor pero dejamos entrenar hasta el final
-# model_choice = 'resnet3d'  # 'resnet3d' or 'densenet3d'
+# patience = num_epochs  # guardamos el mejor pero dejamos entrenar hasta el final
+# model_choice = 'resnet3d'  #resnet o densenet
 
 # # Hardcoded options
 # use_cross_entropy = True
@@ -139,19 +137,17 @@ final_model_path = f'models/pretraining/final_model_{experiment_name}_{model_cho
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 print(f"Using device: {device}")
 
-##########################################
-# DATASET
-##########################################
+#dataset
 
 info = INFO[data_flag]
 n_classes = len(info['label'])
 print(f"Num classes: {n_classes}")
 
-# Import dataset class dynamically
+# importamos dataset class dynamically
 DataClass = getattr(medmnist, info['python_class'])
 
 # MedMNIST v3: supports size argument
-transform = None  # The dataset already returns tensors
+transform = None  # dataset already returns tensors
 
 train_dataset = DataClass(split='train', download=True, size=desired_size, transform=transform)
 val_dataset   = DataClass(split='val',   download=True, size=desired_size, transform=transform)
@@ -161,9 +157,7 @@ train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, nu
 val_loader   = DataLoader(val_dataset,   batch_size=batch_size, shuffle=False, num_workers=2)
 test_loader  = DataLoader(test_dataset,  batch_size=batch_size, shuffle=False, num_workers=2)
 
-##########################################
-# MODELO
-##########################################
+#modelo
 
 # model = r3d_18(pretrained=False)
 # model.stem[0] = nn.Conv3d(
@@ -175,12 +169,9 @@ test_loader  = DataLoader(test_dataset,  batch_size=batch_size, shuffle=False, n
 model = get_model(model_choice, n_classes).to(device)
 print(f"Model: {model_choice} with {n_classes} classes")
 
-##########################################
-# LOSS & OPTIMIZER
-##########################################
+#perdida y optimizacion
 
 # criterion = nn.CrossEntropyLoss()
-# Define losses
 cross_entropy_loss = nn.CrossEntropyLoss()
 triplet_loss_fn = TripletMarginLoss(margin=1.0, p=2)
 contrastive_loss_fn = nn.CosineEmbeddingLoss(margin=0.5)
@@ -188,9 +179,7 @@ contrastive_loss_fn = nn.CosineEmbeddingLoss(margin=0.5)
 optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.1)
 
-##########################################
-# EARLY STOPPING
-##########################################
+#early stopping para no sobreaprender
 
 class EarlyStopping:
     def __init__(self, patience=5, mode='min', verbose=True, save_path=None):
@@ -231,9 +220,7 @@ class EarlyStopping:
                     print("[EarlyStopping] Patience exceeded. Stopping training.")
                 self.stop = True
 
-##########################################
-# TRAIN & EVAL FUNCTIONS
-##########################################
+#train y eval 
 
 # def train_one_epoch(model, dataloader, criterion, optimizer, device):
 #     model.train()
@@ -305,9 +292,8 @@ def train_one_epoch(model, dataloader, optimizer, device):
         optimizer.zero_grad()
         loss = 0.0
 
-        # print(f"Input shape before model: {inputs.shape}")
-
-        # Cross-Entropy Loss
+        
+        # cross entropy loss
         if use_cross_entropy:
             
             outputs = model(inputs)
@@ -360,7 +346,7 @@ def train_one_epoch(model, dataloader, optimizer, device):
         total_loss_sum += loss.item() * batch_size
         total_samples += batch_size
 
-        # Logging
+        # para log
         avg_loss = total_loss_sum / total_samples
         acc = correct / total_samples if use_cross_entropy else 0.0
 
@@ -410,9 +396,7 @@ def evaluate(model, dataloader, device):
     return avg_loss, acc
 
 
-##########################################
-# TRAINING LOOP
-##########################################
+#train
 
 # early_stopper = EarlyStopping(
 #     patience=patience,
@@ -462,9 +446,7 @@ torch.save(model.state_dict(), final_model_path)
 print(f"\n[INFO] Last model saved to {final_model_path}")
 
 
-##########################################
-# LOAD BEST MODEL
-##########################################
+#cagamos el mejor modelo
 
 print(f"\nLoading best model from {save_path}")
 model.load_state_dict(torch.load(save_path))

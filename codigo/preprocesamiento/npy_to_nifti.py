@@ -18,11 +18,10 @@ def convertir_carpeta_npy_a_nifti(npy_dir, output_dir, spacing=(1.0, 1.0, 1.0)):
             output_path = os.path.join(output_dir, f"{paciente}.nii.gz")
             try:
                 convertir_npy_a_nifti(npy_path, output_path, spacing)
-                print(f"✅ Guardado: {output_path}")
+                print(f" Guardado: {output_path}")
             except Exception as e:
-                print(f"❌ Error con {paciente}: {e}")
+                print(f" Error con {paciente}: {e}")
 
-# USO directo
-input_dir = "./preprocessed_data_3d"        # .npy por paciente
-output_dir = "./nifti_preprocesados"        # salida .nii.gz
+input_dir = "./preprocessed_data_3d" # .npy por paciente
+output_dir = "./nifti_preprocesados"  # salida .nii.gz
 convertir_carpeta_npy_a_nifti(input_dir, output_dir)

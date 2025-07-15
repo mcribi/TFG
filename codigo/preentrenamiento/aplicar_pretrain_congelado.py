@@ -14,19 +14,18 @@ from monai.transforms import Compose, EnsureType
 from sklearn.model_selection import StratifiedKFold, train_test_split
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
 
-# -------------------- CONFIG --------------------
+#ponemos la gpu
 device = "cuda" if torch.cuda.is_available() else "cpu"
 print(f" Using device: {device}")
 
-# -------------------- DATA LOADING --------------------
-print(" Loading labels...")
+# cargamos los datos y sacamos la etiqueta
 df = pd.read_csv("./../../datos_clinicos/datos_clinicos.csv", na_values="NaN")
 labels_dict_numeric = {
     k: 1 if str(v).strip().lower() in ['sí', 'si', 'yes', '1', 'true'] else 0
     for k, v in dict(zip(df['Id_paciente'], df['Complicación'])).items()
 }
 
-# -------------------- DATASET --------------------
+#dataset
 class LungCTDataset(Dataset):
     def __init__(self, data_dir, mask_dir, labels_dict, transform=None):
         self.data_dir = data_dir
@@ -54,7 +53,7 @@ class LungCTDataset(Dataset):
 
 transform = Compose([EnsureType()])
 
-# -------------------- MODELO --------------------
+# modelo densenet
 def get_densenet3d_model(n_classes=2):
     return DenseNet121(spatial_dims=3, in_channels=1, out_channels=n_classes, dropout_prob=0.3)
 
@@ -63,7 +62,7 @@ def freeze_backbone_densenet(model):
         if "class_layers" not in name:
             param.requires_grad = False
 
-# -------------------- MÉTRICAS --------------------
+#metricas
 def calcular_metricas_binarias(y_true, y_pred):
     cm = confusion_matrix(y_true, y_pred)
     if cm.shape != (2, 2):
@@ -74,6 +73,7 @@ def calcular_metricas_binarias(y_true, y_pred):
     gmean = np.sqrt(tpr * tnr)
     return tpr, tnr, gmean
 
+#para evaluar el modelo
 def evaluar_modelo(model, data_loader, device):
     model.eval()
     all_preds, all_labels = [], []
@@ -89,7 +89,7 @@ def evaluar_modelo(model, data_loader, device):
     tpr, tnr, gmean = calcular_metricas_binarias(all_labels, all_preds)
     return acc, f1, tpr, tnr, gmean
 
-# -------------------- CROSS-VALIDATION CON SPLIT INTERNO --------------------
+# cv 
 def cross_validate_finetune_densenet_congelado(
     model,
     dataset,
@@ -104,7 +104,7 @@ def cross_validate_finetune_densenet_congelado(
     k=5
 ):
     labels = [dataset.labels[pid] for pid in dataset.patients]
-    skf = StratifiedKFold(n_splits=k, shuffle=True, random_state=42)
+    skf = StratifiedKFold(n_splits=k, shuffle=True, random_state=42) #estratificado
 
     with open(output_log, "a") as logf:
         logf.write(f"\n\n=========================")
@@ -117,7 +117,7 @@ def cross_validate_finetune_densenet_congelado(
             logf.write(f"\n----- Fold {fold_idx} -----\n")
             print(f"\n Fold {fold_idx}/{k}")
 
-            # Split externo (80-20)
+            # split externo 80/20
             internal_labels = [dataset.labels[dataset.patients[i]] for i in trainval_idx]
             train_idx, valid_idx = train_test_split(
                 trainval_idx,
@@ -134,16 +134,16 @@ def cross_validate_finetune_densenet_congelado(
             valid_loader = DataLoader(valid_subset, batch_size=batch_size, shuffle=False)
             test_loader = DataLoader(test_subset, batch_size=batch_size, shuffle=False)
 
-            # Recargar pesos preentrenados
+            # recargamos los pesos preentrenados
             checkpoint = torch.load(checkpoint_path, map_location='cpu')
 
-            # Filtrar las claves de la head final
+            # filtramos las claves de la head final
             filtered_checkpoint = {k: v for k, v in checkpoint.items() if "class_layers.out" not in k}
 
             model.load_state_dict(filtered_checkpoint, strict=False)
             model = model.to(device)
 
-            # Congelar backbone (solo head entrenable)
+            # congelamos backbone y se qued solo la head entrenable
             freeze_backbone_densenet(model)
             params_to_train = filter(lambda p: p.requires_grad, model.parameters())
 
@@ -161,7 +161,7 @@ def cross_validate_finetune_densenet_congelado(
 
                 print(f"\n Epoch {epoch+1}/{epochs}")
 
-                # -------- Train --------
+                #entrenamiento
                 for inputs, labels_batch in tqdm(train_loader, desc="Training"):
                     inputs, labels_batch = inputs.to(device), labels_batch.to(device)
                     optimizer.zero_grad()
@@ -180,7 +180,7 @@ def cross_validate_finetune_densenet_congelado(
                 train_tpr, train_tnr, train_gmean = calcular_metricas_binarias(train_labels, train_preds)
                 print(f" Train — Loss: {running_loss:.4f} | Acc: {train_acc:.4f} | F1: {train_f1:.4f} | G-Mean: {train_gmean:.4f}")
 
-                # -------- Validation --------
+                #validacion
                 model.eval()
                 valid_preds, valid_labels = [], []
                 valid_loss = 0.0
@@ -200,20 +200,20 @@ def cross_validate_finetune_densenet_congelado(
                 val_tpr, val_tnr, val_gmean = calcular_metricas_binarias(valid_labels, valid_preds)
                 print(f" Valid — Loss: {valid_loss:.4f} | Acc: {val_acc:.4f} | F1: {val_f1:.4f} | G-Mean: {val_gmean:.4f}")
 
-                # Guardar primera época siempre
+                # guardamos siempre la primera época para que no de error al cargar si no mejora nunca
                 if epoch == 0 and not saved_first:
                     torch.save(model.state_dict(), best_model_path)
                     saved_first = True
                     best_gmean = val_gmean
                     print(f" Guardado primer modelo (epoch 1) con G-Mean: {val_gmean:.4f}")
 
-                # Guardar mejor en Valid
+                # guarmos el mejor en validacion
                 elif val_gmean > best_gmean:
                     best_gmean = val_gmean
                     torch.save(model.state_dict(), best_model_path)
                     print(f" Mejor modelo GUARDADO con G-Mean en Valid: {best_gmean:.4f}")
 
-                # -------- Test --------
+                # test
                 test_preds, test_labels = [], []
                 with torch.no_grad():
                     for test_inputs, test_labels_batch in test_loader:
@@ -228,7 +228,7 @@ def cross_validate_finetune_densenet_congelado(
                 test_tpr, test_tnr, test_gmean = calcular_metricas_binarias(test_labels, test_preds)
                 print(f" Test — Acc: {test_acc:.4f} | F1: {test_f1:.4f} | G-Mean: {test_gmean:.4f}")
 
-            # Evaluación final
+            # evaluacion final
             model.load_state_dict(torch.load(best_model_path))
             final_acc, final_f1, final_tpr, final_tnr, final_gmean = evaluar_modelo(model, test_loader, device)
             logf.write(f"\nRESULTADOS FINALES Fold {fold_idx}:\n")
@@ -236,7 +236,7 @@ def cross_validate_finetune_densenet_congelado(
             logf.write(f"=========================\n")
             fold_idx += 1
 
-# -------------------- MAIN LOOP --------------------
+# main loop
 def fine_tune_all_models_in_folder(
     models_folder,
     data_dir,
@@ -288,9 +288,9 @@ def fine_tune_all_models_in_folder(
             k=k
         )
 
-    print("\n TODOS LOS MODELOS PROCESADOS!")
+    print("\n modelos preprocesados")
 
-# -------------------- USO --------------------
+
 fine_tune_all_models_in_folder(
     models_folder="/mnt/homeGPU/mcribilles/TFG/pretraining2",
     data_dir="/mnt/homeGPU/mcribilles/TFG/volumenes/preprocesados/preprocesamientos_interesantes/resize_mini_hu_m300_1400_separadas/npy/images",

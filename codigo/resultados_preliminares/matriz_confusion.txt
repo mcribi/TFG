@@ -1,7 +1,0 @@
-Matriz de Confusión (valores absolutos):
-[[11  4]
- [ 4  3]]
-
-Etiquetas:
-[0] Sin complicación
-[1] Con complicación
