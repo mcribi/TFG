@@ -1,592 +1,378 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Resultados TFG - Clasificación Complicaciones Pulmonares</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            padding: 2rem;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f8f9fa;
-        }
-        h1, h2 {
-            color: #004080;
-        }
-        .section {
-            margin-bottom: 4rem;
-        }
-        .table {
-            background-color: white;
-        }
-    </style>
+    <title>Resultados - TFG María Cribilles</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="mb-4">Resultados de mi TFG</h1>
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Resultados - TFG María Cribilles</h1>
 
-        <div class="section">
-            <h2>Resultados Deep Learning (DenseNet121)</h2>
-            <table class="dataframe table table-striped">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Set</th>
-      <th>Batch Size</th>
-      <th>LR</th>
-      <th>Weight Decay</th>
-      <th>Dropout</th>
-      <th>Preprocesado</th>
-      <th>Accuracy</th>
-      <th>F1</th>
-      <th>TPR</th>
-      <th>TNR</th>
-      <th>G-Mean</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>TEST</td>
-      <td>4</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.3</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.696</td>
-      <td>0.680</td>
-      <td>0.679</td>
-      <td>0.709</td>
-      <td>0.691</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>4</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.3</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.720</td>
-      <td>0.697</td>
-      <td>0.720</td>
-      <td>0.722</td>
-      <td>0.715</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>16</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.680</td>
-      <td>0.687</td>
-      <td>0.747</td>
-      <td>0.619</td>
-      <td>0.674</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>16</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.650</td>
-      <td>0.640</td>
-      <td>0.676</td>
-      <td>0.627</td>
-      <td>0.650</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>16</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.3</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.680</td>
-      <td>0.713</td>
-      <td>0.830</td>
-      <td>0.542</td>
-      <td>0.666</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>16</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.3</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.660</td>
-      <td>0.626</td>
-      <td>0.633</td>
-      <td>0.685</td>
-      <td>0.655</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>8</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.2</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.656</td>
-      <td>0.664</td>
-      <td>0.733</td>
-      <td>0.592</td>
-      <td>0.652</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>8</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.2</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.650</td>
-      <td>0.620</td>
-      <td>0.631</td>
-      <td>0.664</td>
-      <td>0.643</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>16</td>
-      <td>0.001</td>
-      <td>0.00001</td>
-      <td>0.4</td>
-      <td>(128,128,128) HU [-1350,150]</td>
-      <td>0.664</td>
-      <td>0.655</td>
-      <td>0.664</td>
-      <td>0.662</td>
-      <td>0.650</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>16</td>
-      <td>0.001</td>
-      <td>0.00001</td>
-      <td>0.4</td>
-      <td>(128,128,128) HU [-1350,150]</td>
-      <td>0.650</td>
-      <td>0.629</td>
-      <td>0.656</td>
-      <td>0.653</td>
-      <td>0.646</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>16</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.2</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.656</td>
-      <td>0.648</td>
-      <td>0.697</td>
-      <td>0.620</td>
-      <td>0.645</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>16</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.2</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.660</td>
-      <td>0.624</td>
-      <td>0.609</td>
-      <td>0.702</td>
-      <td>0.650</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>32</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.2</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.664</td>
-      <td>0.629</td>
-      <td>0.629</td>
-      <td>0.692</td>
-      <td>0.644</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>32</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.2</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.690</td>
-      <td>0.668</td>
-      <td>0.676</td>
-      <td>0.707</td>
-      <td>0.684</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>32</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.3</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.656</td>
-      <td>0.679</td>
-      <td>0.783</td>
-      <td>0.544</td>
-      <td>0.643</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>32</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.3</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.630</td>
-      <td>0.656</td>
-      <td>0.760</td>
-      <td>0.520</td>
-      <td>0.622</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>4</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.2</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.640</td>
-      <td>0.659</td>
-      <td>0.750</td>
-      <td>0.546</td>
-      <td>0.636</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>4</td>
-      <td>0.001</td>
-      <td>0.00000</td>
-      <td>0.2</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.680</td>
-      <td>0.673</td>
-      <td>0.716</td>
-      <td>0.647</td>
-      <td>0.677</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>8</td>
-      <td>0.001</td>
-      <td>0.00001</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.640</td>
-      <td>0.674</td>
-      <td>0.800</td>
-      <td>0.501</td>
-      <td>0.629</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>8</td>
-      <td>0.001</td>
-      <td>0.00001</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.670</td>
-      <td>0.664</td>
-      <td>0.720</td>
-      <td>0.627</td>
-      <td>0.663</td>
-    </tr>
-  </tbody>
+    <div class="section">
+        <h2>Solo datos clínicos - KNN</h2>
+        <table class="table table-bordered table-striped">
+<thead>
+<tr><th>\textbf{n\_estimators}</th><th>\textbf{max\_depth}</th><th>\textbf{learning\_rate}</th><th>\textbf{Accuracy}</th><th>\textbf{F1}</th><th>\textbf{TPR}</th><th>\textbf{TNR}</th><th>\textbf{G-Mean}</th></tr>
+</thead>
+<tbody>
+<tr><td>200</td><td>6</td><td>0.05</td><td>0.552</td><td>0.473</td><td>0.426</td><td>0.667</td><td>0.531</td></tr>
+<tr><td>100</td><td>4</td><td>0.1</td><td>0.544</td><td>0.477</td><td>0.442</td><td>0.637</td><td>0.528</td></tr>
+<tr><td>300</td><td>8</td><td>0.03</td><td>0.544</td><td>0.468</td><td>0.426</td><td>0.653</td><td>0.524</td></tr>
+</tbody>
 </table>
-        </div>
-
-        <div class="section">
-            <h2>Resultados del modelo híbrido (volumen + datos clínicos)</h2>
-            <table class="dataframe table table-striped">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Set</th>
-      <th>Batch Size</th>
-      <th>LR</th>
-      <th>Weight Decay</th>
-      <th>Dropout</th>
-      <th>Preprocesado</th>
-      <th>Accuracy</th>
-      <th>F1</th>
-      <th>TPR</th>
-      <th>TNR</th>
-      <th>G-Mean \</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>TEST</td>
-      <td>4</td>
-      <td>0.0010</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.512</td>
-      <td>0.459</td>
-      <td>0.456</td>
-      <td>0.559</td>
-      <td>0.469 \</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>4</td>
-      <td>0.0010</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.730</td>
-      <td>0.700</td>
-      <td>0.700</td>
-      <td>0.760</td>
-      <td>0.721 \</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>4</td>
-      <td>0.0010</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.488</td>
-      <td>0.460</td>
-      <td>0.458</td>
-      <td>0.515</td>
-      <td>0.448 \</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>4</td>
-      <td>0.0010</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.710</td>
-      <td>0.686</td>
-      <td>0.700</td>
-      <td>0.724</td>
-      <td>0.706 \</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>16</td>
-      <td>0.0010</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.480</td>
-      <td>0.545</td>
-      <td>0.700</td>
-      <td>0.288</td>
-      <td>0.428 \</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>16</td>
-      <td>0.0010</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.660</td>
-      <td>0.679</td>
-      <td>0.784</td>
-      <td>0.556</td>
-      <td>0.618 \</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>16</td>
-      <td>0.0010</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.496</td>
-      <td>0.552</td>
-      <td>0.662</td>
-      <td>0.344</td>
-      <td>0.413 \</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>16</td>
-      <td>0.0010</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.650</td>
-      <td>0.685</td>
-      <td>0.807</td>
-      <td>0.520</td>
-      <td>0.561 \</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>4</td>
-      <td>0.0001</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.552</td>
-      <td>0.632</td>
-      <td>0.833</td>
-      <td>0.297</td>
-      <td>0.347 \</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>4</td>
-      <td>0.0001</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.570</td>
-      <td>0.651</td>
-      <td>0.871</td>
-      <td>0.316</td>
-      <td>0.369 \</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>4</td>
-      <td>0.0001</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.504</td>
-      <td>0.565</td>
-      <td>0.761</td>
-      <td>0.268</td>
-      <td>0.259 \</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>4</td>
-      <td>0.0001</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.500</td>
-      <td>0.550</td>
-      <td>0.722</td>
-      <td>0.318</td>
-      <td>0.340 \</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>16</td>
-      <td>0.0001</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.520</td>
-      <td>0.560</td>
-      <td>0.818</td>
-      <td>0.231</td>
-      <td>0.139 \</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>16</td>
-      <td>0.0001</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1350,150]</td>
-      <td>0.480</td>
-      <td>0.506</td>
-      <td>0.800</td>
-      <td>0.236</td>
-      <td>0.085 \</td>
-    </tr>
-    <tr>
-      <td>TEST</td>
-      <td>16</td>
-      <td>0.0001</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.488</td>
-      <td>0.515</td>
-      <td>0.800</td>
-      <td>0.214</td>
-      <td>0.053 \</td>
-    </tr>
-    <tr>
-      <td>VALIDATION</td>
-      <td>16</td>
-      <td>0.0001</td>
-      <td>0</td>
-      <td>0.4</td>
-      <td>(64,64,64) HU [-1000,400]</td>
-      <td>0.510</td>
-      <td>0.521</td>
-      <td>0.800</td>
-      <td>0.260</td>
-      <td>0.110 \</td>
-    </tr>
-  </tbody>
-</table>
-        </div>
-
-        <div class="section">
-            <h2>Test con Fine-Tuning y distintas funciones de pérdida</h2>
-            TABLA_FINE_TUNING
-        </div>
-
-        <div class="section">
-            <h2>Solo datos clínicos - KNN</h2>
-            TABLA_KNN
-        </div>
-
-        <div class="section">
-            <h2>Solo datos clínicos - Random Forest</h2>
-            TABLA_RF
-        </div>
-
-        <div class="section">
-            <h2>Solo datos clínicos - LightGBM</h2>
-            TABLA_LGBM
-        </div>
-
-        <div class="section">
-            <h2>Solo datos clínicos - XGBoost</h2>
-            TABLA_XGB
-        </div>
-
-        <div class="section">
-            <h2>Radiómica sin datos clínicos (sin DML)</h2>
-            TABLA_RAD_NOCLIN
-        </div>
-
-        <div class="section">
-            <h2>Radiómica con datos clínicos (sin DML)</h2>
-            TABLA_RAD_CLIN
-        </div>
-
-        <div class="section">
-            <h2>Radiómica sin datos clínicos (con DML)</h2>
-            TABLA_DML_NOCLIN
-        </div>
-
-        <div class="section">
-            <h2>Radiómica con datos clínicos (con DML)</h2>
-            TABLA_DML_CLIN
-        </div>
-
-        <footer class="text-center text-muted">
-            <p>&copy; 2025 - María Cribilles Pérez | Trabajo Fin de Grado</p>
-        </footer>
     </div>
+
+    <div class="section">
+        <h2>Solo datos clínicos - Random Forest</h2>
+        <table class="table table-bordered table-striped">
+<thead>
+<tr><th>\textbf{n\_estimators}</th><th>\textbf{max\_depth}</th><th>\textbf{learning\_rate}</th><th>\textbf{Accuracy}</th><th>\textbf{F1}</th><th>\textbf{TPR}</th><th>\textbf{TNR}</th><th>\textbf{G-Mean}</th></tr>
+</thead>
+<tbody>
+<tr><td>400</td><td>6</td><td>0.01</td><td>0.576</td><td>0.498</td><td>0.444</td><td>0.695</td><td>0.553</td></tr>
+<tr><td>200</td><td>5</td><td>0.05</td><td>0.568</td><td>0.503</td><td>0.461</td><td>0.664</td><td>0.552</td></tr>
+<tr><td>350</td><td>12</td><td>0.02</td><td>0.568</td><td>0.494</td><td>0.444</td><td>0.679</td><td>0.548</td></tr>
+<tr><td>300</td><td>8</td><td>0.02</td><td>0.568</td><td>0.494</td><td>0.444</td><td>0.679</td><td>0.548</td></tr>
+<tr><td>300</td><td>8</td><td>0.03</td><td>0.560</td><td>0.489</td><td>0.444</td><td>0.679</td><td>0.547</td></tr>
+<tr><td>150</td><td>8</td><td>0.07</td><td>0.560</td><td>0.489</td><td>0.442</td><td>0.664</td><td>0.540</td></tr>
+<tr><td>250</td><td>10</td><td>0.05</td><td>0.560</td><td>0.479</td><td>0.426</td><td>0.679</td><td>0.534</td></tr>
+<tr><td>100</td><td>4</td><td>0.1</td><td>0.552</td><td>0.480</td><td>0.444</td><td>0.651</td><td>0.534</td></tr>
+<tr><td>100</td><td>3</td><td>0.2</td><td>0.536</td><td>0.455</td><td>0.408</td><td>0.649</td><td>0.512</td></tr>
+</tbody>
+</table>
+    </div>
+
+    <div class="section">
+        <h2>Solo datos clínicos - LightGBM</h2>
+        <table class="table table-bordered table-striped">
+<thead>
+<tr><th>\textbf{Modelo}</th><th>\textbf{Parámetros}</th><th>\textbf{Scaler}</th><th>\textbf{Preprocesado}</th><th>\textbf{Reducción de dimensionalidad}</th><th>\textbf{Accuracy}</th><th>\textbf{F1}</th><th>\textbf{TPR}</th><th>\textbf{TNR}</th><th>\textbf{G-Mean}</th></tr>
+</thead>
+<tbody>
+<tr><td>KNN</td><td>n\_neighbors=5, weights=distance</td><td>StandardScaler</td><td>(128,128,128), HU [-1350,150]</td><td>-</td><td>0.744</td><td>0.713</td><td>0.724</td><td>0.765</td><td>0.739</td></tr>
+<tr><td>LightGBM</td><td>n\_estimators=200, learning\_rate=0.1, num\_leaves=31</td><td>-</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.744</td><td>0.703</td><td>0.680</td><td>0.791</td><td>0.728</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=5, weights=distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>PCA (99\%)</td><td>0.736</td><td>0.692</td><td>0.688</td><td>0.779</td><td>0.724</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=7, weights=distance</td><td>MinMaxScaler</td><td>(128,256,256), HU [-1350,150]</td><td>-</td><td>0.728</td><td>0.711</td><td>0.688</td><td>0.766</td><td>0.719</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=5, weights=uniform</td><td>StandardScaler</td><td>(128,128,128), HU [-1350,150]</td><td>-</td><td>0.720</td><td>0.679</td><td>0.724</td><td>0.721</td><td>0.716</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=7, weights=distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.712</td><td>0.702</td><td>0.741</td><td>0.692</td><td>0.711</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=7, weights=distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>-</td><td>0.712</td><td>0.702</td><td>0.741</td><td>0.692</td><td>0.711</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=7, weights=distance</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.712</td><td>0.706</td><td>0.756</td><td>0.674</td><td>0.709</td></tr>
+<tr><td>LightGBM</td><td>n\_estimators=100, learning\_rate=0.1, num\_leaves=50</td><td>StandardScaler</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.728</td><td>0.679</td><td>0.645</td><td>0.791</td><td>0.708</td></tr>
+<tr><td>LightGBM</td><td>n\_estimators=50, learning\_rate=0.1, num\_leaves=50</td><td>StandardScaler</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.720</td><td>0.676</td><td>0.647</td><td>0.777</td><td>0.705</td></tr>
+<tr><td>SVM</td><td>C=10.0, kernel=rbf, gamma=scale</td><td>-</td><td>(128,256,256), HU [-1000,400]</td><td>PCA (99\%)</td><td>0.712</td><td>0.683</td><td>0.688</td><td>0.735</td><td>0.704</td></tr>
+<tr><td>LightGBM</td><td>n\_estimators=100, learning\_rate=0.1, num\_leaves=50</td><td>-</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.712</td><td>0.681</td><td>0.682</td><td>0.733</td><td>0.703</td></tr>
+<tr><td>SVM</td><td>C=10.0, kernel=rbf, gamma=scale</td><td>-</td><td>(128,256,256), HU [-1000,400]</td><td>PCA (95\%)</td><td>0.712</td><td>0.683</td><td>0.688</td><td>0.734</td><td>0.702</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=5, weights=uniform</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>PCA (99\%)</td><td>0.712</td><td>0.673</td><td>0.688</td><td>0.735</td><td>0.702</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=3, weights=distance</td><td>StandardScaler</td><td>(128,128,128), HU [-1000,400]</td><td>Variance Threshold (0.01)</td><td>0.712</td><td>0.679</td><td>0.683</td><td>0.736</td><td>0.702</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=7, weights=distance</td><td>-</td><td>(128,256,256), HU [-1350,150]</td><td>PCA (99\%)</td><td>0.704</td><td>0.678</td><td>0.706</td><td>0.707</td><td>0.701</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=7, weights=distance</td><td>StandardScaler</td><td>(128,128,128), HU [-1000,400]</td><td>PCA (95\%)</td><td>0.704</td><td>0.696</td><td>0.753</td><td>0.662</td><td>0.701</td></tr>
+<tr><td>DecisionTree</td><td>max\_depth=5, min\_samples\_split=2</td><td>StandardScaler</td><td>(128,128,128), HU [-1350,150]</td><td>PCA (95\%)</td><td>0.704</td><td>0.677</td><td>0.686</td><td>0.720</td><td>0.700</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=7, weights=distance</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1350,150]</td><td>-</td><td>0.712</td><td>0.664</td><td>0.653</td><td>0.765</td><td>0.700</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=5, weights=distance</td><td>StandardScaler</td><td>(128,256,256), HU [-1000,400]</td><td>Variance Threshold (0.01)</td><td>0.712</td><td>0.674</td><td>0.668</td><td>0.748</td><td>0.700</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=5, weights=distance</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1350,150]</td><td>-</td><td>0.712</td><td>0.672</td><td>0.689</td><td>0.737</td><td>0.699</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=7, weights=distance</td><td>StandardScaler</td><td>(128,128,128), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.704</td><td>0.703</td><td>0.774</td><td>0.645</td><td>0.699</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=5, weights=distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>PCA (95\%)</td><td>0.704</td><td>0.669</td><td>0.670</td><td>0.735</td><td>0.698</td></tr>
+<tr><td>LightGBM</td><td>n\_estimators=50, learning\_rate=0.1, num\_leaves=31</td><td>-</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.704</td><td>0.682</td><td>0.698</td><td>0.704</td><td>0.698</td></tr>
+<tr><td>LightGBM</td><td>n\_estimators=200, learning\_rate=0.1, num\_leaves=31</td><td>MinMaxScaler</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.712</td><td>0.675</td><td>0.679</td><td>0.733</td><td>0.698</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=5, weights=distance</td><td>StandardScaler</td><td>(128,128,128), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.712</td><td>0.670</td><td>0.667</td><td>0.752</td><td>0.698</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=5, weights=distance</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.704</td><td>0.675</td><td>0.667</td><td>0.733</td><td>0.698</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=7, weights=distance</td><td>StandardScaler</td><td>(128,256,256), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.704</td><td>0.665</td><td>0.671</td><td>0.734</td><td>0.696</td></tr>
+<tr><td>SVM</td><td>C=10.0, kernel=rbf, gamma=scale</td><td>-</td><td>(128,256,256), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.696</td><td>0.687</td><td>0.738</td><td>0.662</td><td>0.695</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=7, weights=distance</td><td>-</td><td>(128,128,128), HU [-1000,400]</td><td>-</td><td>0.696</td><td>0.686</td><td>0.723</td><td>0.678</td><td>0.695</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=5, weights=distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>PCA (90\%)</td><td>0.704</td><td>0.664</td><td>0.670</td><td>0.735</td><td>0.694</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=5, weights=distance</td><td>MinMaxScaler</td><td>(128,256,256), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.696</td><td>0.673</td><td>0.683</td><td>0.705</td><td>0.693</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=5, weights=distance</td><td>StandardScaler</td><td>(128,128,128), HU [-1000,400]</td><td>-</td><td>0.696</td><td>0.670</td><td>0.686</td><td>0.704</td><td>0.693</td></tr>
+<tr><td>RandomForest</td><td>n\_estimators=50, max\_depth=5, min\_samples\_split=5</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.704</td><td>0.668</td><td>0.633</td><td>0.763</td><td>0.692</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=5, weights=uniform</td><td>StandardScaler</td><td>(128,128,128), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.704</td><td>0.663</td><td>0.667</td><td>0.737</td><td>0.692</td></tr>
+<tr><td>XGBoost</td><td>n\_estimators=100, learning\_rate=0.1, max\_depth=5</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.704</td><td>0.667</td><td>0.667</td><td>0.736</td><td>0.692</td></tr>
+<tr><td>XGBoost</td><td>n\_estimators=100, learning\_rate=0.1, max\_depth=5</td><td>-</td><td>(28,28,28), HU [-1350,150]</td><td>-</td><td>0.704</td><td>0.655</td><td>0.614</td><td>0.778</td><td>0.691</td></tr>
+<tr><td>KNN</td><td>n\_neighbors=7, weights=distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>PCA (99\%)</td><td>0.712</td><td>0.648</td><td>0.618</td><td>0.793</td><td>0.690</td></tr>
+<tr><td>LightGBM</td><td>n\_estimators=100, learning\_rate=0.01, num\_leaves=50</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1350,150]</td><td>PCA (95\%)</td><td>0.712</td><td>0.657</td><td>0.611</td><td>0.791</td><td>0.690</td></tr>
+</tbody>
+</table>
+    </div>
+
+    <div class="section">
+        <h2>Solo datos clínicos - XGBoost</h2>
+        <table class="table table-bordered table-striped">
+<thead>
+<tr><th>\textbf{Características}</th><th>\textbf{Modelo}</th><th>\textbf{Parámetros}</th><th>\textbf{Scaler}</th><th>\textbf{Preprocesado}</th><th>\textbf{Reducción de dimensionalidad}</th><th>\textbf{Accuracy}</th><th>\textbf{F1}</th><th>\textbf{TPR}</th><th>\textbf{TNR}</th><th>\textbf{G-Mean}</th></tr>
+</thead>
+<tbody>
+<tr><td>Extendidas</td><td>LightGBM</td><td>n\_estimators=100, learning\_rate=0.1, num\_leaves=31</td><td>StandardScaler</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.760</td><td>0.725</td><td>0.700</td><td>0.805</td><td>0.746</td></tr>
+<tr><td>Originales</td><td>GradientBoosting</td><td>n\_estimators=200, learning\_rate=0.01, max\_depth=5</td><td>StandardScaler</td><td>(256,512,512), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.752</td><td>0.709</td><td>0.665</td><td>0.821</td><td>0.736</td></tr>
+<tr><td>Extendidas</td><td>KNN</td><td>n\_neighbors=5, weights=distance</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1350,150]</td><td>-</td><td>0.728</td><td>0.684</td><td>0.689</td><td>0.766</td><td>0.712</td></tr>
+<tr><td>Extendidas</td><td>KNN</td><td>n\_neighbors=7, weights=distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>-</td><td>0.712</td><td>0.702</td><td>0.741</td><td>0.692</td><td>0.711</td></tr>
+<tr><td>Originales</td><td>GradientBoosting</td><td>n\_estimators=100, learning\_rate=0.01, max\_depth=5</td><td>-</td><td>(256,512,512), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.728</td><td>0.673</td><td>0.614</td><td>0.822</td><td>0.709</td></tr>
+<tr><td>Originales</td><td>XGBoost</td><td>n\_estimators=200, learning\_rate=0.1, max\_depth=null</td><td>MinMaxScaler</td><td>(256,512,512), HU [-1350,150]</td><td>-</td><td>0.728</td><td>0.674</td><td>0.632</td><td>0.808</td><td>0.707</td></tr>
+<tr><td>Extendidas</td><td>LightGBM</td><td>n\_estimators=200, learning\_rate=0.1, num\_leaves=50</td><td>StandardScaler</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.736</td><td>0.678</td><td>0.644</td><td>0.805</td><td>0.707</td></tr>
+<tr><td>Extendidas</td><td>LightGBM</td><td>n\_estimators=50, learning\_rate=0.1, num\_leaves=31</td><td>StandardScaler</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.720</td><td>0.676</td><td>0.647</td><td>0.777</td><td>0.705</td></tr>
+<tr><td>Extendidas</td><td>KNN</td><td>n\_neighbors=5, weights=uniform</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1350,150]</td><td>-</td><td>0.720</td><td>0.678</td><td>0.689</td><td>0.752</td><td>0.705</td></tr>
+<tr><td>Originales</td><td>XGBoost</td><td>n\_estimators=100, learning\_rate=0.1, max\_depth=null</td><td>-</td><td>(256,512,512), HU [-1350,150]</td><td>-</td><td>0.720</td><td>0.666</td><td>0.632</td><td>0.793</td><td>0.701</td></tr>
+<tr><td>Extendidas</td><td>RandomForest</td><td>n\_estimators=200, max\_depth=10, min\_samples\_split=2</td><td>-</td><td>(128,128,128), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.720</td><td>0.667</td><td>0.612</td><td>0.808</td><td>0.700</td></tr>
+<tr><td>Originales</td><td>XGBoost</td><td>n\_estimators=200, learning\_rate=0.1, max\_depth=5</td><td>-</td><td>(256,512,512), HU [-1350,150]</td><td>-</td><td>0.712</td><td>0.667</td><td>0.650</td><td>0.764</td><td>0.699</td></tr>
+<tr><td>Originales</td><td>GradientBoosting</td><td>n\_estimators=100, learning\_rate=0.01, max\_depth=5</td><td>-</td><td>(256,512,512), HU [-1350,150]</td><td>-</td><td>0.720</td><td>0.666</td><td>0.598</td><td>0.820</td><td>0.699</td></tr>
+<tr><td>Extendidas</td><td>LightGBM</td><td>n\_estimators=200, learning\_rate=0.1, num\_leaves=50</td><td>-</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.720</td><td>0.671</td><td>0.661</td><td>0.762</td><td>0.697</td></tr>
+<tr><td>Originales</td><td>SVM</td><td>C=1.0, kernel=rbf, gamma=scale</td><td>StandardScaler</td><td>(128,128,128), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.720</td><td>0.663</td><td>0.615</td><td>0.808</td><td>0.697</td></tr>
+<tr><td>Originales</td><td>GradientBoosting</td><td>n\_estimators=200, learning\_rate=0.01, max\_depth=5</td><td>-</td><td>(256,512,512), HU [-1350,150]</td><td>-</td><td>0.712</td><td>0.661</td><td>0.615</td><td>0.791</td><td>0.696</td></tr>
+<tr><td>Extendidas</td><td>RandomForest</td><td>n\_estimators=100, max\_depth=10, min\_samples\_split=5</td><td>-</td><td>(128,128,128), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.720</td><td>0.659</td><td>0.595</td><td>0.822</td><td>0.695</td></tr>
+<tr><td>Originales</td><td>GradientBoosting</td><td>n\_estimators=50, learning\_rate=0.01, max\_depth=null</td><td>StandardScaler</td><td>(256,512,512), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.712</td><td>0.662</td><td>0.614</td><td>0.793</td><td>0.695</td></tr>
+<tr><td>Extendidas</td><td>LightGBM</td><td>n\_estimators=50, learning\_rate=0.1, num\_leaves=50</td><td>-</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.704</td><td>0.673</td><td>0.680</td><td>0.719</td><td>0.695</td></tr>
+<tr><td>Extendidas</td><td>KNN</td><td>n\_neighbors=7, weights=distance</td><td>-</td><td>(128,128,128), HU [-1000,400]</td><td>-</td><td>0.696</td><td>0.686</td><td>0.723</td><td>0.678</td><td>0.695</td></tr>
+<tr><td>Originales</td><td>XGBoost</td><td>n\_estimators=50, learning\_rate=0.1, max\_depth=10</td><td>-</td><td>(256,512,512), HU [-1000,400]</td><td>PCA (95\%)</td><td>0.712</td><td>0.667</td><td>0.645</td><td>0.762</td><td>0.694</td></tr>
+<tr><td>Originales</td><td>XGBoost</td><td>n\_estimators=50, learning\_rate=0.1, max\_depth=5</td><td>-</td><td>(256,512,512), HU [-1350,150]</td><td>-</td><td>0.712</td><td>0.658</td><td>0.614</td><td>0.793</td><td>0.694</td></tr>
+<tr><td>Originales</td><td>GradientBoosting</td><td>n\_estimators=200, learning\_rate=0.1, max\_depth=10</td><td>-</td><td>(256,512,512), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.704</td><td>0.665</td><td>0.648</td><td>0.748</td><td>0.692</td></tr>
+<tr><td>Originales</td><td>XGBoost</td><td>n\_estimators=100, learning\_rate=0.1, max\_depth=5</td><td>StandardScaler</td><td>(256,512,512), HU [-1350,150]</td><td>-</td><td>0.712</td><td>0.656</td><td>0.614</td><td>0.792</td><td>0.691</td></tr>
+<tr><td>Originales</td><td>GradientBoosting</td><td>n\_estimators=50, learning\_rate=0.01, max\_depth=5</td><td>StandardScaler</td><td>(256,512,512), HU [-1000,400]</td><td>PCA (90\%)</td><td>0.712</td><td>0.654</td><td>0.595</td><td>0.807</td><td>0.691</td></tr>
+<tr><td>Extendidas</td><td>XGBoost</td><td>n\_estimators=100, learning\_rate=0.1, max\_depth=10</td><td>StandardScaler</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.704</td><td>0.662</td><td>0.630</td><td>0.765</td><td>0.691</td></tr>
+<tr><td>Originales</td><td>XGBoost</td><td>n\_estimators=50, learning\_rate=0.1, max\_depth=10</td><td>StandardScaler</td><td>(256,512,512), HU [-1350,150]</td><td>-</td><td>0.712</td><td>0.652</td><td>0.614</td><td>0.793</td><td>0.690</td></tr>
+<tr><td>Extendidas</td><td>LightGBM</td><td>n\_estimators=100, learning\_rate=0.1, num\_leaves=31</td><td>-</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.704</td><td>0.665</td><td>0.662</td><td>0.733</td><td>0.690</td></tr>
+<tr><td>Originales</td><td>XGBoost</td><td>n\_estimators=200, learning\_rate=0.1, max\_depth=5</td><td>StandardScaler</td><td>(256,512,512), HU [-1000,400]</td><td>PCA (95\%)</td><td>0.712</td><td>0.655</td><td>0.611</td><td>0.791</td><td>0.689</td></tr>
+<tr><td>Originales</td><td>GradientBoosting</td><td>n\_estimators=50, learning\_rate=0.01, max\_depth=5</td><td>-</td><td>(256,512,512), HU [-1350,150]</td><td>-</td><td>0.704</td><td>0.659</td><td>0.630</td><td>0.763</td><td>0.689</td></tr>
+<tr><td>Extendidas</td><td>XGBoost</td><td>n\_estimators=200, learning\_rate=0.1, max\_depth=10</td><td>StandardScaler</td><td>(28,28,28), HU [-1350,150]</td><td>Variance Threshold (0.01)</td><td>0.704</td><td>0.658</td><td>0.629</td><td>0.764</td><td>0.689</td></tr>
+<tr><td>Extendidas</td><td>XGBoost</td><td>n\_estimators=50, learning\_rate=0.01, max\_depth=10</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1350,150]</td><td>PCA (95\%)</td><td>0.704</td><td>0.658</td><td>0.629</td><td>0.764</td><td>0.689</td></tr>
+</tbody>
+</table>
+    </div>
+
+    <div class="section">
+        <h2>Radiómica sin datos clínicos (sin DML)</h2>
+        <table class="table table-bordered table-striped">
+<thead>
+<tr><th>\textbf{Número de vecinos}</th><th>\textbf{Weights}</th><th>\textbf{Scaler}</th><th>\textbf{Preprocesado}</th><th>\textbf{Algoritmo DML}</th><th>\textbf{Dimensión DML}</th><th>\textbf{Accuracy}</th><th>\textbf{F1}</th><th>\textbf{TPR}</th><th>\textbf{TNR}</th><th>\textbf{G-Mean}</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>distance</td><td>StandardScaler</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>all</td><td>0.744</td><td>0.713</td><td>0.724</td><td>0.765</td><td>0.739</td></tr>
+<tr><td>5</td><td>distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>20</td><td>0.736</td><td>0.707</td><td>0.723</td><td>0.749</td><td>0.732</td></tr>
+<tr><td>5</td><td>distance</td><td>-</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>all</td><td>0.733</td><td>0.704</td><td>0.727</td><td>0.738</td><td>0.731</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>all</td><td>0.747</td><td>0.696</td><td>0.667</td><td>0.810</td><td>0.725</td></tr>
+<tr><td>5</td><td>uniform</td><td>MinMaxScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>10</td><td>0.728</td><td>0.697</td><td>0.688</td><td>0.766</td><td>0.721</td></tr>
+<tr><td>5</td><td>distance</td><td>-</td><td>(64,64,64), no HU</td><td>lmnn</td><td>20</td><td>0.752</td><td>0.686</td><td>0.598</td><td>0.880</td><td>0.721</td></tr>
+<tr><td>5</td><td>distance</td><td>MinMaxScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>10</td><td>0.728</td><td>0.691</td><td>0.670</td><td>0.780</td><td>0.720</td></tr>
+<tr><td>3</td><td>distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>lmnn</td><td>all</td><td>0.720</td><td>0.705</td><td>0.758</td><td>0.690</td><td>0.720</td></tr>
+<tr><td>7</td><td>distance</td><td>MinMaxScaler</td><td>(128,256,256), HU [-1350,150]</td><td>nca</td><td>all</td><td>0.728</td><td>0.691</td><td>0.688</td><td>0.766</td><td>0.719</td></tr>
+<tr><td>3</td><td>uniform</td><td>StandardScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>all</td><td>0.733</td><td>0.676</td><td>0.636</td><td>0.810</td><td>0.717</td></tr>
+<tr><td>3</td><td>distance</td><td>MinMaxScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>20</td><td>0.720</td><td>0.692</td><td>0.691</td><td>0.746</td><td>0.717</td></tr>
+<tr><td>3</td><td>uniform</td><td>MinMaxScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>20</td><td>0.720</td><td>0.692</td><td>0.691</td><td>0.746</td><td>0.717</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>all</td><td>0.720</td><td>0.692</td><td>0.689</td><td>0.747</td><td>0.716</td></tr>
+<tr><td>5</td><td>uniform</td><td>StandardScaler</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>all</td><td>0.720</td><td>0.694</td><td>0.724</td><td>0.721</td><td>0.716</td></tr>
+<tr><td>7</td><td>distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>30</td><td>0.712</td><td>0.702</td><td>0.741</td><td>0.692</td><td>0.711</td></tr>
+<tr><td>5</td><td>distance</td><td>-</td><td>(128,256,256), HU [-1350,150]</td><td>nca</td><td>10</td><td>0.712</td><td>0.691</td><td>0.702</td><td>0.723</td><td>0.710</td></tr>
+<tr><td>7</td><td>uniform</td><td>StandardScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>all</td><td>0.712</td><td>0.685</td><td>0.689</td><td>0.733</td><td>0.710</td></tr>
+<tr><td>3</td><td>distance</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1350,150]</td><td>lmnn</td><td>30</td><td>0.710</td><td>0.686</td><td>0.710</td><td>0.710</td><td>0.709</td></tr>
+<tr><td>5</td><td>uniform</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>20</td><td>0.712</td><td>0.688</td><td>0.723</td><td>0.705</td><td>0.709</td></tr>
+<tr><td>5</td><td>uniform</td><td>StandardScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>30</td><td>0.712</td><td>0.688</td><td>0.689</td><td>0.732</td><td>0.708</td></tr>
+<tr><td>5</td><td>distance</td><td>MinMaxScaler</td><td>(64,64,64), multiwindowing</td><td>lmnn</td><td>20</td><td>0.720</td><td>0.678</td><td>0.646</td><td>0.779</td><td>0.708</td></tr>
+<tr><td>3</td><td>uniform</td><td>-</td><td>(64,64,64), no HU</td><td>lmnn</td><td>30</td><td>0.712</td><td>0.683</td><td>0.691</td><td>0.733</td><td>0.708</td></tr>
+<tr><td>3</td><td>uniform</td><td>MinMaxScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>30</td><td>0.712</td><td>0.688</td><td>0.689</td><td>0.732</td><td>0.707</td></tr>
+<tr><td>5</td><td>distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>20</td><td>0.720</td><td>0.676</td><td>0.689</td><td>0.749</td><td>0.707</td></tr>
+<tr><td>7</td><td>distance</td><td>MinMaxScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>all</td><td>0.733</td><td>0.673</td><td>0.636</td><td>0.810</td><td>0.707</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(128,256,256), HU [-1000,400]</td><td>nca</td><td>all</td><td>0.704</td><td>0.694</td><td>0.738</td><td>0.678</td><td>0.705</td></tr>
+<tr><td>7</td><td>uniform</td><td>MinMaxScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>30</td><td>0.712</td><td>0.681</td><td>0.671</td><td>0.747</td><td>0.705</td></tr>
+<tr><td>5</td><td>distance</td><td>MinMaxScaler</td><td>(128,128,128), no HU</td><td>lmnn</td><td>20</td><td>0.712</td><td>0.682</td><td>0.668</td><td>0.748</td><td>0.705</td></tr>
+<tr><td>5</td><td>uniform</td><td>-</td><td>(64,64,64), no HU</td><td>lmnn</td><td>20</td><td>0.736</td><td>0.669</td><td>0.582</td><td>0.865</td><td>0.704</td></tr>
+<tr><td>5</td><td>distance</td><td>StandardScaler</td><td>(64,64,64), multiwindowing</td><td>lmnn</td><td>20</td><td>0.720</td><td>0.672</td><td>0.642</td><td>0.780</td><td>0.704</td></tr>
+<tr><td>3</td><td>distance</td><td>-</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>all</td><td>0.707</td><td>0.685</td><td>0.727</td><td>0.690</td><td>0.704</td></tr>
+<tr><td>7</td><td>distance</td><td>-</td><td>(128,128,128), HU [-1000,400]</td><td>nca</td><td>10</td><td>0.704</td><td>0.690</td><td>0.723</td><td>0.692</td><td>0.704</td></tr>
+<tr><td>7</td><td>distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>10</td><td>0.704</td><td>0.696</td><td>0.741</td><td>0.678</td><td>0.703</td></tr>
+<tr><td>5</td><td>uniform</td><td>-</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>all</td><td>0.707</td><td>0.672</td><td>0.697</td><td>0.714</td><td>0.703</td></tr>
+<tr><td>5</td><td>uniform</td><td>-</td><td>(128,256,256), HU [-1350,150]</td><td>nca</td><td>10</td><td>0.704</td><td>0.691</td><td>0.720</td><td>0.693</td><td>0.703</td></tr>
+<tr><td>3</td><td>distance</td><td>MinMaxScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>20</td><td>0.704</td><td>0.679</td><td>0.691</td><td>0.718</td><td>0.702</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(128,256,256), HU [-1350,150]</td><td>nca</td><td>20</td><td>0.712</td><td>0.675</td><td>0.653</td><td>0.764</td><td>0.702</td></tr>
+<tr><td>7</td><td>distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>20</td><td>0.720</td><td>0.665</td><td>0.655</td><td>0.779</td><td>0.702</td></tr>
+<tr><td>7</td><td>distance</td><td>MinMaxScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>all</td><td>0.704</td><td>0.681</td><td>0.689</td><td>0.718</td><td>0.701</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(128,128,128), HU [-1000,400]</td><td>lmnn</td><td>10</td><td>0.710</td><td>0.681</td><td>0.695</td><td>0.727</td><td>0.701</td></tr>
+<tr><td>5</td><td>distance</td><td>StandardScaler</td><td>(128,128,128), multiwindowing</td><td>nca</td><td>all</td><td>0.712</td><td>0.680</td><td>0.685</td><td>0.735</td><td>0.701</td></tr>
+<tr><td>5</td><td>distance</td><td>MinMaxScaler</td><td>(128,128,128), multiwindowing</td><td>nca</td><td>all</td><td>0.712</td><td>0.681</td><td>0.683</td><td>0.734</td><td>0.701</td></tr>
+</tbody>
+</table>
+    </div>
+
+    <div class="section">
+        <h2>Radiómica con datos clínicos (sin DML)</h2>
+        <table class="table table-bordered table-striped">
+<thead>
+<tr><th>\textbf{Número de vecinos}</th><th>\textbf{Weights}</th><th>\textbf{Scaler}</th><th>\textbf{Preprocesado}</th><th>\textbf{Algoritmo DML}</th><th>\textbf{Dimensión DML}</th><th>\textbf{Accuracy}</th><th>\textbf{F1}</th><th>\textbf{TPR}</th><th>\textbf{TNR}</th><th>\textbf{G-Mean}</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>distance</td><td>-</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>20</td><td>0.747</td><td>0.727</td><td>0.758</td><td>0.738</td><td>0.747</td></tr>
+<tr><td>5</td><td>distance</td><td>StandardScaler</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>20</td><td>0.747</td><td>0.708</td><td>0.697</td><td>0.786</td><td>0.739</td></tr>
+<tr><td>5</td><td>uniform</td><td>-</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>20</td><td>0.733</td><td>0.715</td><td>0.758</td><td>0.714</td><td>0.735</td></tr>
+<tr><td>7</td><td>distance</td><td>MinMaxScaler</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>20</td><td>0.733</td><td>0.708</td><td>0.727</td><td>0.738</td><td>0.733</td></tr>
+<tr><td>7</td><td>distance</td><td>-</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>20</td><td>0.733</td><td>0.708</td><td>0.727</td><td>0.738</td><td>0.731</td></tr>
+<tr><td>5</td><td>distance</td><td>-</td><td>(64,64,64), no HU</td><td>lmnn</td><td>20</td><td>0.760</td><td>0.700</td><td>0.623</td><td>0.870</td><td>0.731</td></tr>
+<tr><td>5</td><td>distance</td><td>-</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>all</td><td>0.733</td><td>0.704</td><td>0.727</td><td>0.738</td><td>0.731</td></tr>
+<tr><td>3</td><td>uniform</td><td>MinMaxScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>20</td><td>0.750</td><td>0.693</td><td>0.623</td><td>0.850</td><td>0.724</td></tr>
+<tr><td>7</td><td>uniform</td><td>-</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>20</td><td>0.720</td><td>0.696</td><td>0.727</td><td>0.714</td><td>0.721</td></tr>
+<tr><td>5</td><td>distance</td><td>-</td><td>(64,64,64), no HU</td><td>lmnn</td><td>20</td><td>0.752</td><td>0.686</td><td>0.598</td><td>0.880</td><td>0.721</td></tr>
+<tr><td>7</td><td>uniform</td><td>-</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>20</td><td>0.720</td><td>0.697</td><td>0.727</td><td>0.714</td><td>0.720</td></tr>
+<tr><td>3</td><td>distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>lmnn</td><td>all</td><td>0.720</td><td>0.705</td><td>0.758</td><td>0.690</td><td>0.720</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(128,128,128), HU [-1000,400]</td><td>nca</td><td>20</td><td>0.736</td><td>0.686</td><td>0.652</td><td>0.807</td><td>0.718</td></tr>
+<tr><td>5</td><td>uniform</td><td>StandardScaler</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>20</td><td>0.720</td><td>0.686</td><td>0.697</td><td>0.738</td><td>0.717</td></tr>
+<tr><td>5</td><td>distance</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>all</td><td>0.728</td><td>0.684</td><td>0.689</td><td>0.766</td><td>0.712</td></tr>
+<tr><td>7</td><td>distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>30</td><td>0.712</td><td>0.702</td><td>0.741</td><td>0.692</td><td>0.711</td></tr>
+<tr><td>5</td><td>uniform</td><td>-</td><td>(64,64,64), no HU</td><td>lmnn</td><td>20</td><td>0.740</td><td>0.678</td><td>0.602</td><td>0.850</td><td>0.711</td></tr>
+<tr><td>3</td><td>distance</td><td>StandardScaler</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>20</td><td>0.720</td><td>0.678</td><td>0.667</td><td>0.762</td><td>0.710</td></tr>
+<tr><td>7</td><td>distance</td><td>MinMaxScaler</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>all</td><td>0.720</td><td>0.686</td><td>0.697</td><td>0.738</td><td>0.710</td></tr>
+<tr><td>3</td><td>distance</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1350,150]</td><td>lmnn</td><td>30</td><td>0.710</td><td>0.686</td><td>0.710</td><td>0.710</td><td>0.709</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(128,128,128), HU [-1000,400]</td><td>nca</td><td>20</td><td>0.728</td><td>0.678</td><td>0.652</td><td>0.795</td><td>0.708</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(128,128,128), HU [-1000,400]</td><td>lmnn</td><td>all</td><td>0.707</td><td>0.686</td><td>0.727</td><td>0.690</td><td>0.708</td></tr>
+<tr><td>3</td><td>uniform</td><td>StandardScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>20</td><td>0.740</td><td>0.674</td><td>0.600</td><td>0.850</td><td>0.708</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>20</td><td>0.707</td><td>0.688</td><td>0.727</td><td>0.690</td><td>0.707</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>all</td><td>0.733</td><td>0.673</td><td>0.636</td><td>0.810</td><td>0.707</td></tr>
+<tr><td>5</td><td>uniform</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>all</td><td>0.720</td><td>0.678</td><td>0.689</td><td>0.752</td><td>0.705</td></tr>
+<tr><td>7</td><td>uniform</td><td>StandardScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>20</td><td>0.712</td><td>0.677</td><td>0.670</td><td>0.749</td><td>0.705</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>20</td><td>0.712</td><td>0.677</td><td>0.670</td><td>0.749</td><td>0.705</td></tr>
+<tr><td>5</td><td>uniform</td><td>-</td><td>(64,64,64), no HU</td><td>lmnn</td><td>20</td><td>0.736</td><td>0.669</td><td>0.582</td><td>0.865</td><td>0.704</td></tr>
+<tr><td>3</td><td>distance</td><td>-</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>all</td><td>0.707</td><td>0.685</td><td>0.727</td><td>0.690</td><td>0.704</td></tr>
+<tr><td>7</td><td>distance</td><td>-</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>10</td><td>0.704</td><td>0.696</td><td>0.741</td><td>0.678</td><td>0.703</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(128,256,256), HU [-1350,150]</td><td>nca</td><td>20</td><td>0.704</td><td>0.687</td><td>0.705</td><td>0.704</td><td>0.703</td></tr>
+<tr><td>5</td><td>uniform</td><td>-</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>all</td><td>0.707</td><td>0.672</td><td>0.697</td><td>0.714</td><td>0.703</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(128,128,128), multiwindowing</td><td>lmnn</td><td>all</td><td>0.707</td><td>0.679</td><td>0.697</td><td>0.714</td><td>0.701</td></tr>
+<tr><td>3</td><td>distance</td><td>MinMaxScaler</td><td>(64,64,64), multiwindowing</td><td>lmnn</td><td>20</td><td>0.700</td><td>0.681</td><td>0.714</td><td>0.690</td><td>0.701</td></tr>
+<tr><td>7</td><td>distance</td><td>StandardScaler</td><td>(128,128,128), HU [-1000,400]</td><td>lmnn</td><td>10</td><td>0.710</td><td>0.681</td><td>0.695</td><td>0.727</td><td>0.701</td></tr>
+<tr><td>7</td><td>distance</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>all</td><td>0.712</td><td>0.667</td><td>0.670</td><td>0.751</td><td>0.701</td></tr>
+<tr><td>5</td><td>distance</td><td>MinMaxScaler</td><td>(128,128,128), HU [-1350,150]</td><td>nca</td><td>all</td><td>0.712</td><td>0.672</td><td>0.689</td><td>0.736</td><td>0.700</td></tr>
+<tr><td>3</td><td>distance</td><td>MinMaxScaler</td><td>(64,64,64), no HU</td><td>lmnn</td><td>all</td><td>0.720</td><td>0.656</td><td>0.606</td><td>0.810</td><td>0.700</td></tr>
+</tbody>
+</table>
+    </div>
+
+    <div class="section">
+        <h2>Radiómica sin datos clínicos (con DML)</h2>
+        <table class="table table-bordered table-striped">
+<thead>
+<tr><th>\textbf{n\_estimators}</th><th>\textbf{max\_depth}</th><th>\textbf{min\_samples\_split}</th><th>\textbf{Accuracy}</th><th>\textbf{F1}</th><th>\textbf{TPR}</th><th>\textbf{TNR}</th><th>\textbf{G-Mean}</th></tr>
+</thead>
+<tbody>
+<tr><td>100</td><td>5</td><td>2</td><td>0.552</td><td>0.443</td><td>0.373</td><td>0.712</td><td>0.515</td></tr>
+<tr><td>200</td><td>10</td><td>4</td><td>0.536</td><td>0.442</td><td>0.392</td><td>0.665</td><td>0.508</td></tr>
+<tr><td>300</td><td>None</td><td>2</td><td>0.504</td><td>0.443</td><td>0.424</td><td>0.576</td><td>0.485</td></tr>
+</tbody>
+</table>
+    </div>
+
+    <div class="section">
+        <h2>Radiómica con datos clínicos (con DML)</h2>
+        <table class="table table-bordered table-striped">
+<thead>
+<tr><th>\textbf{n\_neighbors}</th><th>\textbf{weights}</th><th>\textbf{metric}</th><th>\textbf{Accuracy}</th><th>\textbf{F1}</th><th>\textbf{TPR}</th><th>\textbf{TNR}</th><th>\textbf{G-Mean}</th></tr>
+</thead>
+<tbody>
+<tr><td>5</td><td>uniform</td><td>euclidean</td><td>0.520</td><td>0.497</td><td>0.509</td><td>0.533</td><td>0.509</td></tr>
+<tr><td>3</td><td>uniform</td><td>euclidean</td><td>0.512</td><td>0.476</td><td>0.474</td><td>0.547</td><td>0.503</td></tr>
+<tr><td>7</td><td>uniform</td><td>manhattan</td><td>0.512</td><td>0.468</td><td>0.458</td><td>0.563</td><td>0.503</td></tr>
+<tr><td>5</td><td>distance</td><td>euclidean</td><td>0.480</td><td>0.466</td><td>0.476</td><td>0.487</td><td>0.478</td></tr>
+<tr><td>9</td><td>distance</td><td>manhattan</td><td>0.480</td><td>0.404</td><td>0.374</td><td>0.577</td><td>0.452</td></tr>
+</tbody>
+</table>
+    </div>
+
+    <div class="section">
+        <h2>Resultados DenseNet121 híbrido</h2>
+        <table class="table table-bordered table-striped">
+<thead>
+<tr><th>\textbf{Set}</th><th>\textbf{Batch Size}</th><th>\textbf{LR}</th><th>\textbf{Weight Decay}</th><th>\textbf{Dropout}</th><th>\textbf{Preprocesado}</th><th>\textbf{Accuracy}</th><th>\textbf{F1}</th><th>\textbf{TPR}</th><th>\textbf{TNR}</th><th>\textbf{G-Mean}</th></tr>
+</thead>
+<tbody>
+<tr><td>TEST</td><td>4</td><td>0.001</td><td>0</td><td>0.3</td><td>(64,64,64) HU [-1000,400]</td><td>0.696</td><td>0.680</td><td>0.679</td><td>0.709</td><td>0.691</td></tr>
+<tr><td>VALIDATION</td><td>4</td><td>0.001</td><td>0</td><td>0.3</td><td>(64,64,64) HU [-1000,400]</td><td>0.720</td><td>0.697</td><td>0.720</td><td>0.722</td><td>0.715</td></tr>
+<tr><td>TEST</td><td>16</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1000,400]</td><td>0.680</td><td>0.687</td><td>0.747</td><td>0.619</td><td>0.674</td></tr>
+<tr><td>VALIDATION</td><td>16</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1000,400]</td><td>0.650</td><td>0.640</td><td>0.676</td><td>0.627</td><td>0.650</td></tr>
+<tr><td>TEST</td><td>16</td><td>0.001</td><td>0</td><td>0.3</td><td>(64,64,64) HU [-1000,400]</td><td>0.680</td><td>0.713</td><td>0.830</td><td>0.542</td><td>0.666</td></tr>
+<tr><td>VALIDATION</td><td>16</td><td>0.001</td><td>0</td><td>0.3</td><td>(64,64,64) HU [-1000,400]</td><td>0.660</td><td>0.626</td><td>0.633</td><td>0.685</td><td>0.655</td></tr>
+<tr><td>% TEST</td><td>k=10</td><td>4</td><td>0.001</td><td>0</td><td>0.3</td><td>(128,128,128) HU [-1000,400]</td><td>0.682</td><td>0.653</td><td>0.643</td><td>0.710</td><td>0.655</td></tr>
+<tr><td>% VALIDATION</td><td>k=10</td><td>4</td><td>0.001</td><td>0</td><td>0.3</td><td>(128,128,128) HU [-1000,400]</td><td>0.661</td><td>0.663</td><td>0.700</td><td>0.625</td><td>0.656</td></tr>
+<tr><td>TEST</td><td>8</td><td>0.001</td><td>0</td><td>0.2</td><td>(64,64,64) HU [-1000,400]</td><td>0.656</td><td>0.664</td><td>0.733</td><td>0.592</td><td>0.652</td></tr>
+<tr><td>VALIDATION</td><td>8</td><td>0.001</td><td>0</td><td>0.2</td><td>(64,64,64) HU [-1000,400]</td><td>0.650</td><td>0.620</td><td>0.631</td><td>0.664</td><td>0.643</td></tr>
+<tr><td>TEST</td><td>16</td><td>0.001</td><td>0.00001</td><td>0.4</td><td>(128,128,128) HU [-1350,150]</td><td>0.664</td><td>0.655</td><td>0.664</td><td>0.662</td><td>0.650</td></tr>
+<tr><td>VALIDATION</td><td>16</td><td>0.001</td><td>0.00001</td><td>0.4</td><td>(128,128,128) HU [-1350,150]</td><td>0.650</td><td>0.629</td><td>0.656</td><td>0.653</td><td>0.646</td></tr>
+<tr><td>TEST</td><td>16</td><td>0.001</td><td>0</td><td>0.2</td><td>(64,64,64) HU [-1000,400]</td><td>0.656</td><td>0.648</td><td>0.697</td><td>0.620</td><td>0.645</td></tr>
+<tr><td>VALIDATION</td><td>16</td><td>0.001</td><td>0</td><td>0.2</td><td>(64,64,64) HU [-1000,400]</td><td>0.660</td><td>0.624</td><td>0.609</td><td>0.702</td><td>0.650</td></tr>
+<tr><td>TEST</td><td>32</td><td>0.001</td><td>0</td><td>0.2</td><td>(64,64,64) HU [-1350,150]</td><td>0.664</td><td>0.629</td><td>0.629</td><td>0.692</td><td>0.644</td></tr>
+<tr><td>VALIDATION</td><td>32</td><td>0.001</td><td>0</td><td>0.2</td><td>(64,64,64) HU [-1350,150]</td><td>0.690</td><td>0.668</td><td>0.676</td><td>0.707</td><td>0.684</td></tr>
+<tr><td>TEST</td><td>32</td><td>0.001</td><td>0</td><td>0.3</td><td>(64,64,64) HU [-1350,150]</td><td>0.656</td><td>0.679</td><td>0.783</td><td>0.544</td><td>0.643</td></tr>
+<tr><td>VALIDATION</td><td>32</td><td>0.001</td><td>0</td><td>0.3</td><td>(64,64,64) HU [-1350,150]</td><td>0.630</td><td>0.656</td><td>0.760</td><td>0.520</td><td>0.622</td></tr>
+<tr><td>TEST</td><td>4</td><td>0.001</td><td>0</td><td>0.2</td><td>(64,64,64) HU [-1350,150]</td><td>0.640</td><td>0.659</td><td>0.750</td><td>0.546</td><td>0.636</td></tr>
+<tr><td>VALIDATION</td><td>4</td><td>0.001</td><td>0</td><td>0.2</td><td>(64,64,64) HU [-1350,150]</td><td>0.680</td><td>0.673</td><td>0.716</td><td>0.647</td><td>0.677</td></tr>
+<tr><td>TEST</td><td>8</td><td>0.001</td><td>0.00001</td><td>0.4</td><td>(64,64,64) HU [-1000,400]</td><td>0.640</td><td>0.674</td><td>0.800</td><td>0.501</td><td>0.629</td></tr>
+<tr><td>VALIDATION</td><td>8</td><td>0.001</td><td>0.00001</td><td>0.4</td><td>(64,64,64) HU [-1000,400]</td><td>0.670</td><td>0.664</td><td>0.720</td><td>0.627</td><td>0.663</td></tr>
+<tr><td>TEST</td><td>8</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1350,150]</td><td>0.656</td><td>0.710</td><td>0.867</td><td>0.465</td><td>0.626</td></tr>
+<tr><td>VALIDATION</td><td>8</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1350,150]</td><td>0.680</td><td>0.688</td><td>0.762</td><td>0.616</td><td>0.674</td></tr>
+<tr><td>% TEST</td><td>k=10</td><td>16</td><td>0.001</td><td>0</td><td>0.5</td><td>(128,128,128) HU [-1350,150]</td><td>0.642</td><td>0.647</td><td>0.700</td><td>0.583</td><td>0.625</td></tr>
+<tr><td>% VALIDATION</td><td>k=10</td><td>16</td><td>0.001</td><td>0</td><td>0.5</td><td>(128,128,128) HU [-1350,150]</td><td>0.587</td><td>0.592</td><td>0.636</td><td>0.542</td><td>0.580</td></tr>
+<tr><td>TEST</td><td>4</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(128,128,128) HU [-1000,400]</td><td>0.648</td><td>0.671</td><td>0.783</td><td>0.534</td><td>0.619</td></tr>
+<tr><td>VALIDATION</td><td>4</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(128,128,128) HU [-1000,400]</td><td>0.650</td><td>0.655</td><td>0.736</td><td>0.571</td><td>0.634</td></tr>
+<tr><td>% TEST</td><td>k=10</td><td>4</td><td>0.001</td><td>0</td><td>0.5</td><td>(128,128,128) HU [-1350,150]</td><td>0.634</td><td>0.646</td><td>0.713</td><td>0.562</td><td>0.619</td></tr>
+<tr><td>% VALIDATION</td><td>k=10</td><td>4</td><td>0.001</td><td>0</td><td>0.5</td><td>(128,128,128) HU [-1350,150]</td><td>0.604</td><td>0.608</td><td>0.645</td><td>0.567</td><td>0.602</td></tr>
+<tr><td>% TEST</td><td>k=10</td><td>8</td><td>0.001</td><td>0</td><td>0.3</td><td>(64,64,64) HU [-1000,400]</td><td>0.651</td><td>0.610</td><td>0.633</td><td>0.669</td><td>0.618</td></tr>
+<tr><td>% VALIDATION</td><td>k=10</td><td>8</td><td>0.001</td><td>0</td><td>0.3</td><td>(64,64,64) HU [-1000,400]</td><td>0.643</td><td>0.632</td><td>0.664</td><td>0.625</td><td>0.629</td></tr>
+<tr><td>% TEST</td><td>k=10</td><td>4</td><td>0.001</td><td>0</td><td>0.3</td><td>(128,128,128) HU [-1350,150]</td><td>0.625</td><td>0.614</td><td>0.663</td><td>0.590</td><td>0.609</td></tr>
+<tr><td>% VALIDATION</td><td>k=10</td><td>4</td><td>0.001</td><td>0</td><td>0.3</td><td>(128,128,128) HU [-1350,150]</td><td>0.604</td><td>0.601</td><td>0.636</td><td>0.575</td><td>0.597</td></tr>
+<tr><td>TEST</td><td>4</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1350,150]</td><td>0.616</td><td>0.643</td><td>0.730</td><td>0.511</td><td>0.601</td></tr>
+<tr><td>VALIDATION</td><td>4</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1350,150]</td><td>0.690</td><td>0.703</td><td>0.784</td><td>0.616</td><td>0.683</td></tr>
+<tr><td>% TEST</td><td>k=10</td><td>4</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(64,64,64) HU [-1350,150]</td><td>0.609</td><td>0.651</td><td>0.783</td><td>0.455</td><td>0.592</td></tr>
+<tr><td>% VALIDATION</td><td>k=10</td><td>4</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(64,64,64) HU [-1350,150]</td><td>0.578</td><td>0.609</td><td>0.700</td><td>0.467</td><td>0.566</td></tr>
+<tr><td>% TEST</td><td>k=10</td><td>2</td><td>0.00001</td><td>0.00001</td><td>0.5</td><td>(64,64,64) HU [-1350,150]</td><td>0.593</td><td>0.617</td><td>0.717</td><td>0.488</td><td>0.573</td></tr>
+<tr><td>% VALIDATION</td><td>k=10</td><td>2</td><td>0.00001</td><td>0.00001</td><td>0.5</td><td>(64,64,64) HU [-1350,150]</td><td>0.561</td><td>0.579</td><td>0.655</td><td>0.475</td><td>0.521</td></tr>
+<tr><td>TEST</td><td>4</td><td>0.001</td><td>0</td><td>0.4</td><td>(128,256,256) HU [-1350,150]</td><td>0.600</td><td>0.641</td><td>0.761</td><td>0.452</td><td>0.572</td></tr>
+<tr><td>VALIDATION</td><td>4</td><td>0.001</td><td>0</td><td>0.4</td><td>(128,256,256) HU [-1350,150]</td><td>0.670</td><td>0.669</td><td>0.720</td><td>0.635</td><td>0.668</td></tr>
+<tr><td>% TEST</td><td>k=10</td><td>4</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(128,128,128) HU [-1350,150]</td><td>0.600</td><td>0.646</td><td>0.783</td><td>0.431</td><td>0.568</td></tr>
+<tr><td>% VALIDATION</td><td>k=10</td><td>4</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(128,128,128) HU [-1350,150]</td><td>0.561</td><td>0.606</td><td>0.709</td><td>0.425</td><td>0.544</td></tr>
+<tr><td>% TEST</td><td>k=10</td><td>4</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(128,128,128) HU [-1000,400]</td><td>0.628</td><td>0.624</td><td>0.683</td><td>0.569</td><td>0.566</td></tr>
+<tr><td>% VALIDATION</td><td>k=10</td><td>4</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(128,128,128) HU [-1000,400]</td><td>0.639</td><td>0.649</td><td>0.709</td><td>0.575</td><td>0.631</td></tr>
+<tr><td>% TEST</td><td>k=10</td><td>8</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(128,128,128) HU [-1000,400]</td><td>0.657</td><td>0.680</td><td>0.783</td><td>0.536</td><td>0.559</td></tr>
+<tr><td>% VALIDATION</td><td>k=10</td><td>8</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(128,128,128) HU [-1000,400]</td><td>0.604</td><td>0.645</td><td>0.755</td><td>0.467</td><td>0.576</td></tr>
+<tr><td>TEST</td><td>8</td><td>0.001</td><td>0</td><td>0.4</td><td>(128,256,256) HU [-1350,150]</td><td>0.600</td><td>0.646</td><td>0.798</td><td>0.424</td><td>0.558</td></tr>
+<tr><td>VALIDATION</td><td>8</td><td>0.001</td><td>0</td><td>0.4</td><td>(128,256,256) HU [-1350,150]</td><td>0.690</td><td>0.709</td><td>0.804</td><td>0.595</td><td>0.679</td></tr>
+<tr><td>% TEST</td><td>k=10</td><td>2</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(64,64,64) HU [-1350,150]</td><td>0.594</td><td>0.600</td><td>0.683</td><td>0.510</td><td>0.542</td></tr>
+<tr><td>% VALIDATION</td><td>k=10</td><td>2</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(64,64,64) HU [-1350,150]</td><td>0.604</td><td>0.618</td><td>0.691</td><td>0.525</td><td>0.596</td></tr>
+<tr><td>TEST</td><td>2</td><td>0.0001</td><td>0</td><td>0.2</td><td>(128,256,256) HU [-1350,150]</td><td>0.576</td><td>0.605</td><td>0.714</td><td>0.453</td><td>0.541</td></tr>
+<tr><td>VALIDATION</td><td>2</td><td>0.0001</td><td>0</td><td>0.2</td><td>(128,256,256) HU [-1350,150]</td><td>0.660</td><td>0.677</td><td>0.784</td><td>0.558</td><td>0.656</td></tr>
+<tr><td>TEST</td><td>8</td><td>0.001</td><td>0</td><td>0.2</td><td>(128,256,256) HU [-1000,400]</td><td>0.592</td><td>0.606</td><td>0.697</td><td>0.501</td><td>0.539</td></tr>
+<tr><td>VALIDATION</td><td>8</td><td>0.001</td><td>0</td><td>0.2</td><td>(128,256,256) HU [-1000,400]</td><td>0.660</td><td>0.641</td><td>0.651</td><td>0.664</td><td>0.642</td></tr>
+<tr><td>% TEST</td><td>k=10</td><td>2</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(64,64,64) HU [-1000,400]</td><td>0.601</td><td>0.615</td><td>0.717</td><td>0.490</td><td>0.537</td></tr>
+<tr><td>% VALIDATION</td><td>k=10</td><td>2</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(64,64,64) HU [-1000,400]</td><td>0.630</td><td>0.653</td><td>0.727</td><td>0.542</td><td>0.625</td></tr>
+<tr><td>TEST</td><td>2</td><td>0.0001</td><td>0.00001</td><td>0.5</td><td>(128,128,128) HU [-1000,400]</td><td>0.536</td><td>0.527</td><td>0.580</td><td>0.501</td><td>0.522</td></tr>
+<tr><td>VALIDATION</td><td>2</td><td>0.0001</td><td>0.00001</td><td>0.5</td><td>(128,128,128) HU [-1000,400]</td><td>0.600</td><td>0.570</td><td>0.602</td><td>0.591</td><td>0.587</td></tr>
+<tr><td>TEST</td><td>4</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(128,128,128) HU [-1350,150]</td><td>0.544</td><td>0.527</td><td>0.571</td><td>0.515</td><td>0.519</td></tr>
+<tr><td>VALIDATION</td><td>4</td><td>0.001</td><td>0.00001</td><td>0.5</td><td>(128,128,128) HU [-1350,150]</td><td>0.640</td><td>0.637</td><td>0.698</td><td>0.593</td><td>0.641</td></tr>
+</tbody>
+</table>
+    </div>
+
+    <div class="section">
+        <h2>Resultados Fine-Tuning (DML)</h2>
+        <table class="table table-bordered table-striped">
+<thead>
+<tr><th>\textbf{Set}</th><th>\textbf{Batch Size}</th><th>\textbf{LR}</th><th>\textbf{Weight Decay}</th><th>\textbf{Dropout}</th><th>\textbf{Preprocesado}</th><th>\textbf{Accuracy}</th><th>\textbf{F1}</th><th>\textbf{TPR}</th><th>\textbf{TNR}</th><th>\textbf{G-Mean}</th></tr>
+</thead>
+<tbody>
+<tr><td>TEST</td><td>4</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1000,400]</td><td>0.512</td><td>0.459</td><td>0.456</td><td>0.559</td><td>0.469</td></tr>
+<tr><td>VALIDATION</td><td>4</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1000,400]</td><td>0.730</td><td>0.700</td><td>0.700</td><td>0.760</td><td>0.721</td></tr>
+<tr><td>TEST</td><td>4</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1350,150]</td><td>0.488</td><td>0.460</td><td>0.458</td><td>0.515</td><td>0.448</td></tr>
+<tr><td>VALIDATION</td><td>4</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1350,150]</td><td>0.710</td><td>0.686</td><td>0.700</td><td>0.724</td><td>0.706</td></tr>
+<tr><td>TEST</td><td>16</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1000,400]</td><td>0.480</td><td>0.545</td><td>0.700</td><td>0.288</td><td>0.428</td></tr>
+<tr><td>VALIDATION</td><td>16</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1000,400]</td><td>0.660</td><td>0.679</td><td>0.784</td><td>0.556</td><td>0.618</td></tr>
+<tr><td>TEST</td><td>16</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1350,150]</td><td>0.496</td><td>0.552</td><td>0.662</td><td>0.344</td><td>0.413</td></tr>
+<tr><td>VALIDATION</td><td>16</td><td>0.001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1350,150]</td><td>0.650</td><td>0.685</td><td>0.807</td><td>0.520</td><td>0.561</td></tr>
+<tr><td>TEST</td><td>4</td><td>0.0001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1350,150]</td><td>0.552</td><td>0.632</td><td>0.833</td><td>0.297</td><td>0.347</td></tr>
+<tr><td>VALIDATION</td><td>4</td><td>0.0001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1350,150]</td><td>0.570</td><td>0.651</td><td>0.871</td><td>0.316</td><td>0.369</td></tr>
+<tr><td>TEST</td><td>4</td><td>0.0001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1000,400]</td><td>0.504</td><td>0.565</td><td>0.761</td><td>0.268</td><td>0.259</td></tr>
+<tr><td>VALIDATION</td><td>4</td><td>0.0001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1000,400]</td><td>0.500</td><td>0.550</td><td>0.722</td><td>0.318</td><td>0.340</td></tr>
+<tr><td>TEST</td><td>16</td><td>0.0001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1350,150]</td><td>0.520</td><td>0.560</td><td>0.818</td><td>0.231</td><td>0.139</td></tr>
+<tr><td>VALIDATION</td><td>16</td><td>0.0001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1350,150]</td><td>0.480</td><td>0.506</td><td>0.800</td><td>0.236</td><td>0.085</td></tr>
+<tr><td>TEST</td><td>16</td><td>0.0001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1000,400]</td><td>0.488</td><td>0.515</td><td>0.800</td><td>0.214</td><td>0.053</td></tr>
+<tr><td>VALIDATION</td><td>16</td><td>0.0001</td><td>0</td><td>0.4</td><td>(64,64,64) HU [-1000,400]</td><td>0.510</td><td>0.521</td><td>0.800</td><td>0.260</td><td>0.110</td></tr>
+</tbody>
+</table>
+    </div>
+
+    <footer class="text-center text-muted mt-5">
+        <p>&copy; 2025 - María Cribilles Pérez | Trabajo Fin de Grado</p>
+    </footer>
+</div>
 </body>
 </html>
