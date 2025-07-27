@@ -1,0 +1,17 @@
+\babel@toc {spanish}{}\relax 
+\beamer@sectionintoc {1}{Introducción}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Objetivos}{9}{0}{1}
+\beamer@sectionintoc {2}{Matemáticas}{10}{0}{2}
+\beamer@subsectionintoc {2}{1}{Señales}{11}{0}{2}
+\beamer@subsectionintoc {2}{2}{Radiómica}{17}{0}{2}
+\beamer@subsectionintoc {2}{3}{Optimización}{18}{0}{2}
+\beamer@subsectionintoc {2}{4}{Aprendizaje automático}{23}{0}{2}
+\beamer@subsectionintoc {2}{5}{Deep Learning}{24}{0}{2}
+\beamer@subsectionintoc {2}{6}{DML}{27}{0}{2}
+\beamer@sectionintoc {3}{Informática}{30}{0}{3}
+\beamer@subsectionintoc {3}{1}{Datos}{31}{0}{3}
+\beamer@subsectionintoc {3}{2}{Preprocesamiento}{33}{0}{3}
+\beamer@subsectionintoc {3}{3}{Modelos}{35}{0}{3}
+\beamer@subsectionintoc {3}{4}{Experimentación}{38}{0}{3}
+\beamer@subsectionintoc {3}{5}{Explicabilidad}{43}{0}{3}
+\beamer@sectionintoc {4}{Conclusiones}{45}{0}{4}
