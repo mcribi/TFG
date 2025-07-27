@@ -23,134 +23,565 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mb-4"> Resultados de mi TFG</h1>
+        <h1 class="mb-4">Resultados de mi TFG</h1>
 
         <div class="section">
-            <h2>🔬 Resultados Deep Learning (DenseNet121)</h2>
-            <p>Tabla con los resultados medios en test y validación usando validación cruzada (k=5), ordenados por G-Mean.</p>
+            <h2>Resultados Deep Learning (DenseNet121)</h2>
             <table class="dataframe table table-striped">
-              <thead>
-                <tr style="text-align: right;">
-                  <th>Set</th>
-                  <th>Batch Size</th>
-                  <th>LR</th>
-                  <th>Weight Decay</th>
-                  <th>Dropout</th>
-                  <th>Preprocesado</th>
-                  <th>Accuracy</th>
-                  <th>F1</th>
-                  <th>TPR</th>
-                  <th>TNR</th>
-                  <th>G-Mean</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>TEST</td>
-                  <td>4</td>
-                  <td>0.001</td>
-                  <td>0</td>
-                  <td>0.3</td>
-                  <td>(64,64,64) HU [-1000,400]</td>
-                  <td>0.696</td>
-                  <td>0.680</td>
-                  <td>0.679</td>
-                  <td>0.709</td>
-                  <td>0.691</td>
-                </tr>
-                <tr>
-                  <td>VALIDATION</td>
-                  <td>4</td>
-                  <td>0.001</td>
-                  <td>0</td>
-                  <td>0.3</td>
-                  <td>(64,64,64) HU [-1000,400]</td>
-                  <td>0.720</td>
-                  <td>0.697</td>
-                  <td>0.720</td>
-                  <td>0.722</td>
-                  <td>0.715</td>
-                </tr>
-                <tr>
-                  <td>TEST</td>
-                  <td>16</td>
-                  <td>0.001</td>
-                  <td>0</td>
-                  <td>0.4</td>
-                  <td>(64,64,64) HU [-1000,400]</td>
-                  <td>0.680</td>
-                  <td>0.687</td>
-                  <td>0.747</td>
-                  <td>0.619</td>
-                  <td>0.674</td>
-                </tr>
-                <tr>
-                  <td>VALIDATION</td>
-                  <td>16</td>
-                  <td>0.001</td>
-                  <td>0</td>
-                  <td>0.4</td>
-                  <td>(64,64,64) HU [-1000,400]</td>
-                  <td>0.650</td>
-                  <td>0.640</td>
-                  <td>0.676</td>
-                  <td>0.627</td>
-                  <td>0.650</td>
-                </tr>
-                <tr>
-                  <td>TEST</td>
-                  <td>16</td>
-                  <td>0.001</td>
-                  <td>0</td>
-                  <td>0.3</td>
-                  <td>(64,64,64) HU [-1000,400]</td>
-                  <td>0.680</td>
-                  <td>0.713</td>
-                  <td>0.830</td>
-                  <td>0.542</td>
-                  <td>0.666</td>
-                </tr>
-                <tr>
-                  <td>VALIDATION</td>
-                  <td>16</td>
-                  <td>0.001</td>
-                  <td>0</td>
-                  <td>0.3</td>
-                  <td>(64,64,64) HU [-1000,400]</td>
-                  <td>0.660</td>
-                  <td>0.626</td>
-                  <td>0.633</td>
-                  <td>0.685</td>
-                  <td>0.655</td>
-                </tr>
-                <tr>
-                  <td>TEST</td>
-                  <td>8</td>
-                  <td>0.001</td>
-                  <td>0</td>
-                  <td>0.2</td>
-                  <td>(64,64,64) HU [-1000,400]</td>
-                  <td>0.656</td>
-                  <td>0.664</td>
-                  <td>0.733</td>
-                  <td>0.592</td>
-                  <td>0.652</td>
-                </tr>
-                <tr>
-                  <td>VALIDATION</td>
-                  <td>8</td>
-                  <td>0.001</td>
-                  <td>0</td>
-                  <td>0.2</td>
-                  <td>(64,64,64) HU [-1000,400]</td>
-                  <td>0.650</td>
-                  <td>0.620</td>
-                  <td>0.631</td>
-                  <td>0.664</td>
-                  <td>0.643</td>
-                </tr>
-              </tbody>
-            </table>
+  <thead>
+    <tr style="text-align: right;">
+      <th>Set</th>
+      <th>Batch Size</th>
+      <th>LR</th>
+      <th>Weight Decay</th>
+      <th>Dropout</th>
+      <th>Preprocesado</th>
+      <th>Accuracy</th>
+      <th>F1</th>
+      <th>TPR</th>
+      <th>TNR</th>
+      <th>G-Mean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TEST</td>
+      <td>4</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.3</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.696</td>
+      <td>0.680</td>
+      <td>0.679</td>
+      <td>0.709</td>
+      <td>0.691</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>4</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.3</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.720</td>
+      <td>0.697</td>
+      <td>0.720</td>
+      <td>0.722</td>
+      <td>0.715</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>16</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.680</td>
+      <td>0.687</td>
+      <td>0.747</td>
+      <td>0.619</td>
+      <td>0.674</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>16</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.650</td>
+      <td>0.640</td>
+      <td>0.676</td>
+      <td>0.627</td>
+      <td>0.650</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>16</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.3</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.680</td>
+      <td>0.713</td>
+      <td>0.830</td>
+      <td>0.542</td>
+      <td>0.666</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>16</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.3</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.660</td>
+      <td>0.626</td>
+      <td>0.633</td>
+      <td>0.685</td>
+      <td>0.655</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>8</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.2</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.656</td>
+      <td>0.664</td>
+      <td>0.733</td>
+      <td>0.592</td>
+      <td>0.652</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>8</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.2</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.650</td>
+      <td>0.620</td>
+      <td>0.631</td>
+      <td>0.664</td>
+      <td>0.643</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>16</td>
+      <td>0.001</td>
+      <td>0.00001</td>
+      <td>0.4</td>
+      <td>(128,128,128) HU [-1350,150]</td>
+      <td>0.664</td>
+      <td>0.655</td>
+      <td>0.664</td>
+      <td>0.662</td>
+      <td>0.650</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>16</td>
+      <td>0.001</td>
+      <td>0.00001</td>
+      <td>0.4</td>
+      <td>(128,128,128) HU [-1350,150]</td>
+      <td>0.650</td>
+      <td>0.629</td>
+      <td>0.656</td>
+      <td>0.653</td>
+      <td>0.646</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>16</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.2</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.656</td>
+      <td>0.648</td>
+      <td>0.697</td>
+      <td>0.620</td>
+      <td>0.645</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>16</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.2</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.660</td>
+      <td>0.624</td>
+      <td>0.609</td>
+      <td>0.702</td>
+      <td>0.650</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>32</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.2</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.664</td>
+      <td>0.629</td>
+      <td>0.629</td>
+      <td>0.692</td>
+      <td>0.644</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>32</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.2</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.690</td>
+      <td>0.668</td>
+      <td>0.676</td>
+      <td>0.707</td>
+      <td>0.684</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>32</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.3</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.656</td>
+      <td>0.679</td>
+      <td>0.783</td>
+      <td>0.544</td>
+      <td>0.643</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>32</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.3</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.630</td>
+      <td>0.656</td>
+      <td>0.760</td>
+      <td>0.520</td>
+      <td>0.622</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>4</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.2</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.640</td>
+      <td>0.659</td>
+      <td>0.750</td>
+      <td>0.546</td>
+      <td>0.636</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>4</td>
+      <td>0.001</td>
+      <td>0.00000</td>
+      <td>0.2</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.680</td>
+      <td>0.673</td>
+      <td>0.716</td>
+      <td>0.647</td>
+      <td>0.677</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>8</td>
+      <td>0.001</td>
+      <td>0.00001</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.640</td>
+      <td>0.674</td>
+      <td>0.800</td>
+      <td>0.501</td>
+      <td>0.629</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>8</td>
+      <td>0.001</td>
+      <td>0.00001</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.670</td>
+      <td>0.664</td>
+      <td>0.720</td>
+      <td>0.627</td>
+      <td>0.663</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+
+        <div class="section">
+            <h2>Resultados del modelo híbrido (volumen + datos clínicos)</h2>
+            <table class="dataframe table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Set</th>
+      <th>Batch Size</th>
+      <th>LR</th>
+      <th>Weight Decay</th>
+      <th>Dropout</th>
+      <th>Preprocesado</th>
+      <th>Accuracy</th>
+      <th>F1</th>
+      <th>TPR</th>
+      <th>TNR</th>
+      <th>G-Mean \</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>TEST</td>
+      <td>4</td>
+      <td>0.0010</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.512</td>
+      <td>0.459</td>
+      <td>0.456</td>
+      <td>0.559</td>
+      <td>0.469 \</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>4</td>
+      <td>0.0010</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.730</td>
+      <td>0.700</td>
+      <td>0.700</td>
+      <td>0.760</td>
+      <td>0.721 \</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>4</td>
+      <td>0.0010</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.488</td>
+      <td>0.460</td>
+      <td>0.458</td>
+      <td>0.515</td>
+      <td>0.448 \</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>4</td>
+      <td>0.0010</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.710</td>
+      <td>0.686</td>
+      <td>0.700</td>
+      <td>0.724</td>
+      <td>0.706 \</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>16</td>
+      <td>0.0010</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.480</td>
+      <td>0.545</td>
+      <td>0.700</td>
+      <td>0.288</td>
+      <td>0.428 \</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>16</td>
+      <td>0.0010</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.660</td>
+      <td>0.679</td>
+      <td>0.784</td>
+      <td>0.556</td>
+      <td>0.618 \</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>16</td>
+      <td>0.0010</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.496</td>
+      <td>0.552</td>
+      <td>0.662</td>
+      <td>0.344</td>
+      <td>0.413 \</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>16</td>
+      <td>0.0010</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.650</td>
+      <td>0.685</td>
+      <td>0.807</td>
+      <td>0.520</td>
+      <td>0.561 \</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>4</td>
+      <td>0.0001</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.552</td>
+      <td>0.632</td>
+      <td>0.833</td>
+      <td>0.297</td>
+      <td>0.347 \</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>4</td>
+      <td>0.0001</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.570</td>
+      <td>0.651</td>
+      <td>0.871</td>
+      <td>0.316</td>
+      <td>0.369 \</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>4</td>
+      <td>0.0001</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.504</td>
+      <td>0.565</td>
+      <td>0.761</td>
+      <td>0.268</td>
+      <td>0.259 \</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>4</td>
+      <td>0.0001</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.500</td>
+      <td>0.550</td>
+      <td>0.722</td>
+      <td>0.318</td>
+      <td>0.340 \</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>16</td>
+      <td>0.0001</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.520</td>
+      <td>0.560</td>
+      <td>0.818</td>
+      <td>0.231</td>
+      <td>0.139 \</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>16</td>
+      <td>0.0001</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1350,150]</td>
+      <td>0.480</td>
+      <td>0.506</td>
+      <td>0.800</td>
+      <td>0.236</td>
+      <td>0.085 \</td>
+    </tr>
+    <tr>
+      <td>TEST</td>
+      <td>16</td>
+      <td>0.0001</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.488</td>
+      <td>0.515</td>
+      <td>0.800</td>
+      <td>0.214</td>
+      <td>0.053 \</td>
+    </tr>
+    <tr>
+      <td>VALIDATION</td>
+      <td>16</td>
+      <td>0.0001</td>
+      <td>0</td>
+      <td>0.4</td>
+      <td>(64,64,64) HU [-1000,400]</td>
+      <td>0.510</td>
+      <td>0.521</td>
+      <td>0.800</td>
+      <td>0.260</td>
+      <td>0.110 \</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+
+        <div class="section">
+            <h2>Test con Fine-Tuning y distintas funciones de pérdida</h2>
+            TABLA_FINE_TUNING
+        </div>
+
+        <div class="section">
+            <h2>Solo datos clínicos - KNN</h2>
+            TABLA_KNN
+        </div>
+
+        <div class="section">
+            <h2>Solo datos clínicos - Random Forest</h2>
+            TABLA_RF
+        </div>
+
+        <div class="section">
+            <h2>Solo datos clínicos - LightGBM</h2>
+            TABLA_LGBM
+        </div>
+
+        <div class="section">
+            <h2>Solo datos clínicos - XGBoost</h2>
+            TABLA_XGB
+        </div>
+
+        <div class="section">
+            <h2>Radiómica sin datos clínicos (sin DML)</h2>
+            TABLA_RAD_NOCLIN
+        </div>
+
+        <div class="section">
+            <h2>Radiómica con datos clínicos (sin DML)</h2>
+            TABLA_RAD_CLIN
+        </div>
+
+        <div class="section">
+            <h2>Radiómica sin datos clínicos (con DML)</h2>
+            TABLA_DML_NOCLIN
+        </div>
+
+        <div class="section">
+            <h2>Radiómica con datos clínicos (con DML)</h2>
+            TABLA_DML_CLIN
         </div>
 
         <footer class="text-center text-muted">
@@ -159,4 +590,3 @@
     </div>
 </body>
 </html>
-
