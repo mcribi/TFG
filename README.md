@@ -1,108 +1,97 @@
-# 🫁 TFG: Predicción de complicaciones en biopsias pulmonares con IA
+# 🫁 TFG: Predicting Complications in Lung Biopsies using AI
 
-Este repositorio contiene el desarrollo completo del Trabajo de Fin de Grado (TFG) de **María Cribillés Pérez**, dirigido por **Francisco Herrera Triguero** y **Juan Luis Suárez Díaz**, en el marco del doble grado en Ingeniería Informática y Matemáticas en la Universidad de Granada.
+This repository contains the complete development of the Final Degree Project (TFG) of **María Cribillés Pérez**, supervised by **Francisco Herrera Triguero** and **Juan Luis Suárez Díaz**, as part of the Double Degree in Computer Engineering and Mathematics at the University of Granada.
 
-🔗 **[Página de resultados con visualizaciones interactivas](https://mariacribilles.github.io/TFG/)**
-
----
-
-## 🧠 Resumen del proyecto
-
-El objetivo de este TFG es desarrollar un sistema predictivo capaz de estimar si una biopsia pulmonar guiada por tomografía computarizada (TC) tendrá o no complicaciones, utilizando técnicas de inteligencia artificial aplicadas a imágenes médicas 3D y datos clínicos tabulares. Se proponen diferentes enfoques basados en Deep Learning, Radiómica y modelos híbridos, y se analizan mediante validación cruzada y técnicas de explicabilidad.
+🔗 **[Results page with interactive visualizations](https://mcribi.github.io/TFG/)**
 
 ---
 
-## 📖 Estructura de la memoria del TFG
+## 🧠 Project summary
 
-### 🧮 Parte teórica
-
-- **Procesamiento de imágenes y señales**: fundamentos sobre discretización, filtros y convoluciones.
-- **Transformada de Fourier**: su papel en el análisis de frecuencias de imágenes médicas.
-- **Radiómica**: extracción cuantitativa de características desde imágenes.
-- **Optimización y aprendizaje automático**: descenso por gradiente, clasificación y funciones de pérdida.
-- **Deep Learning**: redes convolucionales 2D/3D, preentrenamiento y transferencia.
-- **Distance Metric Learning**: aprendizaje de distancias con LMNN y NCA.
-
-### 🧪 Parte aplicada
-
-#### Capítulo 6 — Planteamiento
-Introducción clínica, definición del problema, descripción del dataset y contexto ético/legal.
-
-#### Capítulo 7 — Preprocesado
-- Datos volumétricos: normalización, segmentación con TotalSegmentator, resize y máscaras.
-- Datos clínicos: limpieza, codificación, imputación y escalado.
-
-#### Capítulo 8 — Modelos DL 2D/3D
-- Arquitecturas como DenseNet121 y ResNet3D.
-- Validación cruzada estratificada (5-fold).
-- Fusión multimodal de imagen + datos clínicos.
-
-#### Capítulo 9 — Radiómica y ML clásico
-- Extracción con PyRadiomics.
-- Modelos clásicos: Random Forest, XGBoost, KNN.
-- Aprendizaje de métricas (LMNN, NCA) y fusión con datos clínicos.
-
-#### Capítulo 10 — Resultados experimentales
-- Comparativa entre enfoques: DL puro, híbridos, y radiómicos.
-- Métricas: Accuracy, F1, TPR, TNR, G-Mean.
-- Tablas con resultados por fold y análisis detallado.
-
-#### Capítulo 11 — Explicabilidad (XAI)
-- Visualización con **Grad-CAM** para modelos 3D.
-- Interpretabilidad con **SHAP** para modelos tabulares y radiómicos.
-
-#### Capítulo 12 — Conclusiones
-- Análisis crítico de los resultados.
-- Limitaciones del dataset.
-- Líneas futuras: aumentar datos, mejorar segmentación, generalización multimodal.
+The objective of this project is to develop a predictive system capable of estimating whether a lung biopsy guided by computed tomography (CT) will result in complications or not, using artificial intelligence techniques applied to 3D medical images and tabular clinical data. Several approaches are proposed, including Deep Learning, Radiomics, pre-trained and multimodal models. These are analyzed through cross-validation and explainability techniques.
 
 ---
 
-## 📂 Estructura del repositorio
-- codigo/: scripts de entrenamiento, validación, preprocesado y visualización de modelos deep learning, radiómicos y multimodales. Contiene el núcleo del sistema predictivo.
+## 📖 Structure of the TFG report
 
-- defensa/: materiales utilizados para la defensa del TFG, como presentaciones, figuras y recursos visuales.
+### 🧮 Theoretical part (Mathematics)
 
-- memoria/latex/: código fuente completo en LaTeX de la memoria escrita del TFG, incluyendo figuras, tablas y bibliografía.
+- **Image and signal processing**: fundamentals of signals, filters, and convolutions.
+- **Fourier Transform**: its role in frequency analysis of medical images.
+- **Radiomics**: quantitative feature extraction from images.
+- **Optimization and machine learning**: gradient descent, classification, and loss functions.
+- **Deep Learning**: 2D/3D convolutional networks, pretraining and transfer learning.
+- **Distance Metric Learning**: metric learning with LMNN and NCA.
 
-- resultados/: resultados obtenidos durante los experimentos, organizados en carpetas por tipo de modelo (DL3D, multimodal, radiómico, etc.). Incluye métricas, visualizaciones SHAP, mapas Grad-CAM y tablas HTML.
+### 🧪 Applied part (Computer Science)
 
-- index.html: página principal que carga el sitio web generado con GitHub Pages, mostrando los resultados interactivos.
+#### Chapter 6 — Problem statement  
+Clinical context, problem definition, dataset description and ethical/legal considerations.
 
-- README.md: este archivo, que documenta el contenido y propósito del repositorio.
+#### Chapter 7 — Preprocessing  
+- Volumetric data: Hounsfield normalization, segmentation using TotalSegmentator, resizing and masking.  
+- Clinical data: cleaning, encoding and scaling.
 
-- .gitignore: archivo que especifica qué archivos/directorios deben ser ignorados por Git.
+#### Chapter 8 — 2D/3D Deep Learning models  
+- Architectures: DenseNet121, ResNet3D.  
+- 5-fold stratified cross-validation.  
+- Multimodal fusion (image + clinical data).  
+- Pretrained models and fine-tuning.
 
+#### Chapter 9 — Radiomics and classical ML  
+- Feature extraction with PyRadiomics.  
+- Classical models: Random Forest, XGBoost, KNN...  
+- Metric learning (LMNN, NCA) and fusion with clinical data.
+
+#### Chapter 10 — Experimental results  
+- Comparison of approaches: pure DL, multimodal, and radiomics.  
+- Metrics: Accuracy, F1, TPR, TNR, G-Mean.  
+- Tables with fold results and detailed analysis.
+
+#### Chapter 11 — Explainability (XAI)  
+- Visualization using **Grad-CAM** for 3D models.  
+- Interpretability with **SHAP** for tabular and radiomic models.
+
+#### Chapter 12 — Conclusions  
+- Critical analysis of the results.  
+- Dataset limitations.  
+- Future work: increase data size, improve segmentation, multimodal generalization.
 
 ---
 
-## 🖥️ Página de resultados (GitHub Pages)
+## 📂 Repository structure
 
-Puedes explorar visualizaciones, métricas, gráficas y resultados detallados de los experimentos en la siguiente página:  
-📊 **[https://mariacribilles.github.io/TFG/](https://mariacribilles.github.io/TFG/)**
+- `codigo/`: training, validation, preprocessing and visualization scripts for deep learning, radiomics and multimodal models. Contains the core of the predictive system.
+
+- `defensa/`: materials used in the project defense, such as presentations, figures and visual resources.
+
+- `memoria/latex/`: full LaTeX source of the written TFG report, including figures, tables and references.
+
+- `resultados/`: results obtained during experiments, organized by model type (DL3D, multimodal, radiomics, etc.).
+
+- `index.html`: main page for the GitHub Pages website, displaying interactive results.
+
+- `README.md`: this file, which documents the content and purpose of the repository.
+
+- `.gitignore`: file specifying which files/folders should be ignored by Git.
 
 ---
 
-## 📌 Tecnologías utilizadas
+## 🖥️ Results page (GitHub Pages)
 
-- 🧠 **Deep Learning**: PyTorch, MONAI
-- 📊 **Machine Learning clásico**: scikit-learn, XGBoost, LightGBM
-- 📈 **Radiómica**: PyRadiomics
-- 🫁 **Segmentación**: TotalSegmentator
-- 🎯 **Visualización y XAI**: SHAP, Grad-CAM, Matplotlib, Seaborn
+You can explore visualizations, metrics, plots and detailed experimental results at the following page:  
+📊 **[https://mcribi.github.io/TFG/](https://mcribi.github.io/TFG/)**
 
+---
 
-## Resumen
+## 📌 Technologies used
 
-La biopsia pulmonar guiada por tomografía computarizada (TC) es un procedimiento diagnóstico esencial para caracterizar nódulos pulmonares y determinar la presencia de neoplasias. Sin embargo, no está exenta de riesgos, presentando complicaciones como hemorragias o neumotórax en un porcentaje significativo de casos. Aunque existen numerosos estudios centrados en la clasificación de la benignidad o malignidad de los nódulos, apenas hay investigaciones que analicen la probabilidad de complicaciones antes de realizar la biopsia. Esta carencia motiva la necesidad de herramientas predictivas que permitan anticipar el riesgo y optimizar la selección de pacientes.
+- 🧠 **Deep Learning**: PyTorch, MONAI  
+- 📊 **Classical Machine Learning**: scikit-learn, XGBoost, LightGBM  
+- 📈 **Radiomics**: PyRadiomics  
+- 🫁 **Segmentation**: TotalSegmentator  
+- 🎯 **Visualization and XAI**: SHAP, Grad-CAM, Matplotlib, Seaborn
 
-El presente trabajo propone el desarrollo de un sistema predictivo basado en técnicas de radiómica y aprendizaje profundo para estimar el riesgo de complicaciones en biopsias pulmonares guiadas por TC. Para sustentar el diseño del modelo, se estudian en detalle los fundamentos matemáticos necesarios, incluyendo el procesamiento de señales médicas, teoría de convolución, teoría de radiómica y los conceptos teóricos del aprendizaje automático y profundo. 
-
-La metodología incluye el preprocesamiento de imágenes volumétricas con segmentación pulmonar y normalización de intensidades, la extracción de características radiómicas, el uso de redes neuronales convolucionales 3D y la integración de datos clínicos tabulares para construir modelos multimodales. Se emplean estrategias como el preentrenamiento (transfer learning), la validación cruzada estratificada y el análisis de interpretabilidad (Grad-CAM, SHAP) para garantizar robustez y facilitar la validación clínica.
-
-Los resultados obtenidos muestran que, aunque la idea es prometedora, los modelos de aprendizaje profundo sobre imágenes 3D presentaron limitaciones para generalizar de forma sólida, probablemente debido al tamaño reducido y la heterogeneidad del conjunto de datos. Por el contrario, los enfoques clásicos de radiómica ofrecieron resultados más estables. Este trabajo representa así un primer paso en una línea de investigación novedosa, destacando la necesidad de recopilar más datos y refinar estrategias para mejorar la capacidad predictiva en futuros estudios.
-
-**Palabras clave**: Biopsia pulmonar, Tomografía computarizada, Aprendizaje profundo, Inteligencia Artificial, Radiómica, Redes neuronales convolucionales, Predicción de complicaciones, Segmentación pulmonar, Datos clínicos.
 
 ## Summary
 ### Problem Description
@@ -139,3 +128,15 @@ During experimentation, multimodal integration techniques were applied to combin
 
 Experiments showed progressive performance improvements thanks to careful preprocessing, precise segmentation, and the use of pretraining and fine-tuning strategies. However, purely 3D deep learning models exhibited notable limitations, with less stable and generalizable results likely due to the task’s complexity and the small dataset size. In contrast, radiomics-based strategies involving systematic feature extraction and analysis via classic machine learning and deep metric learning delivered more consistent, robust results. These findings suggest that while the developed system represents an important first step toward personalized risk prediction, there remains substantial room for improvement in future work.
 
+
+## Resumen
+
+La biopsia pulmonar guiada por tomografía computarizada (TC) es un procedimiento diagnóstico esencial para caracterizar nódulos pulmonares y determinar la presencia de neoplasias. Sin embargo, no está exenta de riesgos, presentando complicaciones como hemorragias o neumotórax en un porcentaje significativo de casos. Aunque existen numerosos estudios centrados en la clasificación de la benignidad o malignidad de los nódulos, apenas hay investigaciones que analicen la probabilidad de complicaciones antes de realizar la biopsia. Esta carencia motiva la necesidad de herramientas predictivas que permitan anticipar el riesgo y optimizar la selección de pacientes.
+
+El presente trabajo propone el desarrollo de un sistema predictivo basado en técnicas de radiómica y aprendizaje profundo para estimar el riesgo de complicaciones en biopsias pulmonares guiadas por TC. Para sustentar el diseño del modelo, se estudian en detalle los fundamentos matemáticos necesarios, incluyendo el procesamiento de señales médicas, teoría de convolución, teoría de radiómica y los conceptos teóricos del aprendizaje automático y profundo. 
+
+La metodología incluye el preprocesamiento de imágenes volumétricas con segmentación pulmonar y normalización de intensidades, la extracción de características radiómicas, el uso de redes neuronales convolucionales 3D y la integración de datos clínicos tabulares para construir modelos multimodales. Se emplean estrategias como el preentrenamiento (transfer learning), la validación cruzada estratificada y el análisis de interpretabilidad (Grad-CAM, SHAP) para garantizar robustez y facilitar la validación clínica.
+
+Los resultados obtenidos muestran que, aunque la idea es prometedora, los modelos de aprendizaje profundo sobre imágenes 3D presentaron limitaciones para generalizar de forma sólida, probablemente debido al tamaño reducido y la heterogeneidad del conjunto de datos. Por el contrario, los enfoques clásicos de radiómica ofrecieron resultados más estables. Este trabajo representa así un primer paso en una línea de investigación novedosa, destacando la necesidad de recopilar más datos y refinar estrategias para mejorar la capacidad predictiva en futuros estudios.
+
+**Palabras clave**: Biopsia pulmonar, Tomografía computarizada, Aprendizaje profundo, Inteligencia Artificial, Radiómica, Redes neuronales convolucionales, Predicción de complicaciones, Segmentación pulmonar, Datos clínicos.
