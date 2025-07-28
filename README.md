@@ -1,5 +1,96 @@
-# TFG
-Trabajo de Fin de Grado
+# 🫁 TFG: Predicción de complicaciones en biopsias pulmonares con IA
+
+Este repositorio contiene el desarrollo completo del Trabajo de Fin de Grado (TFG) de **María Cribillés Pérez**, dirigido por **Francisco Herrera Triguero** y **Juan Luis Suárez Díaz**, en el marco del doble grado en Ingeniería Informática y Matemáticas en la Universidad de Granada.
+
+🔗 **[Página de resultados con visualizaciones interactivas](https://mariacribilles.github.io/TFG/)**
+
+---
+
+## 🧠 Resumen del proyecto
+
+El objetivo de este TFG es desarrollar un sistema predictivo capaz de estimar si una biopsia pulmonar guiada por tomografía computarizada (TC) tendrá o no complicaciones, utilizando técnicas de inteligencia artificial aplicadas a imágenes médicas 3D y datos clínicos tabulares. Se proponen diferentes enfoques basados en Deep Learning, Radiómica y modelos híbridos, y se analizan mediante validación cruzada y técnicas de explicabilidad.
+
+---
+
+## 📖 Estructura de la memoria del TFG
+
+### 🧮 Parte teórica
+
+- **Procesamiento de imágenes y señales**: fundamentos sobre discretización, filtros y convoluciones.
+- **Transformada de Fourier**: su papel en el análisis de frecuencias de imágenes médicas.
+- **Radiómica**: extracción cuantitativa de características desde imágenes.
+- **Optimización y aprendizaje automático**: descenso por gradiente, clasificación y funciones de pérdida.
+- **Deep Learning**: redes convolucionales 2D/3D, preentrenamiento y transferencia.
+- **Distance Metric Learning**: aprendizaje de distancias con LMNN y NCA.
+
+### 🧪 Parte aplicada
+
+#### Capítulo 6 — Planteamiento
+Introducción clínica, definición del problema, descripción del dataset y contexto ético/legal.
+
+#### Capítulo 7 — Preprocesado
+- Datos volumétricos: normalización, segmentación con TotalSegmentator, resize y máscaras.
+- Datos clínicos: limpieza, codificación, imputación y escalado.
+
+#### Capítulo 8 — Modelos DL 2D/3D
+- Arquitecturas como DenseNet121 y ResNet3D.
+- Validación cruzada estratificada (5-fold).
+- Fusión multimodal de imagen + datos clínicos.
+
+#### Capítulo 9 — Radiómica y ML clásico
+- Extracción con PyRadiomics.
+- Modelos clásicos: Random Forest, XGBoost, KNN.
+- Aprendizaje de métricas (LMNN, NCA) y fusión con datos clínicos.
+
+#### Capítulo 10 — Resultados experimentales
+- Comparativa entre enfoques: DL puro, híbridos, y radiómicos.
+- Métricas: Accuracy, F1, TPR, TNR, G-Mean.
+- Tablas con resultados por fold y análisis detallado.
+
+#### Capítulo 11 — Explicabilidad (XAI)
+- Visualización con **Grad-CAM** para modelos 3D.
+- Interpretabilidad con **SHAP** para modelos tabulares y radiómicos.
+
+#### Capítulo 12 — Conclusiones
+- Análisis crítico de los resultados.
+- Limitaciones del dataset.
+- Líneas futuras: aumentar datos, mejorar segmentación, generalización multimodal.
+
+---
+
+## 📂 Estructura del repositorio
+- codigo/: scripts de entrenamiento, validación, preprocesado y visualización de modelos deep learning, radiómicos y multimodales. Contiene el núcleo del sistema predictivo.
+
+- defensa/: materiales utilizados para la defensa del TFG, como presentaciones, figuras y recursos visuales.
+
+- memoria/latex/: código fuente completo en LaTeX de la memoria escrita del TFG, incluyendo figuras, tablas y bibliografía.
+
+- resultados/: resultados obtenidos durante los experimentos, organizados en carpetas por tipo de modelo (DL3D, multimodal, radiómico, etc.). Incluye métricas, visualizaciones SHAP, mapas Grad-CAM y tablas HTML.
+
+- index.html: página principal que carga el sitio web generado con GitHub Pages, mostrando los resultados interactivos.
+
+- README.md: este archivo, que documenta el contenido y propósito del repositorio.
+
+- .gitignore: archivo que especifica qué archivos/directorios deben ser ignorados por Git.
+
+
+---
+
+## 🖥️ Página de resultados (GitHub Pages)
+
+Puedes explorar visualizaciones, métricas, gráficas y resultados detallados de los experimentos en la siguiente página:  
+📊 **[https://mariacribilles.github.io/TFG/](https://mariacribilles.github.io/TFG/)**
+
+---
+
+## 📌 Tecnologías utilizadas
+
+- 🧠 **Deep Learning**: PyTorch, MONAI
+- 📊 **Machine Learning clásico**: scikit-learn, XGBoost, LightGBM
+- 📈 **Radiómica**: PyRadiomics
+- 🫁 **Segmentación**: TotalSegmentator
+- 🎯 **Visualización y XAI**: SHAP, Grad-CAM, Matplotlib, Seaborn
+
 
 ## Resumen
 
